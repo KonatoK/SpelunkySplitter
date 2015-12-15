@@ -43,34 +43,32 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-	<Reference Include="LiveSplit.Core">
+    <Reference Include="LiveSplit.Core">
       <HintPath>..\LiveSplit\LiveSplit\bin\Release\LiveSplit.Core.dll</HintPath>
     </Reference>
-	<Reference Include="UpdateManager">
+    <Reference Include="UpdateManager">
       <HintPath>..\LiveSplit\LiveSplit\bin\Release\UpdateManager.dll</HintPath>
     </Reference>
-	<Reference Include="LiveSplit.View">
-	 <HintPath>..\LiveSplit\LiveSplit\bin\Release\LiveSplit.View.dll</HintPath>
-	</Reference>
+    <Reference Include="LiveSplit.View">
+      <HintPath>..\LiveSplit\LiveSplit\bin\Release\LiveSplit.View.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-	<Reference Include="LiveSplit.Core">
+    <Reference Include="LiveSplit.Core">
       <HintPath>..\LiveSplit\LiveSplit\bin\Debug\LiveSplit.Core.dll</HintPath>
     </Reference>
-	<Reference Include="UpdateManager">
+    <Reference Include="UpdateManager">
       <HintPath>..\LiveSplit\LiveSplit\bin\Debug\UpdateManager.dll</HintPath>
     </Reference>
-	<Reference Include="LiveSplit.View">
-	 <HintPath>..\LiveSplit\LiveSplit\bin\Debug\LiveSplit.View.dll</HintPath>
-	</Reference>
+    <Reference Include="LiveSplit.View">
+      <HintPath>..\LiveSplit\LiveSplit\bin\Debug\LiveSplit.View.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Component.cs" />
     <Compile Include="Factory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SpelunkySettings.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="SpelunkySettings.cs" />
     <Compile Include="SpelunkySettings.Designer.cs">
       <DependentUpon>SpelunkySettings.cs</DependentUpon>
     </Compile>

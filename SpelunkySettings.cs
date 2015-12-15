@@ -14,37 +14,55 @@ using LiveSplit.View;
 
 namespace LiveSplit.Spelunky
 {
+    public static class XMLSettings
+    {
+        public delegate T ExceptingParser<T>(string str);
+
+        public static XmlElement ToElement<T>(XmlDocument doc, string name, T value)
+        {
+            XmlElement str = doc.CreateElement(name);
+            str.InnerText = value.ToString();
+            return str;
+        }
+
+        public static T Parse<T>(XmlElement element, T defaultValue, ExceptingParser<T> p)
+        {
+            return element == null ? defaultValue : p(element.InnerText);
+        }
+    }
+
     public partial class SpelunkySettings : UserControl
     {
         public enum Category : int { AllShortcuts = 0 }
         private readonly string[] CategoryNames = { "All Shortcuts%" };
 
+        const bool DEFAULT_AUTOSPLITTING_ENABLED = true;
+        const int DEFAULT_RUN_CATEGORY_INDEX = (int)Category.AllShortcuts;
+        
         public SpelunkySettings()
         {
             InitializeComponent();
             RunCategoryName.DataSource = CategoryNames;
         }
 
-        static XmlElement ToXMLElement<T>(XmlDocument document, string name, T value)
-        {
-            XmlElement str = document.CreateElement(name);
-            str.InnerText = value.ToString();
-            return str;
-        }
-
         public XmlNode GetSettings(XmlDocument doc)
         {
             XmlElement settings = doc.CreateElement("Settings");
-            settings.AppendChild(ToXMLElement(doc, "Version", Assembly.GetExecutingAssembly().GetName().Version.ToString(3)));
-            settings.AppendChild(ToXMLElement(doc, nameof(AutoSplittingEnabled), AutoSplittingEnabled.Checked));
-            settings.AppendChild(ToXMLElement(doc, nameof(RunCategoryName), ((Category)RunCategoryName.SelectedIndex).ToString()));
+            settings.AppendChild(XMLSettings.ToElement(doc, "Version", Assembly.GetExecutingAssembly().GetName().Version.ToString(3)));
+            settings.AppendChild(XMLSettings.ToElement(doc, nameof(AutoSplittingEnabled), AutoSplittingEnabled.Checked));
+            settings.AppendChild(XMLSettings.ToElement(doc, nameof(RunCategoryName), ((Category)RunCategoryName.SelectedIndex).ToString()));
             return settings;
+        }
+
+        Category ParseRunCategory(string str)
+        {
+            return (Category)Enum.Parse(typeof(Category), str);
         }
 
         public void SetSettings(XmlNode settings)
         {
-            AutoSplittingEnabled.Checked = bool.Parse(settings[nameof(AutoSplittingEnabled)].InnerText);
-            RunCategoryName.SelectedIndex = (int)(Category)Enum.Parse(typeof(Category), settings[nameof(RunCategoryName)].InnerText);
+            AutoSplittingEnabled.Checked = XMLSettings.Parse(settings[nameof(AutoSplittingEnabled)], true, bool.Parse);
+            RunCategoryName.SelectedIndex = (int)XMLSettings.Parse(settings[nameof(RunCategoryName)], Category.AllShortcuts, ParseRunCategory);
         }
 
         protected override void OnParentChanged(EventArgs e)
