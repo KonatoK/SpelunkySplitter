@@ -60,6 +60,7 @@ namespace LiveSplit.Spelunky
         public void Update(IInvalidator invalidator, LiveSplitState state, float width, float height, LayoutMode mode)
         {
             Console.WriteLine("[LiveSplit.Spelunky] Update(...) called with CurrentSplit=" + state.CurrentSplit);
+            //TODO
         }
 
         public void Dispose() {}

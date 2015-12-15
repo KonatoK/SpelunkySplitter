@@ -17,6 +17,7 @@ namespace LiveSplit.Spelunky
 
         public IComponent Create(LiveSplitState state)
         {
+            //TODO Validate splits follow expectation
             return new Component(state, false);
         }
 
