@@ -121,12 +121,12 @@ namespace LiveSplit.Spelunky
             {
                 GetHooksIfNeeded(state); // After this call we assume we have a valid AutoSplitter if no exception was thrown
                 var status = AutoSplitter.Update(state);
-                StatusWindow.SetStatus(status.Type, status.Message);
+                if (!StatusWindow.IsDisposed) { StatusWindow.SetStatus(status.Type, status.Message); }
             }
             catch(Exception e)
             {
                 ClearAutoSplitter();
-                StatusWindow.SetErrorStatus(e.Message);
+                if (!StatusWindow.IsDisposed) { StatusWindow.SetErrorStatus(e.Message); }
             }
         }
 
@@ -134,8 +134,11 @@ namespace LiveSplit.Spelunky
         {
             ClearAutoSplitter();
 
-            StatusWindow.Hide();
-            StatusWindow.Dispose();
+            if(!StatusWindow.IsDisposed)
+            {
+                StatusWindow.Hide();
+                StatusWindow.Dispose();
+            }
 
             Settings.Hide();
             Settings.Dispose();
