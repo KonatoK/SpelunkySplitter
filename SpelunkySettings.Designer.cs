@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             this.MainGroup = new System.Windows.Forms.GroupBox();
-            this.AutoSplittingEnabled = new System.Windows.Forms.CheckBox();
+            this.AutoSplittingEnabledCheckBox = new System.Windows.Forms.CheckBox();
             this.RunCategorySelectionLabel = new System.Windows.Forms.Label();
-            this.RunCategoryName = new System.Windows.Forms.ComboBox();
+            this.RunCategoryNameComboBox = new System.Windows.Forms.ComboBox();
             this.MainGroup.SuspendLayout();
             this.SuspendLayout();
             // 
             // MainGroup
             // 
-            this.MainGroup.Controls.Add(this.AutoSplittingEnabled);
+            this.MainGroup.Controls.Add(this.AutoSplittingEnabledCheckBox);
             this.MainGroup.Controls.Add(this.RunCategorySelectionLabel);
-            this.MainGroup.Controls.Add(this.RunCategoryName);
+            this.MainGroup.Controls.Add(this.RunCategoryNameComboBox);
             this.MainGroup.Location = new System.Drawing.Point(3, 3);
             this.MainGroup.Name = "MainGroup";
             this.MainGroup.Size = new System.Drawing.Size(287, 74);
@@ -47,17 +47,17 @@
             this.MainGroup.TabStop = false;
             this.MainGroup.Text = "SpelunkySplitter (sashavol)";
             // 
-            // AutoSplittingEnabled
+            // AutoSplittingEnabledCheckBox
             // 
-            this.AutoSplittingEnabled.AutoSize = true;
-            this.AutoSplittingEnabled.Checked = true;
-            this.AutoSplittingEnabled.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.AutoSplittingEnabled.Location = new System.Drawing.Point(9, 19);
-            this.AutoSplittingEnabled.Name = "AutoSplittingEnabled";
-            this.AutoSplittingEnabled.Size = new System.Drawing.Size(125, 17);
-            this.AutoSplittingEnabled.TabIndex = 2;
-            this.AutoSplittingEnabled.Text = "Autosplitting Enabled";
-            this.AutoSplittingEnabled.UseVisualStyleBackColor = true;
+            this.AutoSplittingEnabledCheckBox.AutoSize = true;
+            this.AutoSplittingEnabledCheckBox.Checked = true;
+            this.AutoSplittingEnabledCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.AutoSplittingEnabledCheckBox.Location = new System.Drawing.Point(9, 19);
+            this.AutoSplittingEnabledCheckBox.Name = "AutoSplittingEnabledCheckBox";
+            this.AutoSplittingEnabledCheckBox.Size = new System.Drawing.Size(130, 17);
+            this.AutoSplittingEnabledCheckBox.TabIndex = 2;
+            this.AutoSplittingEnabledCheckBox.Text = "Auto Splitting Enabled";
+            this.AutoSplittingEnabledCheckBox.UseVisualStyleBackColor = true;
             // 
             // RunCategorySelectionLabel
             // 
@@ -68,13 +68,13 @@
             this.RunCategorySelectionLabel.TabIndex = 1;
             this.RunCategorySelectionLabel.Text = "Category:";
             // 
-            // RunCategoryName
+            // RunCategoryNameComboBox
             // 
-            this.RunCategoryName.FormattingEnabled = true;
-            this.RunCategoryName.Location = new System.Drawing.Point(59, 42);
-            this.RunCategoryName.Name = "RunCategoryName";
-            this.RunCategoryName.Size = new System.Drawing.Size(222, 21);
-            this.RunCategoryName.TabIndex = 0;
+            this.RunCategoryNameComboBox.FormattingEnabled = true;
+            this.RunCategoryNameComboBox.Location = new System.Drawing.Point(59, 42);
+            this.RunCategoryNameComboBox.Name = "RunCategoryNameComboBox";
+            this.RunCategoryNameComboBox.Size = new System.Drawing.Size(222, 21);
+            this.RunCategoryNameComboBox.TabIndex = 0;
             // 
             // SpelunkySettings
             // 
@@ -92,7 +92,7 @@
         #endregion
         private System.Windows.Forms.GroupBox MainGroup;
         private System.Windows.Forms.Label RunCategorySelectionLabel;
-        private System.Windows.Forms.CheckBox AutoSplittingEnabled;
-        private System.Windows.Forms.ComboBox RunCategoryName;
+        private System.Windows.Forms.CheckBox AutoSplittingEnabledCheckBox;
+        private System.Windows.Forms.ComboBox RunCategoryNameComboBox;
     }
 }

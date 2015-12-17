@@ -43,7 +43,7 @@ namespace LiveSplit.Spelunky
 
         public string Description
         {
-            get { return "Autosplitter for All-Shortcuts%";  }
+            get { return "AutoSplitter for All-Shortcuts%";  }
         }
 
         public ComponentCategory Category

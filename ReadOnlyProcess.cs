@@ -11,6 +11,9 @@ namespace LiveSplit.Spelunky
     {
         public string ProcessName { get; private set; }
         private IntPtr ProcessHandle;
+        private Process Process;
+        public Int32 BaseAddress { get; private set; }
+        public bool HasExited => Process.HasExited;
 
         public ReadOnlyProcess(string processName)
         {
@@ -20,31 +23,33 @@ namespace LiveSplit.Spelunky
             if (processes.Length == 0)
                 throw new Exception("Failed to find process by name: " + processName);
 
-            // Process.Handle exists, but we want to enforce PROCESS_VM_READ / PROCESS_QUERY_INFORMATION permissions
-            this.ProcessHandle = Kernel32.OpenProcess(Kernel32.PROCESS_VM_READ | Kernel32.PROCESS_QUERY_INFORMATION, false, processes[0].Id);
+            var process = processes[0];
+            this.Process = process;
+            this.BaseAddress = process.MainModule.BaseAddress.ToInt32();
+            this.ProcessHandle = Kernel32.OpenProcess(Kernel32.PROCESS_VM_READ | Kernel32.PROCESS_QUERY_INFORMATION, false, process.Id);
         }
 
         public int ReadInt32(Int32 address)
         {
-            AssertUndisposed();
+            AssertValid();
             return BitConverter.ToInt32(ReadBytes(address, sizeof(int)), 0);
         }
 
         public bool ReadBool(Int32 address)
         {
-            AssertUndisposed();
+            AssertValid();
             return BitConverter.ToBoolean(ReadBytes(address, sizeof(bool)), 0);
         }
 
         public double ReadDouble(Int32 address)
         {
-            AssertUndisposed();
+            AssertValid();
             return BitConverter.ToDouble(ReadBytes(address, sizeof(double)), 0);
         }
         
         public byte[] ReadBytes(Int32 address, int count)
         {
-            AssertUndisposed();
+            AssertValid();
             byte[] bytes = new byte[count];
             ReadBytes(address, ref bytes);
             return bytes;
@@ -57,10 +62,12 @@ namespace LiveSplit.Spelunky
             return bytesRead;
         }
 
-        public void AssertUndisposed()
+        public void AssertValid()
         {
             if (ProcessHandle == IntPtr.Zero)
                 throw new ObjectDisposedException(nameof(ReadOnlyProcess));
+            else if (Process.HasExited)
+                throw new Exception("Target process has exited");
         }
 
         public void Dispose()

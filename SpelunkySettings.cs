@@ -14,43 +14,44 @@ using LiveSplit.View;
 
 namespace LiveSplit.Spelunky
 {
-    public static class XMLSettings
-    {
-        public delegate T ExceptingParser<T>(string str);
-
-        public static XmlElement ToElement<T>(XmlDocument doc, string name, T value)
-        {
-            XmlElement str = doc.CreateElement(name);
-            str.InnerText = value.ToString();
-            return str;
-        }
-
-        public static T Parse<T>(XmlElement element, T defaultValue, ExceptingParser<T> p)
-        {
-            return element == null ? defaultValue : p(element.InnerText);
-        }
-    }
-
     public partial class SpelunkySettings : UserControl
     {
+        public delegate void PropertyChangedHandler(object sender, EventArgs args);
+
         public enum Category : int { AllShortcuts = 0 }
-        private readonly string[] CategoryNames = { "All Shortcuts%" };
+
+        public static readonly string[] CategoryNames = { "All Shortcuts%" };
 
         const bool DEFAULT_AUTOSPLITTING_ENABLED = true;
-        const int DEFAULT_RUN_CATEGORY_INDEX = (int)Category.AllShortcuts;
-        
+        const Category DEFAULT_RUN_CATEGORY = Category.AllShortcuts;
+
+        public event PropertyChangedHandler PropertyChanged;
+
         public SpelunkySettings()
         {
             InitializeComponent();
-            RunCategoryName.DataSource = CategoryNames;
+            RunCategoryNameComboBox.DataSource = CategoryNames;
+
+            AutoSplittingEnabledCheckBox.CheckedChanged += HandleAutoSplittingCheckedChanged;
+            RunCategoryNameComboBox.SelectedIndexChanged += HandleRunSelectedIndexChanged;
+        }
+
+        void HandleAutoSplittingCheckedChanged(object sender, EventArgs args)
+        {
+            PropertyChanged(this, EventArgs.Empty);
+        }
+
+        void HandleRunSelectedIndexChanged(object sender, EventArgs args)
+        {
+            PropertyChanged(this, EventArgs.Empty);
         }
 
         public XmlNode GetSettings(XmlDocument doc)
         {
             XmlElement settings = doc.CreateElement("Settings");
             settings.AppendChild(XMLSettings.ToElement(doc, "Version", Assembly.GetExecutingAssembly().GetName().Version.ToString(3)));
-            settings.AppendChild(XMLSettings.ToElement(doc, nameof(AutoSplittingEnabled), AutoSplittingEnabled.Checked));
-            settings.AppendChild(XMLSettings.ToElement(doc, nameof(RunCategoryName), ((Category)RunCategoryName.SelectedIndex).ToString()));
+            settings.AppendChild(XMLSettings.ToElement(doc, nameof(AutoSplittingEnabledCheckBox), AutoSplittingEnabledCheckBox.Checked));
+            settings.AppendChild(XMLSettings.ToElement(doc, nameof(RunCategoryNameComboBox), ((Category)RunCategoryNameComboBox.SelectedIndex).ToString()));
             return settings;
         }
 
@@ -61,8 +62,9 @@ namespace LiveSplit.Spelunky
 
         public void SetSettings(XmlNode settings)
         {
-            AutoSplittingEnabled.Checked = XMLSettings.Parse(settings[nameof(AutoSplittingEnabled)], true, bool.Parse);
-            RunCategoryName.SelectedIndex = (int)XMLSettings.Parse(settings[nameof(RunCategoryName)], Category.AllShortcuts, ParseRunCategory);
+            AutoSplittingEnabledCheckBox.Checked = XMLSettings.Parse(settings[nameof(AutoSplittingEnabledCheckBox)], DEFAULT_AUTOSPLITTING_ENABLED, bool.Parse);
+            RunCategoryNameComboBox.SelectedIndex = (int)XMLSettings.Parse(settings[nameof(RunCategoryNameComboBox)], DEFAULT_RUN_CATEGORY, ParseRunCategory);
+            PropertyChanged(this, EventArgs.Empty);
         }
 
         protected override void OnParentChanged(EventArgs e)
@@ -79,14 +81,31 @@ namespace LiveSplit.Spelunky
             }
         }
 
-        public bool IsAutoSplittingEnabled
+        public bool AutoSplittingEnabled
         {
-            get { return AutoSplittingEnabled.Checked; }
+            get { return AutoSplittingEnabledCheckBox.Checked; }
         }
 
         public Category RunCategory
         {
-            get { return (Category)RunCategoryName.SelectedIndex; }
+            get { return (Category)RunCategoryNameComboBox.SelectedIndex; }
+        }
+    }
+
+    public static class XMLSettings
+    {
+        public delegate T ExceptingParser<T>(string str);
+
+        public static XmlElement ToElement<T>(XmlDocument doc, string name, T value)
+        {
+            XmlElement str = doc.CreateElement(name);
+            str.InnerText = value.ToString();
+            return str;
+        }
+
+        public static T Parse<T>(XmlElement element, T defaultValue, ExceptingParser<T> p)
+        {
+            return element == null ? defaultValue : p(element.InnerText);
         }
     }
 }

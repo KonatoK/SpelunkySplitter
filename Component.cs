@@ -16,8 +16,12 @@ namespace LiveSplit.Spelunky
     {
         public string ComponentName => "SpelunkySplitter";
 
-        public SpelunkySettings Settings { get; set; }
         public bool IsLayoutComponent { get; private set; }
+
+        SpelunkySettings Settings;
+        StatusWindow StatusWindow;
+
+        AutoSplitter AutoSplitter;
 
         public float HorizontalWidth => 100.0f;
         public float MinimumHeight => 100.0f;
@@ -36,6 +40,21 @@ namespace LiveSplit.Spelunky
         {
             this.IsLayoutComponent = isLayoutComponent;
             this.Settings = new SpelunkySettings();
+            this.StatusWindow = new StatusWindow();
+            StatusWindow.CurrentRun = "";
+            StatusWindow.SetInfoStatus("");
+            Settings.PropertyChanged += HandleAutoSplitterChange;
+        }
+
+        void HandleAutoSplitterChange(object sender, EventArgs args)
+        {
+            ClearAutoSplitter();
+            StatusWindow.CurrentRun = SpelunkySettings.CategoryNames[(int)Settings.RunCategory];
+            Console.WriteLine("Settings.AutoSplittingEnabled => " + Settings.AutoSplittingEnabled);
+            if (Settings.AutoSplittingEnabled)
+                StatusWindow.Show();
+            else
+                StatusWindow.Hide();
         }
 
         public XmlNode GetSettings(XmlDocument document)
@@ -57,12 +76,68 @@ namespace LiveSplit.Spelunky
             return this.Settings;
         }
 
-        public void Update(IInvalidator invalidator, LiveSplitState state, float width, float height, LayoutMode mode)
+        Category GetCategory(SpelunkySettings.Category category)
         {
-            Console.WriteLine("[LiveSplit.Spelunky] Update(...) called with CurrentSplit=" + state.CurrentSplit);
-            //TODO
+            switch(category)
+            {
+                case SpelunkySettings.Category.AllShortcuts:
+                    return AllShortcuts.Category;
+                default:
+                    throw new Exception("Encountered unknown category: " + category.ToString());
+            }
         }
 
-        public void Dispose() {}
+        void GetHooksIfNeeded()
+        {
+            if(AutoSplitter != null)
+            {
+                if (AutoSplitter.Hooks.Invalidated)
+                {
+                    AutoSplitter.Dispose();
+                    AutoSplitter = null;
+                }
+                else return;
+            }
+            
+            AutoSplitter = new AutoSplitter(new SpelunkyHooks(new ReadOnlyProcess("Spelunky")), GetCategory(Settings.RunCategory));
+        }
+
+        void ClearAutoSplitter()
+        {
+            if (AutoSplitter != null)
+            {
+                AutoSplitter.Dispose();
+                AutoSplitter = null;
+            }
+        }
+
+        public void Update(IInvalidator invalidator, LiveSplitState state, float width, float height, LayoutMode mode)
+        {
+            if (!Settings.AutoSplittingEnabled)
+                return;
+            
+            try
+            {
+                GetHooksIfNeeded(); // After this call we assume we have a valid AutoSplitter if no exception was thrown
+                var status = AutoSplitter.Update(state);
+                StatusWindow.SetStatus(status.Type, status.Message);
+            }
+            catch(Exception e)
+            {
+                ClearAutoSplitter();
+                StatusWindow.SetErrorStatus(e.Message);
+            }
+        }
+
+        public void Dispose()
+        {
+            ClearAutoSplitter();
+
+            StatusWindow.Hide();
+            StatusWindow.Dispose();
+
+            Settings.Hide();
+            Settings.Dispose();
+        }
     }
 }
