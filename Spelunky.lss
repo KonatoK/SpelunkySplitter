@@ -14,11 +14,7 @@
   </Metadata>
   <Offset>00:00:00</Offset>
   <AttemptCount>0</AttemptCount>
-  <AttemptHistory>
-    <Attempt id="1" started="12/17/2015 03:08:48" isStartedSynced="True" ended="12/17/2015 03:12:18" isEndedSynced="True">
-      <RealTime>00:03:29.7050000</RealTime>
-    </Attempt>
-  </AttemptHistory>
+  <AttemptHistory></AttemptHistory>
   <Segments>
     <Segment>
       <Name>Tutorial</Name>
