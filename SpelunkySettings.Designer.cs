@@ -70,6 +70,7 @@
             // 
             // RunCategoryNameComboBox
             // 
+            this.RunCategoryNameComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.RunCategoryNameComboBox.FormattingEnabled = true;
             this.RunCategoryNameComboBox.Location = new System.Drawing.Point(59, 42);
             this.RunCategoryNameComboBox.Name = "RunCategoryNameComboBox";

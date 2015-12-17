@@ -48,6 +48,9 @@ namespace LiveSplit.Spelunky
         void HandleAutoSplitterChange(object sender, EventArgs args)
         {
             ClearAutoSplitter();
+
+            if (StatusWindow.IsDisposed) { StatusWindow = new StatusWindow(); }
+
             StatusWindow.CurrentRun = SpelunkySettings.CategoryNames[(int)Settings.RunCategory];
             if (Settings.AutoSplittingEnabled)
                 StatusWindow.Show();
