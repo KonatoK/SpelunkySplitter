@@ -30,16 +30,25 @@ namespace LiveSplit.Spelunky
         {
             AssertHooksActive();
 
-            SplitAction splitAction; 
-            if(state.CurrentSplitIndex == -1) { splitAction = delegate () { Timer.Start(); }; }
-            else { splitAction = delegate () { Timer.Split(); }; }
+            if(state.CurrentSplitIndex + 1 >= Segments.Length)
+            {
+                return new SegmentStatus()
+                {
+                    Type = SegmentStatusType.INFO,
+                    Message = "Run completed!"
+                };
+            }
+            else
+            {
+                SplitAction splitAction; 
+                if(state.CurrentSplitIndex == -1) { splitAction = delegate () { Timer.Start(); }; }
+                else { splitAction = delegate () { Timer.Split(); }; }
 
-            ISegment segment = Segments[state.CurrentSplitIndex + 1];
-            var status = segment.CheckStatus(Hooks);
-            if (segment.Cycle(Hooks))
-                splitAction();
-
-            return status;
+                ISegment segment = Segments[state.CurrentSplitIndex + 1];
+                var status = segment.CheckStatus(Hooks);
+                if (segment.Cycle(Hooks)) { splitAction(); }
+                return status;
+            }
         }
 
         void AssertHooksActive()

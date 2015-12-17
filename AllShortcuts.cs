@@ -161,13 +161,13 @@ namespace LiveSplit.Spelunky
                 public SegmentStatus CheckStatus(SpelunkyHooks spelunky)
                 {
                     var chapter = spelunky.TunnelManChapter;
-                    if (chapter > Parent.BeforeChapter
-                    || (chapter == Parent.BeforeChapter && spelunky.TunnelManRemaining < Parent.BeforeRemaining))
+                    if ((chapter > Parent.BeforeChapter && LastChapter > Parent.BeforeChapter)
+                    || ((chapter == Parent.BeforeChapter && LastChapter == Parent.BeforeChapter) && (spelunky.TunnelManRemaining < Parent.BeforeRemaining && LastRemaining < Parent.BeforeRemaining)))
                     {
                         return new SegmentStatus()
                         {
                             Type = SegmentStatusType.ERROR,
-                            Message = "Tunnel Man has already received " + Parent.Item + " between the " + Parent.Area1 + " and " + Parent.Area2 + ": the segment must be skipped."
+                            Message = "Tunnel Man has already received " + Parent.Item + " between the " + Parent.Area1 + " and " + Parent.Area2 + "."
                         };
                     }
                     else
@@ -210,7 +210,6 @@ namespace LiveSplit.Spelunky
             public class Olmec : ISegment
             {
                 SpelunkyLevel? LastLevel;
-                SpelunkyState? LastState;
 
                 public SegmentStatus CheckStatus(SpelunkyHooks spelunky)
                 {
@@ -231,11 +230,10 @@ namespace LiveSplit.Spelunky
 
                     bool shouldSplit =
                         spelunky.TunnelManChapter == TMChapter.EMPTY_COMPLETED &&
-                        LastLevel == SpelunkyLevel.L4_4 && LastState == SpelunkyState.INPUTLOCK_PART &&
-                        level == SpelunkyLevel.L4_4 && state == SpelunkyState.VICTORY_CUTSCENE;
+                        spelunky.CurrentState == SpelunkyState.VICTORY_CUTSCENE &&
+                        LastLevel == SpelunkyLevel.L4_4 && level == SpelunkyLevel.L4_4;
 
                     LastLevel = level;
-                    LastState = state;
 
                     return shouldSplit;
                 }

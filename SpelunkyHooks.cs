@@ -8,8 +8,8 @@ namespace LiveSplit.Spelunky
 {
     public enum SpelunkyState : int
     {
-        TUTORIAL_BOOK = 2,
-        INPUTLOCK_PART = 3,
+        INPUTLOCK_PART_2 = 2,
+        INPUTLOCK_PART_3 = 3,
         CHARACTER_SELECT = 17, 
         VICTORY_CUTSCENE = 18,
         LOBBY = 22

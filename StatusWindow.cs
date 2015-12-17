@@ -49,9 +49,6 @@ namespace LiveSplit.Spelunky
             if (LastStatusType == SegmentStatusType.INFO && StatusLabel.Text.Equals(text))
                 return;
 
-            if (StatusLabel.Font.Bold)
-                StatusLabel.Font = new Font(StatusLabel.Font, FontStyle.Regular);
-
             StatusLabel.ForeColor = Color.Black;
             StatusLabel.Text = text;
             LastStatusType = SegmentStatusType.INFO;
@@ -67,9 +64,6 @@ namespace LiveSplit.Spelunky
 
             if (LastStatusType == SegmentStatusType.ERROR && StatusLabel.Text.Equals(text))
                 return;
-
-            if (!StatusLabel.Font.Bold)
-                StatusLabel.Font = new Font(StatusLabel.Font, FontStyle.Bold);
 
             StatusLabel.ForeColor = Color.Red;
             StatusLabel.Text = text;

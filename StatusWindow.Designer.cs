@@ -75,7 +75,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(487, 57);
+            this.ClientSize = new System.Drawing.Size(431, 57);
             this.Controls.Add(this.StatusLabel);
             this.Controls.Add(this.CurrentRunLabel);
             this.Controls.Add(this.StatusPrefixLabel);
