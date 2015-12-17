@@ -13,25 +13,33 @@ namespace LiveSplit.Spelunky
         public SpelunkyHooks Hooks { get; private set; }
         public Category Category { get; private set; }
         ISegment[] Segments;
+        TimerModel Timer;
 
-        public AutoSplitter(SpelunkyHooks hooks, Category category)
+        public AutoSplitter(SpelunkyHooks hooks, Category category, TimerModel timer)
         {
             this.Hooks = hooks;
             this.Category = category;
             this.Segments = category.NewInstance();
-
+            this.Timer = timer;
             AssertHooksActive();
         }
+
+        delegate void SplitAction();
 
         public SegmentStatus Update(LiveSplitState state)
         {
             AssertHooksActive();
-            Console.WriteLine("Current Split Index = " + state.CurrentSplitIndex);
-            return new SegmentStatus()
-            {
-                Type = SegmentStatusType.INFO,
-                Message = "Debugging."
-            };
+
+            SplitAction splitAction; 
+            if(state.CurrentSplitIndex == -1) { splitAction = delegate () { Timer.Start(); }; }
+            else { splitAction = delegate () { Timer.Split(); }; }
+
+            ISegment segment = Segments[state.CurrentSplitIndex + 1];
+            var status = segment.CheckStatus(Hooks);
+            if (segment.Cycle(Hooks))
+                splitAction();
+
+            return status;
         }
 
         void AssertHooksActive()

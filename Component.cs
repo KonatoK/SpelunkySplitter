@@ -50,7 +50,6 @@ namespace LiveSplit.Spelunky
         {
             ClearAutoSplitter();
             StatusWindow.CurrentRun = SpelunkySettings.CategoryNames[(int)Settings.RunCategory];
-            Console.WriteLine("Settings.AutoSplittingEnabled => " + Settings.AutoSplittingEnabled);
             if (Settings.AutoSplittingEnabled)
                 StatusWindow.Show();
             else
@@ -87,7 +86,7 @@ namespace LiveSplit.Spelunky
             }
         }
 
-        void GetHooksIfNeeded()
+        void GetHooksIfNeeded(LiveSplitState state)
         {
             if(AutoSplitter != null)
             {
@@ -98,8 +97,8 @@ namespace LiveSplit.Spelunky
                 }
                 else return;
             }
-            
-            AutoSplitter = new AutoSplitter(new SpelunkyHooks(new ReadOnlyProcess("Spelunky")), GetCategory(Settings.RunCategory));
+
+            AutoSplitter = new AutoSplitter(new SpelunkyHooks(new ReadOnlyProcess("Spelunky")), GetCategory(Settings.RunCategory), new TimerModel() { CurrentState = state });
         }
 
         void ClearAutoSplitter()
@@ -118,7 +117,7 @@ namespace LiveSplit.Spelunky
             
             try
             {
-                GetHooksIfNeeded(); // After this call we assume we have a valid AutoSplitter if no exception was thrown
+                GetHooksIfNeeded(state); // After this call we assume we have a valid AutoSplitter if no exception was thrown
                 var status = AutoSplitter.Update(state);
                 StatusWindow.SetStatus(status.Type, status.Message);
             }

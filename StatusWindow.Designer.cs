@@ -38,7 +38,7 @@
             // CurrentRunPrefixLabel
             // 
             this.CurrentRunPrefixLabel.AutoSize = true;
-            this.CurrentRunPrefixLabel.Location = new System.Drawing.Point(12, 9);
+            this.CurrentRunPrefixLabel.Location = new System.Drawing.Point(4, 9);
             this.CurrentRunPrefixLabel.Name = "CurrentRunPrefixLabel";
             this.CurrentRunPrefixLabel.Size = new System.Drawing.Size(67, 13);
             this.CurrentRunPrefixLabel.TabIndex = 0;
@@ -47,7 +47,7 @@
             // StatusPrefixLabel
             // 
             this.StatusPrefixLabel.AutoSize = true;
-            this.StatusPrefixLabel.Location = new System.Drawing.Point(12, 32);
+            this.StatusPrefixLabel.Location = new System.Drawing.Point(4, 32);
             this.StatusPrefixLabel.Name = "StatusPrefixLabel";
             this.StatusPrefixLabel.Size = new System.Drawing.Size(40, 13);
             this.StatusPrefixLabel.TabIndex = 1;
@@ -56,7 +56,7 @@
             // CurrentRunLabel
             // 
             this.CurrentRunLabel.AutoSize = true;
-            this.CurrentRunLabel.Location = new System.Drawing.Point(77, 9);
+            this.CurrentRunLabel.Location = new System.Drawing.Point(70, 9);
             this.CurrentRunLabel.Name = "CurrentRunLabel";
             this.CurrentRunLabel.Size = new System.Drawing.Size(98, 13);
             this.CurrentRunLabel.TabIndex = 2;
@@ -65,7 +65,7 @@
             // StatusLabel
             // 
             this.StatusLabel.AutoSize = true;
-            this.StatusLabel.Location = new System.Drawing.Point(50, 32);
+            this.StatusLabel.Location = new System.Drawing.Point(44, 32);
             this.StatusLabel.Name = "StatusLabel";
             this.StatusLabel.Size = new System.Drawing.Size(64, 13);
             this.StatusLabel.TabIndex = 3;
@@ -75,7 +75,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(342, 57);
+            this.ClientSize = new System.Drawing.Size(405, 57);
             this.Controls.Add(this.StatusLabel);
             this.Controls.Add(this.CurrentRunLabel);
             this.Controls.Add(this.StatusPrefixLabel);
