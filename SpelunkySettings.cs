@@ -37,6 +37,13 @@ namespace LiveSplit.Spelunky
 
             AutoSplittingEnabledCheckBox.CheckedChanged += HandleAutoSplittingCheckedChanged;
             RunCategoryNameComboBox.SelectedIndexChanged += HandleRunSelectedIndexChanged;
+
+            DownloadReferenceSplitsLabel.LinkClicked += HandleDownloadReferenceSplitsLinkClicked;
+        }
+
+        void HandleDownloadReferenceSplitsLinkClicked(object sender, LinkLabelLinkClickedEventArgs args)
+        {
+            Process.Start("https://github.com/sashavolv2/SpelunkySplitter/tree/master/ReferenceSplits");
         }
 
         void HandleAutoSplittingCheckedChanged(object sender, EventArgs args)

@@ -32,17 +32,19 @@
             this.AutoSplittingEnabledCheckBox = new System.Windows.Forms.CheckBox();
             this.RunCategorySelectionLabel = new System.Windows.Forms.Label();
             this.RunCategoryNameComboBox = new System.Windows.Forms.ComboBox();
+            this.DownloadReferenceSplitsLabel = new System.Windows.Forms.LinkLabel();
             this.MainGroup.SuspendLayout();
             this.SuspendLayout();
             // 
             // MainGroup
             // 
+            this.MainGroup.Controls.Add(this.DownloadReferenceSplitsLabel);
             this.MainGroup.Controls.Add(this.AutoSplittingEnabledCheckBox);
             this.MainGroup.Controls.Add(this.RunCategorySelectionLabel);
             this.MainGroup.Controls.Add(this.RunCategoryNameComboBox);
             this.MainGroup.Location = new System.Drawing.Point(3, 3);
             this.MainGroup.Name = "MainGroup";
-            this.MainGroup.Size = new System.Drawing.Size(287, 74);
+            this.MainGroup.Size = new System.Drawing.Size(287, 96);
             this.MainGroup.TabIndex = 1;
             this.MainGroup.TabStop = false;
             this.MainGroup.Text = "SpelunkySplitter (sashavol)";
@@ -77,13 +79,23 @@
             this.RunCategoryNameComboBox.Size = new System.Drawing.Size(222, 21);
             this.RunCategoryNameComboBox.TabIndex = 0;
             // 
+            // DownloadReferenceSplitsLabel
+            // 
+            this.DownloadReferenceSplitsLabel.AutoSize = true;
+            this.DownloadReferenceSplitsLabel.Location = new System.Drawing.Point(5, 73);
+            this.DownloadReferenceSplitsLabel.Name = "DownloadReferenceSplitsLabel";
+            this.DownloadReferenceSplitsLabel.Size = new System.Drawing.Size(136, 13);
+            this.DownloadReferenceSplitsLabel.TabIndex = 4;
+            this.DownloadReferenceSplitsLabel.TabStop = true;
+            this.DownloadReferenceSplitsLabel.Text = "Download Reference Splits";
+            // 
             // SpelunkySettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.MainGroup);
             this.Name = "SpelunkySettings";
-            this.Size = new System.Drawing.Size(293, 80);
+            this.Size = new System.Drawing.Size(293, 102);
             this.MainGroup.ResumeLayout(false);
             this.MainGroup.PerformLayout();
             this.ResumeLayout(false);
@@ -95,5 +107,6 @@
         private System.Windows.Forms.Label RunCategorySelectionLabel;
         private System.Windows.Forms.CheckBox AutoSplittingEnabledCheckBox;
         private System.Windows.Forms.ComboBox RunCategoryNameComboBox;
+        private System.Windows.Forms.LinkLabel DownloadReferenceSplitsLabel;
     }
 }
