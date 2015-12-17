@@ -84,7 +84,7 @@ namespace LiveSplit.Spelunky
                 */
                 public SegmentStatus CheckStatus(SpelunkyHooks spelunky)
                 {
-                    if (spelunky.CurrentLobbyType == LobbyType.DOOR_OPEN_NO_GEM)
+                    if (LastLobbyType == LobbyType.DOOR_OPEN_NO_GEM && spelunky.CurrentLobbyType == LobbyType.DOOR_OPEN_NO_GEM)
                     {
                         return new SegmentStatus()
                         {
