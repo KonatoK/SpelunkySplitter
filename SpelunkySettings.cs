@@ -20,7 +20,7 @@ namespace LiveSplit.Spelunky
 
         public enum Category : int { AllShortcuts = 0 }
 
-        public static readonly string[] CategoryNames = { "All Shortcuts%" };
+        public static readonly string[] CategoryNames = { "All Shortcuts + Olmec %" };
 
         const bool DEFAULT_AUTOSPLITTING_ENABLED = true;
         const Category DEFAULT_RUN_CATEGORY = Category.AllShortcuts;
