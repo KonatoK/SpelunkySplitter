@@ -33,7 +33,7 @@ namespace LiveSplit.Spelunky
 
         public String UpdateURL
         {
-            get { return "http://sashavol.com/frozlunky/autosplitter/";  } // TODO Make this update site not be an index page
+            get { return "https://github.com/sashavolv2/SpelunkySplitter";  }
         }
 
         public Version Version
