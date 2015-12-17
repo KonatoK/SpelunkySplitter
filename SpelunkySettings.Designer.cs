@@ -29,25 +29,43 @@
         private void InitializeComponent()
         {
             this.MainGroup = new System.Windows.Forms.GroupBox();
+            this.DownloadReferenceSplitsLabel = new System.Windows.Forms.LinkLabel();
             this.AutoSplittingEnabledCheckBox = new System.Windows.Forms.CheckBox();
             this.RunCategorySelectionLabel = new System.Windows.Forms.Label();
             this.RunCategoryNameComboBox = new System.Windows.Forms.ComboBox();
-            this.DownloadReferenceSplitsLabel = new System.Windows.Forms.LinkLabel();
+            this.AutoLoadSaveCheckBox = new System.Windows.Forms.CheckBox();
+            this.SaveFilePrefixLabel = new System.Windows.Forms.Label();
+            this.SaveFileTextBox = new System.Windows.Forms.TextBox();
+            this.SaveFileBrowseButton = new System.Windows.Forms.Button();
             this.MainGroup.SuspendLayout();
             this.SuspendLayout();
             // 
             // MainGroup
             // 
+            this.MainGroup.Controls.Add(this.SaveFileBrowseButton);
+            this.MainGroup.Controls.Add(this.SaveFileTextBox);
+            this.MainGroup.Controls.Add(this.SaveFilePrefixLabel);
+            this.MainGroup.Controls.Add(this.AutoLoadSaveCheckBox);
             this.MainGroup.Controls.Add(this.DownloadReferenceSplitsLabel);
             this.MainGroup.Controls.Add(this.AutoSplittingEnabledCheckBox);
             this.MainGroup.Controls.Add(this.RunCategorySelectionLabel);
             this.MainGroup.Controls.Add(this.RunCategoryNameComboBox);
             this.MainGroup.Location = new System.Drawing.Point(3, 3);
             this.MainGroup.Name = "MainGroup";
-            this.MainGroup.Size = new System.Drawing.Size(287, 96);
+            this.MainGroup.Size = new System.Drawing.Size(287, 133);
             this.MainGroup.TabIndex = 1;
             this.MainGroup.TabStop = false;
             this.MainGroup.Text = "SpelunkySplitter (sashavol)";
+            // 
+            // DownloadReferenceSplitsLabel
+            // 
+            this.DownloadReferenceSplitsLabel.AutoSize = true;
+            this.DownloadReferenceSplitsLabel.Location = new System.Drawing.Point(6, 112);
+            this.DownloadReferenceSplitsLabel.Name = "DownloadReferenceSplitsLabel";
+            this.DownloadReferenceSplitsLabel.Size = new System.Drawing.Size(136, 13);
+            this.DownloadReferenceSplitsLabel.TabIndex = 4;
+            this.DownloadReferenceSplitsLabel.TabStop = true;
+            this.DownloadReferenceSplitsLabel.Text = "Download Reference Splits";
             // 
             // AutoSplittingEnabledCheckBox
             // 
@@ -56,15 +74,15 @@
             this.AutoSplittingEnabledCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.AutoSplittingEnabledCheckBox.Location = new System.Drawing.Point(9, 19);
             this.AutoSplittingEnabledCheckBox.Name = "AutoSplittingEnabledCheckBox";
-            this.AutoSplittingEnabledCheckBox.Size = new System.Drawing.Size(130, 17);
+            this.AutoSplittingEnabledCheckBox.Size = new System.Drawing.Size(127, 17);
             this.AutoSplittingEnabledCheckBox.TabIndex = 2;
-            this.AutoSplittingEnabledCheckBox.Text = "Auto Splitting Enabled";
+            this.AutoSplittingEnabledCheckBox.Text = "Auto splitting enabled";
             this.AutoSplittingEnabledCheckBox.UseVisualStyleBackColor = true;
             // 
             // RunCategorySelectionLabel
             // 
             this.RunCategorySelectionLabel.AutoSize = true;
-            this.RunCategorySelectionLabel.Location = new System.Drawing.Point(6, 45);
+            this.RunCategorySelectionLabel.Location = new System.Drawing.Point(6, 65);
             this.RunCategorySelectionLabel.Name = "RunCategorySelectionLabel";
             this.RunCategorySelectionLabel.Size = new System.Drawing.Size(52, 13);
             this.RunCategorySelectionLabel.TabIndex = 1;
@@ -74,20 +92,46 @@
             // 
             this.RunCategoryNameComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.RunCategoryNameComboBox.FormattingEnabled = true;
-            this.RunCategoryNameComboBox.Location = new System.Drawing.Point(59, 42);
+            this.RunCategoryNameComboBox.Location = new System.Drawing.Point(59, 61);
             this.RunCategoryNameComboBox.Name = "RunCategoryNameComboBox";
             this.RunCategoryNameComboBox.Size = new System.Drawing.Size(222, 21);
             this.RunCategoryNameComboBox.TabIndex = 0;
             // 
-            // DownloadReferenceSplitsLabel
+            // AutoLoadSaveCheckBox
             // 
-            this.DownloadReferenceSplitsLabel.AutoSize = true;
-            this.DownloadReferenceSplitsLabel.Location = new System.Drawing.Point(5, 73);
-            this.DownloadReferenceSplitsLabel.Name = "DownloadReferenceSplitsLabel";
-            this.DownloadReferenceSplitsLabel.Size = new System.Drawing.Size(136, 13);
-            this.DownloadReferenceSplitsLabel.TabIndex = 4;
-            this.DownloadReferenceSplitsLabel.TabStop = true;
-            this.DownloadReferenceSplitsLabel.Text = "Download Reference Splits";
+            this.AutoLoadSaveCheckBox.AutoSize = true;
+            this.AutoLoadSaveCheckBox.Location = new System.Drawing.Point(9, 40);
+            this.AutoLoadSaveCheckBox.Name = "AutoLoadSaveCheckBox";
+            this.AutoLoadSaveCheckBox.Size = new System.Drawing.Size(164, 17);
+            this.AutoLoadSaveCheckBox.TabIndex = 7;
+            this.AutoLoadSaveCheckBox.Text = "Auto-load save file before run";
+            this.AutoLoadSaveCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // SaveFilePrefixLabel
+            // 
+            this.SaveFilePrefixLabel.AutoSize = true;
+            this.SaveFilePrefixLabel.Location = new System.Drawing.Point(5, 88);
+            this.SaveFilePrefixLabel.Name = "SaveFilePrefixLabel";
+            this.SaveFilePrefixLabel.Size = new System.Drawing.Size(54, 13);
+            this.SaveFilePrefixLabel.TabIndex = 8;
+            this.SaveFilePrefixLabel.Text = "Save File:";
+            // 
+            // SaveFileTextBox
+            // 
+            this.SaveFileTextBox.Location = new System.Drawing.Point(59, 85);
+            this.SaveFileTextBox.Name = "SaveFileTextBox";
+            this.SaveFileTextBox.ReadOnly = true;
+            this.SaveFileTextBox.Size = new System.Drawing.Size(145, 20);
+            this.SaveFileTextBox.TabIndex = 9;
+            // 
+            // SaveFileBrowseButton
+            // 
+            this.SaveFileBrowseButton.Location = new System.Drawing.Point(206, 84);
+            this.SaveFileBrowseButton.Name = "SaveFileBrowseButton";
+            this.SaveFileBrowseButton.Size = new System.Drawing.Size(76, 22);
+            this.SaveFileBrowseButton.TabIndex = 10;
+            this.SaveFileBrowseButton.Text = "Browse";
+            this.SaveFileBrowseButton.UseVisualStyleBackColor = true;
             // 
             // SpelunkySettings
             // 
@@ -95,7 +139,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.MainGroup);
             this.Name = "SpelunkySettings";
-            this.Size = new System.Drawing.Size(293, 102);
+            this.Size = new System.Drawing.Size(293, 139);
             this.MainGroup.ResumeLayout(false);
             this.MainGroup.PerformLayout();
             this.ResumeLayout(false);
@@ -108,5 +152,9 @@
         private System.Windows.Forms.CheckBox AutoSplittingEnabledCheckBox;
         private System.Windows.Forms.ComboBox RunCategoryNameComboBox;
         private System.Windows.Forms.LinkLabel DownloadReferenceSplitsLabel;
+        private System.Windows.Forms.Label SaveFilePrefixLabel;
+        private System.Windows.Forms.CheckBox AutoLoadSaveCheckBox;
+        private System.Windows.Forms.Button SaveFileBrowseButton;
+        private System.Windows.Forms.TextBox SaveFileTextBox;
     }
 }
