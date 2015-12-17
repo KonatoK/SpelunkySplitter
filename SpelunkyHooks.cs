@@ -63,7 +63,8 @@ namespace LiveSplit.Spelunky
         private const int BASE_GAME_OFFSET = 0x1384b4;
         private const int GAME_STATE_OFFSET = 0x58;
         private const int GAME_LEVEL_OFFSET = 0x4405d4;
-        private const int GAME_CHAR_SELECT_COUNTDOWN_OFFSET = 0x122bec;
+        private const int GAME_GFX_OFFSET = 0x4c; // <- This will give a struct containing data related to animation (though the semantics are not completely clear)
+        private const int GFX_CHAR_SELECT_COUNTDOWN_OFFSET = 0x122bec;
         private const int GAME_LOBBY_MODE = 0x445be0;
         private const int GAME_TM_CHAPTER_OFFSET = 0x445be4;
         private const int GAME_TM_REMAINING_OFFSET = 0x445be8;
@@ -76,7 +77,8 @@ namespace LiveSplit.Spelunky
         }
 
         private int Game => Process.ReadInt32(Process.BaseAddress + BASE_GAME_OFFSET);
-        public int CharSelectCountdown => Process.ReadInt32(Game + GAME_CHAR_SELECT_COUNTDOWN_OFFSET);
+        private int Gfx => Process.ReadInt32(Game + GAME_GFX_OFFSET);
+        public int CharSelectCountdown => Process.ReadInt32(Gfx + GFX_CHAR_SELECT_COUNTDOWN_OFFSET);
         public SpelunkyState CurrentState => (SpelunkyState)Process.ReadInt32(Game + GAME_STATE_OFFSET);
         public SpelunkyLevel CurrentLevel => (SpelunkyLevel)Process.ReadInt32(Game + GAME_LEVEL_OFFSET);
         public TMChapter TunnelManChapter => (TMChapter)Process.ReadInt32(Game + GAME_TM_CHAPTER_OFFSET);
