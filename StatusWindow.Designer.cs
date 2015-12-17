@@ -82,6 +82,7 @@
             this.Controls.Add(this.CurrentRunPrefixLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "StatusWindow";
             this.Text = "SpelunkySplitter Activity";
             this.ResumeLayout(false);

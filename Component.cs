@@ -41,8 +41,7 @@ namespace LiveSplit.Spelunky
             this.IsLayoutComponent = isLayoutComponent;
             this.Settings = new SpelunkySettings();
             this.StatusWindow = new StatusWindow();
-            StatusWindow.CurrentRun = "";
-            StatusWindow.SetInfoStatus("");
+            HandleAutoSplitterChange(Settings, EventArgs.Empty); // Simulate a property change (for default values)
             Settings.PropertyChanged += HandleAutoSplitterChange;
         }
 

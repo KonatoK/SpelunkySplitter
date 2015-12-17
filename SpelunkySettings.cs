@@ -32,6 +32,9 @@ namespace LiveSplit.Spelunky
             InitializeComponent();
             RunCategoryNameComboBox.DataSource = CategoryNames;
 
+            AutoSplittingEnabledCheckBox.Checked = DEFAULT_AUTOSPLITTING_ENABLED;
+            RunCategoryNameComboBox.SelectedIndex = (int)DEFAULT_RUN_CATEGORY;
+
             AutoSplittingEnabledCheckBox.CheckedChanged += HandleAutoSplittingCheckedChanged;
             RunCategoryNameComboBox.SelectedIndexChanged += HandleRunSelectedIndexChanged;
         }

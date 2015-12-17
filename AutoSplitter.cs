@@ -30,7 +30,15 @@ namespace LiveSplit.Spelunky
         {
             AssertHooksActive();
 
-            if(state.CurrentSplitIndex + 1 >= Segments.Length)
+            if(state.Run.Count != Segments.Length - 1) // Validate user splits
+            {
+                return new SegmentStatus()
+                {
+                    Type = SegmentStatusType.ERROR,
+                    Message = "Expected " + (Segments.Length - 1) + " segments, got " + state.Run.Count + " (correct this before continuing)."
+                };
+            }
+            else if(state.CurrentSplitIndex + 1 >= Segments.Length) // Check if the run is done
             {
                 return new SegmentStatus()
                 {
