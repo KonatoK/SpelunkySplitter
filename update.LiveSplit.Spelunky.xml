@@ -9,7 +9,7 @@
 	</update>
 	<update version="1.1">
 		<files>
-			<file path="Components/LiveSplit.Spelunky.dll" status="changed"/>
+			<file path="Components/LiveSplit.Spelunky.dll?raw=true" status="changed"/>
 		</files>
 		<changelog>
 			<change>Added support for auto-reloading save files.</change>
