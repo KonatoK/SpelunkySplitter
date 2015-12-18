@@ -13,6 +13,8 @@
 		</files>
 		<changelog>
 			<change>Added support for auto-reloading save files.</change>
+			<change>Fixed UpdateURL</change>
+			<change>Note: Due to a misconfiguration in 1.0 you will have to manually delete Components/LiveSplit.Spelunky.dll to get the update</change>
 		</changelog>
 	</update>
 </updates>
