@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -23,7 +24,14 @@ namespace LiveSplit.Spelunky
         public static readonly string[] CategoryNames = { "All Shortcuts + Olmec %" };
 
         const bool DEFAULT_AUTOSPLITTING_ENABLED = true;
+        const bool DEFAULT_AUTOLOAD_SAVEFILE = false;
+        const string DEFAULT_SAVEFILE = null;
         const Category DEFAULT_RUN_CATEGORY = Category.AllShortcuts;
+
+        public bool AutoSplittingEnabled => AutoSplittingEnabledCheckBox.Checked;
+        public Category RunCategory => (Category)RunCategoryNameComboBox.SelectedIndex;
+        public bool AutoLoadSaveFile => AutoLoadSaveCheckBox.Checked;
+        public string SaveFile { get; private set; }
 
         public event PropertyChangedHandler PropertyChanged;
 
@@ -34,11 +42,49 @@ namespace LiveSplit.Spelunky
 
             AutoSplittingEnabledCheckBox.Checked = DEFAULT_AUTOSPLITTING_ENABLED;
             RunCategoryNameComboBox.SelectedIndex = (int)DEFAULT_RUN_CATEGORY;
+            AutoLoadSaveCheckBox.Checked = DEFAULT_AUTOLOAD_SAVEFILE;
+            SaveFile = DEFAULT_SAVEFILE;
 
             AutoSplittingEnabledCheckBox.CheckedChanged += HandleAutoSplittingCheckedChanged;
+            AutoLoadSaveCheckBox.CheckedChanged += HandleAutoLoadSaveFileCheckedChanged;
             RunCategoryNameComboBox.SelectedIndexChanged += HandleRunSelectedIndexChanged;
+            SaveFileBrowseButton.Click += HandleSaveFileBrowseButtonClick;
 
             DownloadReferenceSplitsLabel.LinkClicked += HandleDownloadReferenceSplitsLinkClicked;
+        }
+
+        void HandleSaveFileBrowseButtonClick(object sender, EventArgs args)
+        {
+            OpenFileDialog ofd = new OpenFileDialog()
+            {
+                Title = "Select a save file",
+                Filter = "Spelunky Save File (*.sav)|*.sav",
+                FilterIndex = 0,
+                RestoreDirectory = true,
+                CheckFileExists = true
+            };
+            
+            if(ofd.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    ofd.OpenFile().Close();
+                    SaveFile = ofd.FileName;
+                    if(AutoLoadSaveFile) { PropertyChanged(this, EventArgs.Empty); }
+                }
+                catch(Exception e)
+                {
+                    MessageBox.Show("Failed to read file: " + e.Message);
+                }
+            }
+        }
+
+        void HandleAutoLoadSaveFileCheckedChanged(object sender, EventArgs args)
+        {
+            if (AutoLoadSaveCheckBox.Checked && (SaveFile == null || !File.Exists(SaveFile)))
+                MessageBox.Show("Select a valid save file before enabling auto-load.");
+            else
+                PropertyChanged(this, EventArgs.Empty);
         }
 
         void HandleDownloadReferenceSplitsLinkClicked(object sender, LinkLabelLinkClickedEventArgs args)
@@ -62,18 +108,21 @@ namespace LiveSplit.Spelunky
             settings.AppendChild(XMLSettings.ToElement(doc, "Version", Assembly.GetExecutingAssembly().GetName().Version.ToString(3)));
             settings.AppendChild(XMLSettings.ToElement(doc, nameof(AutoSplittingEnabledCheckBox), AutoSplittingEnabledCheckBox.Checked));
             settings.AppendChild(XMLSettings.ToElement(doc, nameof(RunCategoryNameComboBox), ((Category)RunCategoryNameComboBox.SelectedIndex).ToString()));
+            settings.AppendChild(XMLSettings.ToElement(doc, nameof(AutoLoadSaveCheckBox), AutoLoadSaveCheckBox.Checked));
+            settings.AppendChild(XMLSettings.ToElement(doc, nameof(SaveFile), SaveFile ?? ""));
             return settings;
         }
 
-        Category ParseRunCategory(string str)
-        {
-            return (Category)Enum.Parse(typeof(Category), str);
-        }
+        Category ParseRunCategory(string str) { return (Category)Enum.Parse(typeof(Category), str); }
+
+        string ParseSaveFile(string str) { return str; }
 
         public void SetSettings(XmlNode settings)
         {
             AutoSplittingEnabledCheckBox.Checked = XMLSettings.Parse(settings[nameof(AutoSplittingEnabledCheckBox)], DEFAULT_AUTOSPLITTING_ENABLED, bool.Parse);
             RunCategoryNameComboBox.SelectedIndex = (int)XMLSettings.Parse(settings[nameof(RunCategoryNameComboBox)], DEFAULT_RUN_CATEGORY, ParseRunCategory);
+            AutoLoadSaveCheckBox.Checked = XMLSettings.Parse(settings[nameof(AutoLoadSaveCheckBox)], AutoLoadSaveCheckBox.Checked, bool.Parse);
+            SaveFile = XMLSettings.Parse(settings[nameof(SaveFile)], DEFAULT_SAVEFILE, ParseSaveFile);
             PropertyChanged(this, EventArgs.Empty);
         }
 
@@ -89,16 +138,6 @@ namespace LiveSplit.Spelunky
                 parentDialog.MinimumSize = targetSize;
                 parentDialog.Size = targetSize;
             }
-        }
-
-        public bool AutoSplittingEnabled
-        {
-            get { return AutoSplittingEnabledCheckBox.Checked; }
-        }
-
-        public Category RunCategory
-        {
-            get { return (Category)RunCategoryNameComboBox.SelectedIndex; }
         }
     }
 

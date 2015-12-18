@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.MainGroup = new System.Windows.Forms.GroupBox();
+            this.SaveFileBrowseButton = new System.Windows.Forms.Button();
+            this.SaveFileTextBox = new System.Windows.Forms.TextBox();
+            this.SaveFilePrefixLabel = new System.Windows.Forms.Label();
+            this.AutoLoadSaveCheckBox = new System.Windows.Forms.CheckBox();
             this.DownloadReferenceSplitsLabel = new System.Windows.Forms.LinkLabel();
             this.AutoSplittingEnabledCheckBox = new System.Windows.Forms.CheckBox();
             this.RunCategorySelectionLabel = new System.Windows.Forms.Label();
             this.RunCategoryNameComboBox = new System.Windows.Forms.ComboBox();
-            this.AutoLoadSaveCheckBox = new System.Windows.Forms.CheckBox();
-            this.SaveFilePrefixLabel = new System.Windows.Forms.Label();
-            this.SaveFileTextBox = new System.Windows.Forms.TextBox();
-            this.SaveFileBrowseButton = new System.Windows.Forms.Button();
             this.MainGroup.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,6 +56,42 @@
             this.MainGroup.TabIndex = 1;
             this.MainGroup.TabStop = false;
             this.MainGroup.Text = "SpelunkySplitter (sashavol)";
+            // 
+            // SaveFileBrowseButton
+            // 
+            this.SaveFileBrowseButton.Location = new System.Drawing.Point(206, 84);
+            this.SaveFileBrowseButton.Name = "SaveFileBrowseButton";
+            this.SaveFileBrowseButton.Size = new System.Drawing.Size(76, 22);
+            this.SaveFileBrowseButton.TabIndex = 10;
+            this.SaveFileBrowseButton.Text = "Browse";
+            this.SaveFileBrowseButton.UseVisualStyleBackColor = true;
+            // 
+            // SaveFileTextBox
+            // 
+            this.SaveFileTextBox.Location = new System.Drawing.Point(59, 85);
+            this.SaveFileTextBox.Name = "SaveFileTextBox";
+            this.SaveFileTextBox.ReadOnly = true;
+            this.SaveFileTextBox.Size = new System.Drawing.Size(145, 20);
+            this.SaveFileTextBox.TabIndex = 9;
+            // 
+            // SaveFilePrefixLabel
+            // 
+            this.SaveFilePrefixLabel.AutoSize = true;
+            this.SaveFilePrefixLabel.Location = new System.Drawing.Point(5, 88);
+            this.SaveFilePrefixLabel.Name = "SaveFilePrefixLabel";
+            this.SaveFilePrefixLabel.Size = new System.Drawing.Size(54, 13);
+            this.SaveFilePrefixLabel.TabIndex = 8;
+            this.SaveFilePrefixLabel.Text = "Save File:";
+            // 
+            // AutoLoadSaveCheckBox
+            // 
+            this.AutoLoadSaveCheckBox.AutoSize = true;
+            this.AutoLoadSaveCheckBox.Location = new System.Drawing.Point(9, 40);
+            this.AutoLoadSaveCheckBox.Name = "AutoLoadSaveCheckBox";
+            this.AutoLoadSaveCheckBox.Size = new System.Drawing.Size(261, 17);
+            this.AutoLoadSaveCheckBox.TabIndex = 7;
+            this.AutoLoadSaveCheckBox.Text = "Auto-load save file before run (backup suggested)";
+            this.AutoLoadSaveCheckBox.UseVisualStyleBackColor = true;
             // 
             // DownloadReferenceSplitsLabel
             // 
@@ -96,42 +132,6 @@
             this.RunCategoryNameComboBox.Name = "RunCategoryNameComboBox";
             this.RunCategoryNameComboBox.Size = new System.Drawing.Size(222, 21);
             this.RunCategoryNameComboBox.TabIndex = 0;
-            // 
-            // AutoLoadSaveCheckBox
-            // 
-            this.AutoLoadSaveCheckBox.AutoSize = true;
-            this.AutoLoadSaveCheckBox.Location = new System.Drawing.Point(9, 40);
-            this.AutoLoadSaveCheckBox.Name = "AutoLoadSaveCheckBox";
-            this.AutoLoadSaveCheckBox.Size = new System.Drawing.Size(164, 17);
-            this.AutoLoadSaveCheckBox.TabIndex = 7;
-            this.AutoLoadSaveCheckBox.Text = "Auto-load save file before run";
-            this.AutoLoadSaveCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // SaveFilePrefixLabel
-            // 
-            this.SaveFilePrefixLabel.AutoSize = true;
-            this.SaveFilePrefixLabel.Location = new System.Drawing.Point(5, 88);
-            this.SaveFilePrefixLabel.Name = "SaveFilePrefixLabel";
-            this.SaveFilePrefixLabel.Size = new System.Drawing.Size(54, 13);
-            this.SaveFilePrefixLabel.TabIndex = 8;
-            this.SaveFilePrefixLabel.Text = "Save File:";
-            // 
-            // SaveFileTextBox
-            // 
-            this.SaveFileTextBox.Location = new System.Drawing.Point(59, 85);
-            this.SaveFileTextBox.Name = "SaveFileTextBox";
-            this.SaveFileTextBox.ReadOnly = true;
-            this.SaveFileTextBox.Size = new System.Drawing.Size(145, 20);
-            this.SaveFileTextBox.TabIndex = 9;
-            // 
-            // SaveFileBrowseButton
-            // 
-            this.SaveFileBrowseButton.Location = new System.Drawing.Point(206, 84);
-            this.SaveFileBrowseButton.Name = "SaveFileBrowseButton";
-            this.SaveFileBrowseButton.Size = new System.Drawing.Size(76, 22);
-            this.SaveFileBrowseButton.TabIndex = 10;
-            this.SaveFileBrowseButton.Text = "Browse";
-            this.SaveFileBrowseButton.UseVisualStyleBackColor = true;
             // 
             // SpelunkySettings
             // 

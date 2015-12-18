@@ -14,6 +14,7 @@ namespace LiveSplit.Spelunky
         private Process Process;
         public Int32 BaseAddress { get; private set; }
         public bool HasExited => Process.HasExited;
+        public string FilePath => Process.MainModule.FileName;
 
         public ReadOnlyProcess(string processName)
         {

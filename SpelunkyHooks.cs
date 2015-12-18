@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -69,12 +70,16 @@ namespace LiveSplit.Spelunky
         private const int GAME_TM_CHAPTER_OFFSET = 0x445be4;
         private const int GAME_TM_REMAINING_OFFSET = 0x445be8;
 
-        private ReadOnlyProcess Process;
+        public ReadOnlyProcess Process { get; private set; }
+
 
         public SpelunkyHooks(ReadOnlyProcess process)
         {
             this.Process = process;
         }
+
+        public string GameDirectoryPath => Path.GetDirectoryName(Process.FilePath);
+        public string GameSavePath => GameDirectoryPath + @"\Data\spelunky_save.sav";
 
         private int Game => Process.ReadInt32(Process.BaseAddress + BASE_GAME_OFFSET);
         private int Gfx => Process.ReadInt32(Game + GAME_GFX_OFFSET);
