@@ -17,6 +17,8 @@ namespace LiveSplit.Spelunky
         public StatusWindow()
         {
             InitializeComponent();
+            CurrentRunLabel.Text = "";
+            StatusLabel.Text = "";
         }
 
         public string CurrentRun

@@ -1,6 +1,7 @@
 ﻿using LiveSplit.Model;
 using LiveSplit.UI.Components;
 using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,22 +15,71 @@ namespace LiveSplit.Spelunky
         public Category Category { get; private set; }
         ISegment[] Segments;
         TimerModel Timer;
+        string AutoSaveLoadOpt;
+        bool SaveLoaded;
 
-        public AutoSplitter(SpelunkyHooks hooks, Category category, TimerModel timer)
+        public string SaveBackupPath => Hooks.GameDirectoryPath + @"\Data\spelunky_save.ss.bak";
+
+        public AutoSplitter(SpelunkyHooks hooks, Category category, TimerModel timer, string autoSaveLoadOpt)
         {
-            this.Hooks = hooks;
-            this.Category = category;
-            this.Segments = category.NewInstance();
-            this.Timer = timer;
+            Hooks = hooks;
+            Category = category;
+            Segments = category.NewInstance();
+            Timer = timer;
+            AutoSaveLoadOpt = autoSaveLoadOpt;
+            SaveLoaded = false;
             AssertHooksActive();
         }
 
         delegate void SplitAction();
 
+        SegmentStatus UpdateAutoLoad(LiveSplitState state)
+        {
+            if (state.CurrentSplitIndex == -1)
+            {
+                if (AutoSaveLoadOpt != null && !SaveLoaded)
+                {
+                    if (Hooks.CurrentState != SpelunkyState.SPLASH_SCREEN)
+                    {
+                        return new SegmentStatus()
+                        {
+                            Type = SegmentStatusType.ERROR,
+                            Message = "Return to the splash screen (before the main menu) to autoload the save."
+                        };
+                    }
+                    else
+                    {
+                        try
+                        {
+                            var gameSavePath = Hooks.GameSavePath;
+                            if (!File.Exists(SaveBackupPath)) { File.Copy(gameSavePath, SaveBackupPath); }
+                            File.Copy(AutoSaveLoadOpt, gameSavePath, true);
+                            SaveLoaded = true;
+                            return null;
+                        }
+                        catch(Exception e)
+                        {
+                            return new SegmentStatus()
+                            {
+                                Type = SegmentStatusType.ERROR,
+                                Message = "Failed to autoload: " + e.Message
+                            };
+                        }
+                    }
+                }
+                return null;
+            }
+            else
+            {
+                SaveLoaded = false;
+                return null;
+            }
+        }
+
         public SegmentStatus Update(LiveSplitState state)
         {
             AssertHooksActive();
-
+            
             if(state.Run.Count != Segments.Length - 1) // Validate user splits
             {
                 return new SegmentStatus()
@@ -48,6 +98,9 @@ namespace LiveSplit.Spelunky
             }
             else
             {
+                var autoLoadResult = UpdateAutoLoad(state);
+                if (autoLoadResult != null) { return autoLoadResult; }
+
                 SplitAction splitAction; 
                 if(state.CurrentSplitIndex == -1) { splitAction = delegate () { Timer.Start(); }; }
                 else { splitAction = delegate () { Timer.Split(); }; }

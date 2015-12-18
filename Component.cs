@@ -100,7 +100,8 @@ namespace LiveSplit.Spelunky
                 else return;
             }
 
-            AutoSplitter = new AutoSplitter(new SpelunkyHooks(new ReadOnlyProcess("Spelunky")), GetCategory(Settings.RunCategory), new TimerModel() { CurrentState = state });
+            AutoSplitter = new AutoSplitter(new SpelunkyHooks(new ReadOnlyProcess("Spelunky")), GetCategory(Settings.RunCategory), 
+                new TimerModel() { CurrentState = state }, Settings.AutoLoadSaveFile ? Settings.SaveFile : null);
         }
 
         void ClearAutoSplitter()

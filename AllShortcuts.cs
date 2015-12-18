@@ -22,7 +22,8 @@ namespace LiveSplit.Spelunky
                 */
                 public SegmentStatus CheckStatus(SpelunkyHooks spelunky)
                 {
-                    if (spelunky.CurrentLobbyType != LobbyType.TUTORIAL)
+                    // Do not do game save checks in the splash screen as the save file may not be reloaded yet
+                    if (spelunky.CurrentLobbyType != LobbyType.TUTORIAL && spelunky.CurrentState != SpelunkyState.SPLASH_SCREEN)
                     {
                         return new SegmentStatus()
                         {
@@ -34,8 +35,8 @@ namespace LiveSplit.Spelunky
                     {
                         return new SegmentStatus()
                         {
-                            Type = SegmentStatusType.ERROR,
-                            Message = "The run must begin from the character selection screen."
+                            Type = SegmentStatusType.INFO,
+                            Message = "Waiting for character selection screen."
                         };
                     }
                     else
@@ -254,8 +255,8 @@ namespace LiveSplit.Spelunky
             new TMSegmentFactory("two bombs", "Jungle", "Ice Caves", TMChapter.JUNGLE_TO_ICE_CAVES, TMChapter.JUNGLE_TO_ICE_CAVES, 3, 2),
             new TMSegmentFactory("two ropes", "Jungle", "Ice Caves", TMChapter.JUNGLE_TO_ICE_CAVES, TMChapter.JUNGLE_TO_ICE_CAVES, 2, 1),
             new TMSegmentFactory("a shotgun", "Jungle", "Ice Caves", TMChapter.JUNGLE_TO_ICE_CAVES, TMChapter.EMPTY_POST_JTIC, 1, 0),
-            new TMSegmentFactory("three bombs", "Ice Caves", "Temple", TMChapter.ICE_CAVES_TO_TEMPLE, TMChapter.ICE_CAVES_TO_TEMPLE, 3, 2),
-            new TMSegmentFactory("three ropes", "Ice Caves", "Temple", TMChapter.ICE_CAVES_TO_TEMPLE, TMChapter.ICE_CAVES_TO_TEMPLE, 2, 1),
+            new TMSegmentFactory("3 bombs", "Ice Caves", "Temple", TMChapter.ICE_CAVES_TO_TEMPLE, TMChapter.ICE_CAVES_TO_TEMPLE, 3, 2),
+            new TMSegmentFactory("3 ropes", "Ice Caves", "Temple", TMChapter.ICE_CAVES_TO_TEMPLE, TMChapter.ICE_CAVES_TO_TEMPLE, 2, 1),
             new TMSegmentFactory("a key", "Ice Caves", "Temple", TMChapter.ICE_CAVES_TO_TEMPLE, TMChapter.EMPTY_COMPLETED, 1, 0),
             new OlmecFactory()
         });

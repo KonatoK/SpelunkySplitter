@@ -11,6 +11,7 @@ namespace LiveSplit.Spelunky
     {
         INPUTLOCK_PART_2 = 2,
         INPUTLOCK_PART_3 = 3,
+        SPLASH_SCREEN = 5,
         CHARACTER_SELECT = 17, 
         VICTORY_CUTSCENE = 18,
         LOBBY = 22
