@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.MainGroup = new System.Windows.Forms.GroupBox();
+            this.AlternativeSaveFileLinkLabel = new System.Windows.Forms.LinkLabel();
+            this.ForceAlternativeSaveFileCheckBox = new System.Windows.Forms.CheckBox();
             this.SaveFileBrowseButton = new System.Windows.Forms.Button();
             this.SaveFileTextBox = new System.Windows.Forms.TextBox();
             this.SaveFilePrefixLabel = new System.Windows.Forms.Label();
@@ -42,6 +44,8 @@
             // 
             // MainGroup
             // 
+            this.MainGroup.Controls.Add(this.AlternativeSaveFileLinkLabel);
+            this.MainGroup.Controls.Add(this.ForceAlternativeSaveFileCheckBox);
             this.MainGroup.Controls.Add(this.SaveFileBrowseButton);
             this.MainGroup.Controls.Add(this.SaveFileTextBox);
             this.MainGroup.Controls.Add(this.SaveFilePrefixLabel);
@@ -52,14 +56,34 @@
             this.MainGroup.Controls.Add(this.RunCategoryNameComboBox);
             this.MainGroup.Location = new System.Drawing.Point(3, 3);
             this.MainGroup.Name = "MainGroup";
-            this.MainGroup.Size = new System.Drawing.Size(287, 133);
+            this.MainGroup.Size = new System.Drawing.Size(287, 151);
             this.MainGroup.TabIndex = 1;
             this.MainGroup.TabStop = false;
             this.MainGroup.Text = "SpelunkySplitter (sashavol)";
             // 
+            // AlternativeSaveFileLinkLabel
+            // 
+            this.AlternativeSaveFileLinkLabel.AutoSize = true;
+            this.AlternativeSaveFileLinkLabel.Location = new System.Drawing.Point(211, 62);
+            this.AlternativeSaveFileLinkLabel.Name = "AlternativeSaveFileLinkLabel";
+            this.AlternativeSaveFileLinkLabel.Size = new System.Drawing.Size(13, 13);
+            this.AlternativeSaveFileLinkLabel.TabIndex = 12;
+            this.AlternativeSaveFileLinkLabel.TabStop = true;
+            this.AlternativeSaveFileLinkLabel.Text = "?";
+            // 
+            // ForceAlternativeSaveFileCheckBox
+            // 
+            this.ForceAlternativeSaveFileCheckBox.AutoSize = true;
+            this.ForceAlternativeSaveFileCheckBox.Location = new System.Drawing.Point(9, 61);
+            this.ForceAlternativeSaveFileCheckBox.Name = "ForceAlternativeSaveFileCheckBox";
+            this.ForceAlternativeSaveFileCheckBox.Size = new System.Drawing.Size(208, 17);
+            this.ForceAlternativeSaveFileCheckBox.TabIndex = 11;
+            this.ForceAlternativeSaveFileCheckBox.Text = "Force game to use alternative save file";
+            this.ForceAlternativeSaveFileCheckBox.UseVisualStyleBackColor = true;
+            // 
             // SaveFileBrowseButton
             // 
-            this.SaveFileBrowseButton.Location = new System.Drawing.Point(206, 84);
+            this.SaveFileBrowseButton.Location = new System.Drawing.Point(206, 105);
             this.SaveFileBrowseButton.Name = "SaveFileBrowseButton";
             this.SaveFileBrowseButton.Size = new System.Drawing.Size(76, 22);
             this.SaveFileBrowseButton.TabIndex = 10;
@@ -68,7 +92,7 @@
             // 
             // SaveFileTextBox
             // 
-            this.SaveFileTextBox.Location = new System.Drawing.Point(59, 85);
+            this.SaveFileTextBox.Location = new System.Drawing.Point(59, 106);
             this.SaveFileTextBox.Name = "SaveFileTextBox";
             this.SaveFileTextBox.ReadOnly = true;
             this.SaveFileTextBox.Size = new System.Drawing.Size(145, 20);
@@ -77,7 +101,7 @@
             // SaveFilePrefixLabel
             // 
             this.SaveFilePrefixLabel.AutoSize = true;
-            this.SaveFilePrefixLabel.Location = new System.Drawing.Point(5, 88);
+            this.SaveFilePrefixLabel.Location = new System.Drawing.Point(5, 109);
             this.SaveFilePrefixLabel.Name = "SaveFilePrefixLabel";
             this.SaveFilePrefixLabel.Size = new System.Drawing.Size(54, 13);
             this.SaveFilePrefixLabel.TabIndex = 8;
@@ -96,7 +120,7 @@
             // DownloadReferenceSplitsLabel
             // 
             this.DownloadReferenceSplitsLabel.AutoSize = true;
-            this.DownloadReferenceSplitsLabel.Location = new System.Drawing.Point(6, 112);
+            this.DownloadReferenceSplitsLabel.Location = new System.Drawing.Point(5, 131);
             this.DownloadReferenceSplitsLabel.Name = "DownloadReferenceSplitsLabel";
             this.DownloadReferenceSplitsLabel.Size = new System.Drawing.Size(136, 13);
             this.DownloadReferenceSplitsLabel.TabIndex = 4;
@@ -118,7 +142,7 @@
             // RunCategorySelectionLabel
             // 
             this.RunCategorySelectionLabel.AutoSize = true;
-            this.RunCategorySelectionLabel.Location = new System.Drawing.Point(6, 65);
+            this.RunCategorySelectionLabel.Location = new System.Drawing.Point(6, 86);
             this.RunCategorySelectionLabel.Name = "RunCategorySelectionLabel";
             this.RunCategorySelectionLabel.Size = new System.Drawing.Size(52, 13);
             this.RunCategorySelectionLabel.TabIndex = 1;
@@ -128,7 +152,7 @@
             // 
             this.RunCategoryNameComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.RunCategoryNameComboBox.FormattingEnabled = true;
-            this.RunCategoryNameComboBox.Location = new System.Drawing.Point(59, 61);
+            this.RunCategoryNameComboBox.Location = new System.Drawing.Point(59, 82);
             this.RunCategoryNameComboBox.Name = "RunCategoryNameComboBox";
             this.RunCategoryNameComboBox.Size = new System.Drawing.Size(222, 21);
             this.RunCategoryNameComboBox.TabIndex = 0;
@@ -139,7 +163,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.MainGroup);
             this.Name = "SpelunkySettings";
-            this.Size = new System.Drawing.Size(293, 139);
+            this.Size = new System.Drawing.Size(293, 157);
             this.MainGroup.ResumeLayout(false);
             this.MainGroup.PerformLayout();
             this.ResumeLayout(false);
@@ -156,5 +180,7 @@
         private System.Windows.Forms.CheckBox AutoLoadSaveCheckBox;
         private System.Windows.Forms.Button SaveFileBrowseButton;
         private System.Windows.Forms.TextBox SaveFileTextBox;
+        private System.Windows.Forms.LinkLabel AlternativeSaveFileLinkLabel;
+        private System.Windows.Forms.CheckBox ForceAlternativeSaveFileCheckBox;
     }
 }

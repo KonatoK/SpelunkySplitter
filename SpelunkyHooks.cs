@@ -73,14 +73,14 @@ namespace LiveSplit.Spelunky
 
         public RawProcess Process { get; private set; }
 
-
         public SpelunkyHooks(RawProcess process)
         {
             this.Process = process;
         }
 
+        public string DeviatedGameSavePath { get; set; }
         public string GameDirectoryPath => Path.GetDirectoryName(Process.FilePath);
-        public string GameSavePath => GameDirectoryPath + @"\Data\spelunky_save.sav";
+        public string GameSavePath => DeviatedGameSavePath ?? GameDirectoryPath + @"\Data\spelunky_save.sav";
 
         private int Game => Process.ReadInt32(Process.BaseAddress + BASE_GAME_OFFSET);
         private int Gfx => Process.ReadInt32(Game + GAME_GFX_OFFSET);

@@ -18,4 +18,37 @@ namespace LiveSplit.Spelunky
         void Apply();
         void Revert();
     }
+
+    public class EnabledPatchContainer : IDisposable
+    {
+        List<IPatch> Patches;
+
+        public delegate IPatch PatchInstantiator();
+
+        public EnabledPatchContainer()
+        {
+            Patches = new List<IPatch>();
+        }
+
+        public bool TryAdd(PatchInstantiator inst)
+        {
+            try
+            {
+                Patches.Add(inst());
+                return true;
+            }
+            catch (PatchInitializationFailedException e) {
+                Console.WriteLine("Warning: Failed to initialize patch: " + e.Message);
+                return false;
+            }
+        }
+
+        public void Dispose()
+        {
+            foreach(var patch in Patches)
+            {
+                patch.Revert();
+            }
+        }
+    }
 }

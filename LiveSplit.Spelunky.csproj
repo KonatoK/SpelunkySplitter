@@ -69,10 +69,12 @@
     <Compile Include="AutoSplitter.cs" />
     <Compile Include="Component.cs" />
     <Compile Include="Factory.cs" />
+    <Compile Include="Patch.cs" />
     <Compile Include="Kernel32.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ReadOnlyProcess.cs" />
+    <Compile Include="RawProcess.cs" />
     <Compile Include="Category.cs" />
+    <Compile Include="SaveChangePatch.cs" />
     <Compile Include="SpelunkyHooks.cs" />
     <Compile Include="SpelunkySettings.cs">
       <SubType>UserControl</SubType>

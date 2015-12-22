@@ -19,6 +19,7 @@ namespace LiveSplit.Spelunky
 
         public SaveChangePatch(SpelunkyHooks spelunky)
         {
+            PatchAddresses = new List<int>();
             Spelunky = spelunky;
             FindPatchAddresses();
         }

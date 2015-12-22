@@ -13,6 +13,7 @@ namespace LiveSplit.Spelunky
     {
         public SpelunkyHooks Hooks { get; private set; }
         public Category Category { get; private set; }
+        EnabledPatchContainer Patches;
         ISegment[] Segments;
         TimerModel Timer;
         string AutoSaveLoadOpt;
@@ -20,10 +21,11 @@ namespace LiveSplit.Spelunky
 
         public string SaveBackupPath => Hooks.GameDirectoryPath + @"\Data\spelunky_save.ss.bak";
 
-        public AutoSplitter(SpelunkyHooks hooks, Category category, TimerModel timer, string autoSaveLoadOpt)
+        public AutoSplitter(SpelunkyHooks hooks, Category category, EnabledPatchContainer patches, TimerModel timer, string autoSaveLoadOpt)
         {
             Hooks = hooks;
             Category = category;
+            Patches = patches;
             Segments = category.NewInstance();
             Timer = timer;
             AutoSaveLoadOpt = autoSaveLoadOpt;
@@ -123,6 +125,7 @@ namespace LiveSplit.Spelunky
         public void Dispose()
         {
             Hooks.Dispose();
+            Patches.Dispose();
         }
     }
 }

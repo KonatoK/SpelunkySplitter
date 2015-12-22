@@ -88,6 +88,14 @@ namespace LiveSplit.Spelunky
             }
         }
 
+        EnabledPatchContainer MakePatchesFromSettings(SpelunkyHooks hooks)
+        {
+            var container = new EnabledPatchContainer();
+            if (Settings.ForceAlternativeSaveFile)
+                container.TryAdd(() => new SaveChangePatch(hooks));
+            return container;
+        }
+
         void GetHooksIfNeeded(LiveSplitState state)
         {
             if(AutoSplitter != null)
@@ -100,8 +108,10 @@ namespace LiveSplit.Spelunky
                 else return;
             }
 
-            AutoSplitter = new AutoSplitter(new SpelunkyHooks(new ReadOnlyProcess("Spelunky")), GetCategory(Settings.RunCategory), 
-                new TimerModel() { CurrentState = state }, Settings.AutoLoadSaveFile ? Settings.SaveFile : null);
+            var hooks = new SpelunkyHooks(new RawProcess("Spelunky"));
+            AutoSplitter = new AutoSplitter(hooks, GetCategory(Settings.RunCategory), 
+                MakePatchesFromSettings(hooks), new TimerModel() { CurrentState = state }, 
+                Settings.AutoLoadSaveFile ? Settings.SaveFile : null);
         }
 
         void ClearAutoSplitter()

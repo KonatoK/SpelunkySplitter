@@ -25,6 +25,7 @@ namespace LiveSplit.Spelunky
 
         const bool DEFAULT_AUTOSPLITTING_ENABLED = true;
         const bool DEFAULT_AUTOLOAD_SAVEFILE = false;
+        const bool DEFAULT_USE_ALTERNATIVE_SAVEFILE = false;
         const string DEFAULT_SAVEFILE = "";
         const Category DEFAULT_RUN_CATEGORY = Category.AllShortcuts;
 
@@ -32,6 +33,7 @@ namespace LiveSplit.Spelunky
         public Category RunCategory => (Category)RunCategoryNameComboBox.SelectedIndex;
         public string SaveFile => SaveFileTextBox.Text;
         public bool AutoLoadSaveFile => AutoLoadSaveCheckBox.Checked;
+        public bool ForceAlternativeSaveFile => ForceAlternativeSaveFileCheckBox.Checked;
 
         public event PropertyChangedHandler PropertyChanged;
 
@@ -44,12 +46,15 @@ namespace LiveSplit.Spelunky
             RunCategoryNameComboBox.SelectedIndex = (int)DEFAULT_RUN_CATEGORY;
             SaveFileTextBox.Text = DEFAULT_SAVEFILE;
             AutoLoadSaveCheckBox.Checked = DEFAULT_AUTOLOAD_SAVEFILE;
+            ForceAlternativeSaveFileCheckBox.Checked = DEFAULT_USE_ALTERNATIVE_SAVEFILE;
 
             AutoSplittingEnabledCheckBox.CheckedChanged += HandleAutoSplittingCheckedChanged;
             AutoLoadSaveCheckBox.CheckedChanged += HandleAutoLoadSaveFileCheckedChanged;
+            ForceAlternativeSaveFileCheckBox.CheckedChanged += HandleForceAlternativeSaveFileCheckedChanged;
             RunCategoryNameComboBox.SelectedIndexChanged += HandleRunSelectedIndexChanged;
             SaveFileBrowseButton.Click += HandleSaveFileBrowseButtonClick;
 
+            AlternativeSaveFileLinkLabel.LinkClicked += HandleAlternativeSaveFileLinkLabelClicked;
             DownloadReferenceSplitsLabel.LinkClicked += HandleDownloadReferenceSplitsLinkClicked;
         }
 
@@ -90,12 +95,23 @@ namespace LiveSplit.Spelunky
                 PropertyChanged(this, EventArgs.Empty);
         }
 
+        void HandleAlternativeSaveFileLinkLabelClicked(object sender, LinkLabelLinkClickedEventArgs args)
+        {
+            MessageBox.Show("This option enables changing the save file the game uses from 'spelunky_save.sav' to 'splitter_save.sav'. This allows for maintaining a separate speedrunning save file and normal gameplay file. After LiveSplit is closed Spelunky will use the normal save file again.", 
+                "Force alternative save file");
+        }
+
         void HandleDownloadReferenceSplitsLinkClicked(object sender, LinkLabelLinkClickedEventArgs args)
         {
             Process.Start("https://github.com/sashavolv2/SpelunkySplitter/tree/master/ReferenceSplits");
         }
 
         void HandleAutoSplittingCheckedChanged(object sender, EventArgs args)
+        {
+            PropertyChanged(this, EventArgs.Empty);
+        }
+        
+        void HandleForceAlternativeSaveFileCheckedChanged(object sender, EventArgs args)
         {
             PropertyChanged(this, EventArgs.Empty);
         }
@@ -113,6 +129,7 @@ namespace LiveSplit.Spelunky
             settings.AppendChild(XMLSettings.ToElement(doc, nameof(RunCategoryNameComboBox), ((Category)RunCategoryNameComboBox.SelectedIndex).ToString()));
             settings.AppendChild(XMLSettings.ToElement(doc, nameof(SaveFileTextBox), SaveFileTextBox.Text));
             settings.AppendChild(XMLSettings.ToElement(doc, nameof(AutoLoadSaveCheckBox), AutoLoadSaveCheckBox.Checked));
+            settings.AppendChild(XMLSettings.ToElement(doc, nameof(ForceAlternativeSaveFileCheckBox), ForceAlternativeSaveFileCheckBox.Checked));
             return settings;
         }
 
@@ -125,7 +142,8 @@ namespace LiveSplit.Spelunky
             AutoSplittingEnabledCheckBox.Checked = XMLSettings.Parse(settings[nameof(AutoSplittingEnabledCheckBox)], DEFAULT_AUTOSPLITTING_ENABLED, bool.Parse);
             RunCategoryNameComboBox.SelectedIndex = (int)XMLSettings.Parse(settings[nameof(RunCategoryNameComboBox)], DEFAULT_RUN_CATEGORY, ParseRunCategory);
             SaveFileTextBox.Text = XMLSettings.Parse(settings[nameof(SaveFileTextBox)], DEFAULT_SAVEFILE, ParseSaveFile);
-            AutoLoadSaveCheckBox.Checked = XMLSettings.Parse(settings[nameof(AutoLoadSaveCheckBox)], AutoLoadSaveCheckBox.Checked, bool.Parse);
+            AutoLoadSaveCheckBox.Checked = XMLSettings.Parse(settings[nameof(AutoLoadSaveCheckBox)], DEFAULT_AUTOLOAD_SAVEFILE, bool.Parse);
+            ForceAlternativeSaveFileCheckBox.Checked = XMLSettings.Parse(settings[nameof(ForceAlternativeSaveFileCheckBox)], DEFAULT_USE_ALTERNATIVE_SAVEFILE, bool.Parse);
             PropertyChanged(this, EventArgs.Empty);
         }
 
