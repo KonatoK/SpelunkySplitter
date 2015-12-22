@@ -27,7 +27,7 @@ namespace LiveSplit.Spelunky
             var process = processes[0];
             Process = process;
             BaseAddress = process.MainModule.BaseAddress.ToInt32();
-            ProcessHandle = Kernel32.OpenProcess(Kernel32.PROCESS_VM_READ | Kernel32.PROCESS_VM_WRITE | Kernel32.PROCESS_QUERY_INFORMATION, false, process.Id);
+            ProcessHandle = Kernel32.OpenProcess(Kernel32.PROCESS_ALL_ACCESS, false, process.Id);
         }
 
         // returns an offset containing the signature match (if it exists)

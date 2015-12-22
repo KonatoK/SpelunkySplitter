@@ -48,7 +48,7 @@ namespace LiveSplit.Spelunky
             public IntPtr BaseAddress;
             public IntPtr AllocationBase;
             public AllocationProtectEnum AllocationProtect;
-            public uint RegionSize;
+            public IntPtr RegionSize;
             public StateEnum State;
             public AllocationProtectEnum Protect;
             public TypeEnum Type;
@@ -89,5 +89,8 @@ namespace LiveSplit.Spelunky
 
         [DllImport("kernel32.dll")]
         public static extern bool CloseHandle(int hObject);
+
+        [DllImport("kernel32.dll")]
+        public static extern int GetLastError();
     }
 }
