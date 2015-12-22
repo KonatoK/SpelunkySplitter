@@ -71,10 +71,10 @@ namespace LiveSplit.Spelunky
         private const int GAME_TM_CHAPTER_OFFSET = 0x445be4;
         private const int GAME_TM_REMAINING_OFFSET = 0x445be8;
 
-        public ReadOnlyProcess Process { get; private set; }
+        public RawProcess Process { get; private set; }
 
 
-        public SpelunkyHooks(ReadOnlyProcess process)
+        public SpelunkyHooks(RawProcess process)
         {
             this.Process = process;
         }
