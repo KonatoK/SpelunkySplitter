@@ -97,7 +97,7 @@ namespace LiveSplit.Spelunky
 
         void HandleAlternativeSaveFileLinkLabelClicked(object sender, LinkLabelLinkClickedEventArgs args)
         {
-            MessageBox.Show("This option enables changing the save file the game uses from 'spelunky_save.sav' to 'splitter_save.sav'. This allows for maintaining a separate speedrunning save file and normal gameplay file. After LiveSplit is closed Spelunky will use the normal save file again.", 
+            MessageBox.Show("This option enables changing the save file the game uses from 'spelunky_save.sav' to 'splitter_save.sav'. This allows for maintaining a separate speedrunning save file and normal gameplay file. After LiveSplit is closed Spelunky will use the normal save file again. Enabling this is recommended when using save file auto-load.", 
                 "Force alternative save file");
         }
 
