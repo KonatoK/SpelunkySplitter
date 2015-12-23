@@ -36,49 +36,47 @@ namespace LiveSplit.Spelunky
             var end = bufUsed - signature.Length + 1;
             for (var offs = 0; offs < end; ++offs)
             {
+                var matches = 0;
                 for(var i = 0; i < signature.Length; ++i)
                 {
                     byte? s = signature[i];
                     if(s.HasValue && s.Value != buf[i+offs]) { goto NoMatch; }
+                    ++matches;
                 }
                 return offs;
-                NoMatch: continue;
+                NoMatch: { };
             }
             return null;
         }
 
         const int BUF_SCAN_SIZE = 4096;
-        public int? FindBytes(byte?[] signature, int startAddr = 0)
+        public int? FindBytes(byte?[] signature, int startAddr = 0, int endAddr = 0x3000000)
         {
-            IntPtr addr = (IntPtr)startAddr;
+            int addr = startAddr;
             var mbi = new Kernel32.MEMORY_BASIC_INFORMATION();
             byte[] buf = new byte[4096];
+            var pagesConsidered = 0;
 
-            while(Kernel32.VirtualQueryEx((int)ProcessHandle, addr, ref mbi, Kernel32.MBI_SIZE) > 0)
+            while(Kernel32.VirtualQueryEx((int)ProcessHandle, (IntPtr)addr, ref mbi, Kernel32.MBI_SIZE) > 0)
             {
-                addr = mbi.BaseAddress;
-                if(mbi.State != Kernel32.StateEnum.MEM_COMMIT)
-                {
-                    addr += (int)mbi.RegionSize;
-                    continue;
-                }
+                int end = (int)mbi.BaseAddress + (int)mbi.RegionSize;
+                if (mbi.State != Kernel32.StateEnum.MEM_COMMIT) { goto NextPage; }
+                if((int)mbi.BaseAddress > addr) { addr = (int)mbi.BaseAddress; }
+                if(addr >= endAddr) { break; }
 
-                int pageRemaining = (int)mbi.RegionSize;
-                int bufUsed;
-                do
+                while(addr < end)
                 {
-                    bufUsed = Math.Min(buf.Length, pageRemaining);
-                    if (mbi.State == Kernel32.StateEnum.MEM_COMMIT)
-                    {
-                        int szRead = ReadBytes((int)addr, ref buf);
-                        if (szRead == 0) { return null; }
-                        var maybeOffs = FindSignatureMatch(buf, bufUsed, signature);
-                        if (maybeOffs.HasValue) { return (int)addr + maybeOffs.Value; }
-                    }
-                    pageRemaining -= bufUsed;
+                    var bufUsed = Math.Min(buf.Length, end - addr);
+                    int szRead = ReadBytes(addr, ref buf);
+                    if (szRead == 0) { break; }
+                    var maybeOffs = FindSignatureMatch(buf, bufUsed, signature);
+                    if (maybeOffs.HasValue) { return addr + maybeOffs.Value; }
                     addr += bufUsed;
                 }
-                while (pageRemaining > 0);
+
+                NextPage: { }
+                addr = end;
+                ++pagesConsidered;
             }
 
             return null;

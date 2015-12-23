@@ -26,8 +26,8 @@ namespace LiveSplit.Spelunky
 
         void FindPatchAddresses()
         {
-            int? currentAddress = 0;
-            while((currentAddress = Spelunky.Process.FindBytes(SearchSignature, currentAddress.Value)).HasValue)
+            int? currentAddress = -1;
+            while((currentAddress = Spelunky.Process.FindBytes(SearchSignature, currentAddress.Value + 1)).HasValue)
                 PatchAddresses.Add(currentAddress.Value);
             if(PatchAddresses.Count == 0) { throw new PatchInitializationFailedException("Failed to find any patch offsets for save change patch"); }
         }
