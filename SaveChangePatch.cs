@@ -35,13 +35,18 @@ namespace LiveSplit.Spelunky
         public void Apply()
         {
             foreach(var address in PatchAddresses)
+            {
+                Spelunky.Process.SetMemoryWritable(address, SplitterSave.Length);
                 Spelunky.Process.WriteBytes(address, OverwriteValue);
+            }
+            Spelunky.DeviatedGameSavePath = Spelunky.GameDirectoryPath + @"\Data\" + SplitterSave + ".sav";
         }
 
         public void Revert()
         {
             foreach(var address in PatchAddresses)
                 Spelunky.Process.WriteBytes(address, RevertValue);
+            Spelunky.DeviatedGameSavePath = null;
         }
     }
 }

@@ -27,7 +27,7 @@ namespace LiveSplit.Spelunky
             var process = processes[0];
             Process = process;
             BaseAddress = process.MainModule.BaseAddress.ToInt32();
-            ProcessHandle = Kernel32.OpenProcess(Kernel32.PROCESS_ALL_ACCESS, false, process.Id);
+            ProcessHandle = Kernel32.OpenProcess(Kernel32.ProcessPermissionsEnum.PROCESS_ALL_ACCESS, false, process.Id);
         }
 
         // returns an offset containing the signature match (if it exists)
@@ -57,7 +57,7 @@ namespace LiveSplit.Spelunky
             byte[] buf = new byte[4096];
             var pagesConsidered = 0;
 
-            while(Kernel32.VirtualQueryEx((int)ProcessHandle, (IntPtr)addr, ref mbi, Kernel32.MBI_SIZE) > 0)
+            while(Kernel32.VirtualQueryEx((int)ProcessHandle, (IntPtr)addr, ref mbi, Kernel32.MBI_LENGTH) > 0)
             {
                 int end = (int)mbi.BaseAddress + (int)mbi.RegionSize;
                 if(mbi.State != Kernel32.StateEnum.MEM_COMMIT) { goto NextPage; }
@@ -100,6 +100,13 @@ namespace LiveSplit.Spelunky
         public int WriteSingle(int address, float value)
         {
             return WriteBytes(address, BitConverter.GetBytes(value));
+        }
+
+        public void SetMemoryWritable(int address, int numBytes)
+        {
+            var prevPermissions = new Kernel32.PagePermissionsEnum();
+            if(!Kernel32.VirtualProtectEx((int)ProcessHandle, (IntPtr)address, numBytes, Kernel32.PagePermissionsEnum.PAGE_EXECUTE_READWRITE, ref prevPermissions))
+                throw new Exception("Failed to set memory writeable: " + Kernel32.GetLastError());
         }
 
         public int WriteBytes(int address, byte[] bytes)

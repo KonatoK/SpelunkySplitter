@@ -92,7 +92,7 @@ namespace LiveSplit.Spelunky
         {
             var container = new EnabledPatchContainer();
             if (Settings.ForceAlternativeSaveFile)
-                container.TryAdd(() => new SaveChangePatch(hooks));
+                container.TryAddAndEnable(() => new SaveChangePatch(hooks));
             return container;
         }
 

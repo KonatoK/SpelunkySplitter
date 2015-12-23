@@ -54,7 +54,7 @@ namespace LiveSplit.Spelunky
                         try
                         {
                             var gameSavePath = Hooks.GameSavePath;
-                            if (!File.Exists(SaveBackupPath)) { File.Copy(gameSavePath, SaveBackupPath); }
+                            if (File.Exists(gameSavePath) && !File.Exists(SaveBackupPath)) { File.Copy(gameSavePath, SaveBackupPath); }
                             File.Copy(AutoSaveLoadOpt, gameSavePath, true);
                             SaveLoaded = true;
                             return null;
@@ -124,7 +124,7 @@ namespace LiveSplit.Spelunky
 
         public void Dispose()
         {
-            Patches.Dispose();
+            if(!Hooks.Process.HasExited) { Patches.RevertAll(); }
             Hooks.Dispose();
         }
     }

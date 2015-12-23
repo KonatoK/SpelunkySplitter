@@ -19,7 +19,7 @@ namespace LiveSplit.Spelunky
         void Revert();
     }
 
-    public class EnabledPatchContainer : IDisposable
+    public class EnabledPatchContainer
     {
         List<IPatch> Patches;
 
@@ -30,11 +30,13 @@ namespace LiveSplit.Spelunky
             Patches = new List<IPatch>();
         }
 
-        public bool TryAdd(PatchInstantiator inst)
+        public bool TryAddAndEnable(PatchInstantiator inst)
         {
             try
             {
-                Patches.Add(inst());
+                var patch = inst();
+                patch.Apply();
+                Patches.Add(patch);
                 return true;
             }
             catch (PatchInitializationFailedException e) {
@@ -43,7 +45,7 @@ namespace LiveSplit.Spelunky
             }
         }
 
-        public void Dispose()
+        public void RevertAll()
         {
             foreach(var patch in Patches)
             {
