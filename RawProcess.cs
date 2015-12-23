@@ -31,15 +31,15 @@ namespace LiveSplit.Spelunky
         }
 
         // returns an offset containing the signature match (if it exists)
-        int? FindSignatureMatch(byte[] buf, byte?[] signature)
+        int? FindSignatureMatch(byte[] buf, int bufUsed, byte?[] signature)
         {
-            var end = buf.Length - signature.Length;
+            var end = bufUsed - signature.Length + 1;
             for (var offs = 0; offs < end; ++offs)
             {
-                for(var i = 0; i < buf.Length; ++i)
+                for(var i = 0; i < signature.Length; ++i)
                 {
                     byte? s = signature[i];
-                    if(s.HasValue && s.Value != buf[offs+i]) { goto NoMatch; }
+                    if(s.HasValue && s.Value != buf[i+offs]) { goto NoMatch; }
                 }
                 return offs;
                 NoMatch: continue;
@@ -57,14 +57,28 @@ namespace LiveSplit.Spelunky
             while(Kernel32.VirtualQueryEx((int)ProcessHandle, addr, ref mbi, Kernel32.MBI_SIZE) > 0)
             {
                 addr = mbi.BaseAddress;
-                if(mbi.State == Kernel32.StateEnum.MEM_COMMIT)
+                if(mbi.State != Kernel32.StateEnum.MEM_COMMIT)
                 {
-                    int szRead = ReadBytes((int)addr, ref buf);
-                    if(szRead == 0) { return null; }
-                    var maybeOffs = FindSignatureMatch(buf, signature);
-                    if(maybeOffs.HasValue) { return (int)addr + maybeOffs.Value; }
+                    addr += (int)mbi.RegionSize;
+                    continue;
                 }
-                addr += (int)mbi.RegionSize;
+
+                int pageRemaining = (int)mbi.RegionSize;
+                int bufUsed;
+                do
+                {
+                    bufUsed = Math.Min(buf.Length, pageRemaining);
+                    if (mbi.State == Kernel32.StateEnum.MEM_COMMIT)
+                    {
+                        int szRead = ReadBytes((int)addr, ref buf);
+                        if (szRead == 0) { return null; }
+                        var maybeOffs = FindSignatureMatch(buf, bufUsed, signature);
+                        if (maybeOffs.HasValue) { return (int)addr + maybeOffs.Value; }
+                    }
+                    pageRemaining -= bufUsed;
+                    addr += bufUsed;
+                }
+                while (pageRemaining > 0);
             }
 
             return null;
