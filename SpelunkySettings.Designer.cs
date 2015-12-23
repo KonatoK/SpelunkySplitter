@@ -64,7 +64,7 @@
             // AlternativeSaveFileLinkLabel
             // 
             this.AlternativeSaveFileLinkLabel.AutoSize = true;
-            this.AlternativeSaveFileLinkLabel.Location = new System.Drawing.Point(211, 62);
+            this.AlternativeSaveFileLinkLabel.Location = new System.Drawing.Point(211, 41);
             this.AlternativeSaveFileLinkLabel.Name = "AlternativeSaveFileLinkLabel";
             this.AlternativeSaveFileLinkLabel.Size = new System.Drawing.Size(13, 13);
             this.AlternativeSaveFileLinkLabel.TabIndex = 12;
@@ -74,7 +74,7 @@
             // ForceAlternativeSaveFileCheckBox
             // 
             this.ForceAlternativeSaveFileCheckBox.AutoSize = true;
-            this.ForceAlternativeSaveFileCheckBox.Location = new System.Drawing.Point(9, 61);
+            this.ForceAlternativeSaveFileCheckBox.Location = new System.Drawing.Point(9, 40);
             this.ForceAlternativeSaveFileCheckBox.Name = "ForceAlternativeSaveFileCheckBox";
             this.ForceAlternativeSaveFileCheckBox.Size = new System.Drawing.Size(208, 17);
             this.ForceAlternativeSaveFileCheckBox.TabIndex = 11;
@@ -110,7 +110,7 @@
             // AutoLoadSaveCheckBox
             // 
             this.AutoLoadSaveCheckBox.AutoSize = true;
-            this.AutoLoadSaveCheckBox.Location = new System.Drawing.Point(9, 40);
+            this.AutoLoadSaveCheckBox.Location = new System.Drawing.Point(9, 60);
             this.AutoLoadSaveCheckBox.Name = "AutoLoadSaveCheckBox";
             this.AutoLoadSaveCheckBox.Size = new System.Drawing.Size(261, 17);
             this.AutoLoadSaveCheckBox.TabIndex = 7;
