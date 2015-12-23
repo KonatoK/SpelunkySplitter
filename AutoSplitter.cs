@@ -124,8 +124,8 @@ namespace LiveSplit.Spelunky
 
         public void Dispose()
         {
-            Hooks.Dispose();
             Patches.Dispose();
+            Hooks.Dispose();
         }
     }
 }
