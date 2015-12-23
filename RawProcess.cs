@@ -60,7 +60,7 @@ namespace LiveSplit.Spelunky
             while(Kernel32.VirtualQueryEx((int)ProcessHandle, (IntPtr)addr, ref mbi, Kernel32.MBI_SIZE) > 0)
             {
                 int end = (int)mbi.BaseAddress + (int)mbi.RegionSize;
-                if (mbi.State != Kernel32.StateEnum.MEM_COMMIT) { goto NextPage; }
+                if(mbi.State != Kernel32.StateEnum.MEM_COMMIT) { goto NextPage; }
                 if((int)mbi.BaseAddress > addr) { addr = (int)mbi.BaseAddress; }
                 if(addr >= endAddr) { break; }
 
@@ -68,9 +68,9 @@ namespace LiveSplit.Spelunky
                 {
                     var bufUsed = Math.Min(buf.Length, end - addr);
                     int szRead = ReadBytes(addr, ref buf);
-                    if (szRead == 0) { break; }
+                    if(szRead == 0) { break; }
                     var maybeOffs = FindSignatureMatch(buf, bufUsed, signature);
-                    if (maybeOffs.HasValue) { return addr + maybeOffs.Value; }
+                    if(maybeOffs.HasValue) { return addr + maybeOffs.Value; }
                     addr += bufUsed;
                 }
 
