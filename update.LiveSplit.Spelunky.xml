@@ -17,4 +17,12 @@
 			<change>Note: Due to a misconfiguration in 1.0 you will have to manually delete Components/LiveSplit.Spelunky.dll to get the update</change>
 		</changelog>
 	</update>
+	<update version="1.2">
+		<files>
+			<file path="Components/LiveSplit.Spelunky.dll" status="changed"/>
+		</files>
+		<changelog>
+			<change>Added alternative save file forcing.</change>
+		</changelog>
+	</update>
 </updates>
