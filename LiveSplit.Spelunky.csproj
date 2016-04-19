@@ -65,7 +65,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AllShortcuts.cs" />
+    <Compile Include="Categories\AllJournalEntries.cs" />
+    <Compile Include="Categories\AllShortcuts.cs" />
     <Compile Include="AutoSplitter.cs" />
     <Compile Include="Component.cs" />
     <Compile Include="Factory.cs" />
@@ -75,6 +76,11 @@
     <Compile Include="RawProcess.cs" />
     <Compile Include="Category.cs" />
     <Compile Include="SaveChangePatch.cs" />
+    <Compile Include="SegmentFactories\CharSelectSegmentFactory.cs" />
+    <Compile Include="SegmentFactories\JournalEntryProgressSegmentFactory.cs" />
+    <Compile Include="SegmentFactories\OlmecSegmentFactory.cs" />
+    <Compile Include="SegmentFactories\TunnelManSegmentFactory.cs" />
+    <Compile Include="SegmentFactories\TutorialSegmentFactory.cs" />
     <Compile Include="SpelunkyHooks.cs" />
     <Compile Include="SpelunkySettings.cs">
       <SubType>UserControl</SubType>

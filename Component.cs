@@ -38,9 +38,9 @@ namespace LiveSplit.Spelunky
 
         public Component(LiveSplitState state, bool isLayoutComponent)
         {
-            this.IsLayoutComponent = isLayoutComponent;
-            this.Settings = new SpelunkySettings();
-            this.StatusWindow = new StatusWindow();
+            IsLayoutComponent = isLayoutComponent;
+            Settings = new SpelunkySettings();
+            StatusWindow = new StatusWindow();
             HandleAutoSplitterChange(Settings, EventArgs.Empty); // Simulate a property change (for default values)
             Settings.PropertyChanged += HandleAutoSplitterChange;
         }
@@ -51,7 +51,7 @@ namespace LiveSplit.Spelunky
 
             if (StatusWindow.IsDisposed) { StatusWindow = new StatusWindow(); }
 
-            StatusWindow.CurrentRun = SpelunkySettings.CategoryNames[(int)Settings.RunCategory];
+            StatusWindow.CurrentRun = Category.GetFriendlyName(Settings.CurrentRunCategoryType);
             if (Settings.AutoSplittingEnabled)
                 StatusWindow.Show();
             else
@@ -74,18 +74,7 @@ namespace LiveSplit.Spelunky
 
         public Control GetSettingsControl(LayoutMode mode)
         {
-            return this.Settings;
-        }
-
-        Category GetCategory(SpelunkySettings.Category category)
-        {
-            switch(category)
-            {
-                case SpelunkySettings.Category.AllShortcuts:
-                    return AllShortcuts.Category;
-                default:
-                    throw new Exception("Encountered unknown category: " + category.ToString());
-            }
+            return Settings;
         }
 
         EnabledPatchContainer MakePatchesFromSettings(SpelunkyHooks hooks)
@@ -109,7 +98,7 @@ namespace LiveSplit.Spelunky
             }
 
             var hooks = new SpelunkyHooks(new RawProcess("Spelunky"));
-            AutoSplitter = new AutoSplitter(hooks, GetCategory(Settings.RunCategory), 
+            AutoSplitter = new AutoSplitter(hooks, Settings.CurrentRunCategoryType, 
                 MakePatchesFromSettings(hooks), new TimerModel() { CurrentState = state }, 
                 Settings.AutoLoadSaveFile ? Settings.SaveFile : null);
         }
