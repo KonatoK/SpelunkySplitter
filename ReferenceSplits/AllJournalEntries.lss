@@ -14,7 +14,7 @@
   </Metadata>
   <Offset>00:00:00</Offset>
   <AttemptCount>0</AttemptCount>
-  <AttemptHistory />
+  <AttemptHistory></AttemptHistory>
   <Segments>
     <Segment>
       <Name>Tutorial</Name>
@@ -48,5 +48,6 @@
     <Version>1.0.0</Version>
     <AutoSplittingEnabledCheckBox>True</AutoSplittingEnabledCheckBox>
     <RunCategoryNameComboBox>AllJournalEntries</RunCategoryNameComboBox>
+    <ShowJournalTrackerCheckBox>True</ShowJournalTrackerCheckBox>
   </AutoSplitterSettings>
 </Run>

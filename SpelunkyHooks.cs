@@ -10,20 +10,20 @@ namespace LiveSplit.Spelunky
 {
     public enum SpelunkyState : int
     {
-        INPUTLOCK_PART_2 = 2,
-        INPUTLOCK_PART_3 = 3,
-        SPLASH_SCREEN = 5,
-        CHARACTER_SELECT = 17, 
-        VICTORY_CUTSCENE = 18,
-        LOBBY = 22
+        InputLockPart2 = 2,
+        InputLockPart3 = 3,
+        SplashScreen = 5,
+        CharacterSelect = 17, 
+        VictoryCutscene = 18,
+        Lobby = 22
     }
 
     public enum SpelunkyLevel : int
     {
-        EMPTY = 0,
-        L0_1_OR_1_1 = 1,
-        L0_2_OR_1_2 = 2,
-        L0_3_OR_1_3 = 3,
+        Empty = 0,
+        L0_1Or1_1 = 1,
+        L0_2Or1_2 = 2,
+        L0_3Or1_3 = 3,
         L1_4 = 4,
         L2_1 = 5,
         L2_2 = 6,
@@ -45,159 +45,159 @@ namespace LiveSplit.Spelunky
 
     public enum TunnelManChapter : int
     {
-        EMPTY_UNENCOUNTERED = 0,
-        MINES_TO_JUNGLE = 1,
-        EMPTY_POST_MTJ = 2,
-        JUNGLE_TO_ICE_CAVES = 3,
-        EMPTY_POST_JTIC = 4,
-        ICE_CAVES_TO_TEMPLE = 5,
-        EMPTY_COMPLETED = 6
+        EmptyUnencountered = 0,
+        MinesToJungle = 1,
+        EmptyPostMtj = 2,
+        JungleToIceCaves = 3,
+        EmptyPostJtic = 4,
+        IceCavesToTemple = 5,
+        EmptyCompleted = 6
     }
     
     public enum LobbyType : int
     {
-        TUTORIAL = 0,
-        BREAKING = 1,
-        DOOR_OPEN_NO_GEM = 2
+        Tutorial = 0,
+        Breaking = 1,
+        DoorOpenNoGem = 2
     }
 
     public enum PlaceEntry : int
     {
-        THE_MINES = 0,
-        THE_JUNGLE = 1,
-        THE_ICE_CAVES = 2,
-        THE_TEMPLE = 3,
-        HELL = 4,
-        THE_HAUNTED_CASTLE = 5,
-        THE_BLACK_MARKET = 6,
-        THE_WORM = 7,
-        THE_MOTHERSHIP = 8,
-        THE_CITY_OF_GOLD = 9
+        TheMines = 0,
+        TheJungle = 1,
+        TheIceCaves = 2,
+        TheTemple = 3,
+        Hell = 4,
+        TheHauntedCastle = 5,
+        TheBlackMarket = 6,
+        TheWorm = 7,
+        TheMothership = 8,
+        TheCityOfGold = 9
     }
 
     public enum MonsterEntry : int
     {
-        SNAKE = 0,
-        COBRA = 1,
-        BAT = 2,
-        SPIDER = 3,
-        SPINNER_SPIDER = 4,
-        GIANT_SPIDER = 5,
-        SKELETON = 6,
-        SCORPION = 7,
-        CAVEMAN = 8,
-        DAMSEL = 9,
-        SHOPKEEPER = 10,
-        THE_TUNNEL_MAN = 11,
-        SCARAB = 12,
-        TIKI_MAN = 13,
-        FROG = 14,
-        FIRE_FROG = 15,
-        GIANT_FROG = 16,
-        MANTRAP = 17,
-        PIRANHA = 18,
-        OLD_BITEY = 19,
-        KILLER_BEE = 20,
-        QUEEN_BEE = 21,
-        SNAIL = 22,
-        MONKEY = 23,
-        GOLDEN_MONKEY = 24,
-        JIANG_SHI = 25,
-        GREEN_KNIGHT = 26,
-        BLACK_KNIGHT = 27,
-        VAMPIRE = 28,
-        THE_GHOST = 29,
-        BACTERIUM = 30,
-        WORM_EGG = 31,
-        WORM_BABY = 32,
-        YETI = 33,
-        YETI_KING = 34,
-        MAMMOTH = 35,
-        ALIEN = 36,
-        UFO = 37,
-        ALIEN_TANK = 38,
-        ALIEN_LORD = 39,
-        ALIEN_QUEEN = 40,
-        HAWK_MAN = 41,
-        CROC_MAN = 42,
-        MAGMA_MAN = 43,
-        SCORPION_FLY = 44,
-        MUMMY = 45,
-        ANUBIS = 46,
-        ANUBIS_II = 47,
-        OLMEC = 48,
-        VLAD = 49,
-        IMP = 50,
-        DEVIL = 51,
-        SUCCUBUS = 52,
-        HORSE_HEAD = 53,
-        OX_FACE = 54,
-        KING_YAMA = 55
+        Snake = 0,
+        Cobra = 1,
+        Bat = 2,
+        Spider = 3,
+        SpinnerSpider = 4,
+        GiantSpider = 5,
+        Skeleton = 6,
+        Scorpion = 7,
+        Caveman = 8,
+        Damsel = 9,
+        Shopkeeper = 10,
+        TheTunnelMan = 11,
+        Scarab = 12,
+        TikiMan = 13,
+        Frog = 14,
+        FireFrog = 15,
+        GiantFrog = 16,
+        ManTrap = 17,
+        Piranha = 18,
+        OldBitey = 19,
+        KillerBee = 20,
+        QueenBee = 21,
+        Snail = 22,
+        Monkey = 23,
+        GoldenMonkey = 24,
+        JiangShi = 25,
+        GreenKnight = 26,
+        BlackKnight = 27,
+        Vampire = 28,
+        TheGhost = 29,
+        Bacterium = 30,
+        WormEgg = 31,
+        WormBaby = 32,
+        Yeti = 33,
+        YetiKing = 34,
+        Mammoth = 35,
+        Alien = 36,
+        Ufo = 37,
+        AlienTank = 38,
+        AlienLord = 39,
+        AlienQueen = 40,
+        HawkMan = 41,
+        CrocMan = 42,
+        MagmaMan = 43,
+        ScorpionFly = 44,
+        Mummy = 45,
+        Anubis = 46,
+        AnubisIi = 47,
+        Olmec = 48,
+        Vlad = 49,
+        Imp = 50,
+        Devil = 51,
+        Succubus = 52,
+        HorseHead = 53,
+        OxFace = 54,
+        KingYama = 55
     }
 
     public enum ItemEntry : int
     {
-        ROPE_PILE = 0,
-        BOMB_BAG = 1,
-        BOMB_BOX = 2,
-        SPECTACLES = 3,
-        CLIMBING_GLOVES = 4,
-        PITCHERS_MITT = 5,
-        SPRING_SHOES = 6,
-        SPIKE_SHOES = 7,
-        PASTE = 8,
-        COMPASS = 9,
-        MATTOCK = 10,
-        BOOMERANG = 11,
-        MACHETE = 12,
-        CRYSKNIFE = 13,
-        WEB_GUN = 14,
-        SHOTGUN = 15,
-        FREEZE_RAY = 16,
-        PLASMA_CANNON = 17,
-        CAMERA = 18,
-        TELEPORTER = 19,
-        PARACHUTE = 20,
-        CAPE = 21,
-        JETPACK = 22,
-        SHIELD = 23,
-        ROYAL_JELLY = 24,
-        IDOL = 25,
-        KAPALA = 26,
-        UDJAT_EYE = 27,
-        ANKH = 28,
-        HEDJET = 29,
-        SCEPTER = 30,
-        BOOK_OF_THE_DEAD = 31,
-        VLADS_CAPE = 32,
-        VLADS_AMULET = 33
+        RopePile = 0,
+        BombBag = 1,
+        BombBox = 2,
+        Spectacles = 3,
+        ClimbingGloves = 4,
+        PitchersMitt = 5,
+        SpringShoes = 6,
+        SpikeShoes = 7,
+        Paste = 8,
+        Compass = 9,
+        Mattock = 10,
+        Boomerang = 11,
+        Machete = 12,
+        Crysknife = 13,
+        WebGun = 14,
+        Shotgun = 15,
+        FreezeRay = 16,
+        PlasmaCannon = 17,
+        Camera = 18,
+        Teleporter = 19,
+        Parachute = 20,
+        Cape = 21,
+        Jetpack = 22,
+        Shield = 23,
+        RoyalJelly = 24,
+        Idol = 25,
+        Kapala = 26,
+        UdjatEye = 27,
+        Ankh = 28,
+        Hedjet = 29,
+        Scepter = 30,
+        BookOfTheDead = 31,
+        VladsCape = 32,
+        VladsAmulet = 33
     }
 
     public enum TrapEntry : int
     {
-        SPIKES = 0,
-        ARROW_TRAP = 1,
-        POWDER_BOX = 2,
-        BOULDER = 3,
-        TIKI_TRAP = 4,
-        ACID = 5,
-        SPRING = 6,
-        MINE = 7,
-        TURRET = 8,
-        FORCEFIELD = 9,
-        CRUSH_TRAP = 10,
-        CEILING_TRAP = 11,
-        SPIKE_BALL = 12,
-        LAVA = 13
+        Spikes = 0,
+        ArrowTrap = 1,
+        PowderBox = 2,
+        Boulder = 3,
+        TikiTrap = 4,
+        Acid = 5,
+        Spring = 6,
+        Mine = 7,
+        Turret = 8,
+        ForceField = 9,
+        CrushTrap = 10,
+        CeilingTrap = 11,
+        SpikeBall = 12,
+        Lava = 13
     }
 
     public class JournalState
     {
-        public static readonly int NUM_PLACE_ENTRIES = Enum.GetNames(typeof(PlaceEntry)).Length;
-        public static readonly int NUM_MONSTER_ENTRIES = Enum.GetNames(typeof(MonsterEntry)).Length;
-        public static readonly int NUM_ITEM_ENTRIES = Enum.GetNames(typeof(ItemEntry)).Length;
-        public static readonly int NUM_TRAP_ENTRIES = Enum.GetNames(typeof(TrapEntry)).Length;
-        public static readonly int NUM_ENTRIES = NUM_PLACE_ENTRIES + NUM_MONSTER_ENTRIES + NUM_ITEM_ENTRIES + NUM_TRAP_ENTRIES;
+        public static readonly int NumPlaceEntries = Enum.GetNames(typeof(PlaceEntry)).Length;
+        public static readonly int NumMonsterEntries = Enum.GetNames(typeof(MonsterEntry)).Length;
+        public static readonly int NumItemEntries = Enum.GetNames(typeof(ItemEntry)).Length;
+        public static readonly int NumTrapEntries = Enum.GetNames(typeof(TrapEntry)).Length;
+        public static readonly int NumEntries = NumPlaceEntries + NumMonsterEntries + NumItemEntries + NumTrapEntries;
 
         public bool[] PlaceEntries;
         public bool[] MonsterEntries;
@@ -206,10 +206,10 @@ namespace LiveSplit.Spelunky
     
         public JournalState(bool[] placeEntries, bool[] monsterEntries, bool[] itemEntries, bool[] trapEntries)
         {
-            Debug.Assert(placeEntries.Length == NUM_PLACE_ENTRIES);
-            Debug.Assert(monsterEntries.Length == NUM_MONSTER_ENTRIES);
-            Debug.Assert(itemEntries.Length == NUM_ITEM_ENTRIES);
-            Debug.Assert(trapEntries.Length == NUM_TRAP_ENTRIES);
+            Debug.Assert(placeEntries.Length == NumPlaceEntries);
+            Debug.Assert(monsterEntries.Length == NumMonsterEntries);
+            Debug.Assert(itemEntries.Length == NumItemEntries);
+            Debug.Assert(trapEntries.Length == NumTrapEntries);
             PlaceEntries = placeEntries;
             MonsterEntries = monsterEntries;
             ItemEntries = itemEntries;
@@ -226,6 +226,19 @@ namespace LiveSplit.Spelunky
         public int NumUnlockedItemEntries => CountUnlockedEntries(ItemEntries);
         public int NumUnlockedTrapEntries => CountUnlockedEntries(TrapEntries);
         public int NumUnlockedEntries => NumUnlockedPlaceEntries + NumUnlockedMonsterEntries + NumUnlockedItemEntries + NumUnlockedTrapEntries;
+
+        public bool Equals(JournalState o)
+        {
+            return (new List<Tuple<bool[], bool[]>> {
+                new Tuple<bool[], bool[]>(PlaceEntries, o.PlaceEntries),
+                new Tuple<bool[], bool[]>(MonsterEntries, o.MonsterEntries),
+                new Tuple<bool[], bool[]>(ItemEntries, o.ItemEntries),
+                new Tuple<bool[], bool[]>(TrapEntries, o.TrapEntries)
+            }).Aggregate(true, (totalResult, entryPair) =>
+                totalResult && entryPair.Item1.Length == entryPair.Item2.Length
+                    && Enumerable.Range(0, entryPair.Item1.Length).Aggregate(true,
+                        (result, currentIndex) => result && entryPair.Item1[currentIndex] == entryPair.Item2[currentIndex]));
+        }
     }
 
     public class SpelunkyHooks : IDisposable
@@ -282,10 +295,10 @@ namespace LiveSplit.Spelunky
 
         public JournalState JournalState =>
             new JournalState(
-                ReadJournalEntries(JournalPlaceUnlocksTable, JournalState.NUM_PLACE_ENTRIES),
-                ReadJournalEntries(JournalMonsterUnlocksTable, JournalState.NUM_MONSTER_ENTRIES),
-                ReadJournalEntries(JournalItemUnlocksTable, JournalState.NUM_ITEM_ENTRIES),
-                ReadJournalEntries(JournalTrapUnlocksTable, JournalState.NUM_TRAP_ENTRIES));
+                ReadJournalEntries(JournalPlaceUnlocksTable, JournalState.NumPlaceEntries),
+                ReadJournalEntries(JournalMonsterUnlocksTable, JournalState.NumMonsterEntries),
+                ReadJournalEntries(JournalItemUnlocksTable, JournalState.NumItemEntries),
+                ReadJournalEntries(JournalTrapUnlocksTable, JournalState.NumTrapEntries));
         
         public void Dispose()
         {

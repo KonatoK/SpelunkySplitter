@@ -1,0 +1,805 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Item_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Items\0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Item_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Items\1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Item_10" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Items\10.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Item_11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Items\11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Item_12" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Items\12.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Item_13" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Items\13.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Item_14" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Items\14.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Item_15" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Items\15.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Item_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Items\16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Item_17" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Items\17.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Item_18" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Items\18.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Item_19" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Items\19.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Item_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Items\2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Item_20" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Items\20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Item_21" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Items\21.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Item_22" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Items\22.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Item_23" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Items\23.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Item_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Items\24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Item_25" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Items\25.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Item_26" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Items\26.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Item_27" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Items\27.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Item_28" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Items\28.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Item_29" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Items\29.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Item_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Items\3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Item_30" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Items\30.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Item_31" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Items\31.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Item_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Items\32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Item_33" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Items\33.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Item_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Items\4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Item_5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Items\5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Item_6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Items\6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Item_7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Items\7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Item_8" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Items\8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Item_9" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Items\9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_10" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\10.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_12" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\12.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_13" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\13.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_14" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\14.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_15" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\15.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_17" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\17.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_18" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\18.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_19" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\19.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_20" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_21" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\21.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_22" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\22.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_23" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\23.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_25" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\25.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_26" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\26.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_27" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\27.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_28" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\28.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_29" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\29.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_30" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\30.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_31" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\31.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_33" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\33.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_34" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\34.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_35" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\35.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_36" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\36.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_37" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\37.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_38" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\38.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_39" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\39.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_40" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\40.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_41" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\41.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_42" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\42.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_43" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\43.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_44" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\44.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_45" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\45.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_46" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\46.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_47" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\47.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_49" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\49.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_50" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\50.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_51" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\51.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_52" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\52.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_53" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\53.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_54" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\54.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_55" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\55.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_8" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_9" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Place_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Places\0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Place_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Places\1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Place_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Places\2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Place_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Places\3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Place_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Places\4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Place_5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Places\5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Place_6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Places\6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Place_7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Places\7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Place_8" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Places\8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Place_9" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Places\9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Trap_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Traps\0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Trap_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Traps\1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Trap_10" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Traps\10.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Trap_11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Traps\11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Trap_12" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Traps\12.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Trap_13" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Traps\13.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Trap_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Traps\2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Trap_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Traps\3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Trap_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Traps\4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Trap_5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Traps\5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Trap_6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Traps\6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Trap_7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Traps\7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Trap_8" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Traps\8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Trap_9" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Traps\9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Trap_0_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Traps\0_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Trap_10_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Traps\10_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Trap_11_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Traps\11_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Trap_12_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Traps\12_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Trap_13_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Traps\13_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Trap_1_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Traps\1_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Trap_2_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Traps\2_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Trap_3_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Traps\3_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Trap_4_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Traps\4_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Trap_5_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Traps\5_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Trap_6_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Traps\6_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Trap_7_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Traps\7_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Trap_8_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Traps\8_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Trap_9_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Traps\9_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Item_0_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Items\0_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Item_10_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Items\10_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Item_11_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Items\11_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Item_12_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Items\12_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Item_13_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Items\13_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Item_14_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Items\14_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Item_15_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Items\15_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Item_16_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Items\16_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Item_17_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Items\17_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Item_18_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Items\18_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Item_19_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Items\19_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Item_1_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Items\1_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Item_20_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Items\20_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Item_21_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Items\21_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Item_22_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Items\22_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Item_23_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Items\23_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Item_24_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Items\24_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Item_25_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Items\25_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Item_26_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Items\26_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Item_27_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Items\27_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Item_28_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Items\28_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Item_29_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Items\29_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Item_2_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Items\2_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Item_30_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Items\30_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Item_31_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Items\31_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Item_32_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Items\32_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Item_33_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Items\33_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Item_3_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Items\3_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Item_4_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Items\4_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Item_5_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Items\5_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Item_6_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Items\6_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Item_7_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Items\7_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Item_8_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Items\8_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Item_9_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Items\9_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_0_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\0_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_10_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\10_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_11_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\11_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_12_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\12_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_13_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\13_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_14_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\14_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_15_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\15_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_16_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\16_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_17_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\17_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_18_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\18_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_19_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\19_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_1_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\1_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_20_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\20_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_21_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\21_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_22_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\22_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_23_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\23_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_24_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\24_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_25_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\25_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_26_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\26_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_27_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\27_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_28_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\28_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_29_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\29_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_2_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\2_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_30_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\30_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_31_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\31_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_32_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\32_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_33_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\33_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_34_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\34_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_35_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\35_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_36_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\36_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_37_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\37_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_38_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\38_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_39_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\39_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_3_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\3_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_40_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\40_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_41_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\41_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_42_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\42_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_43_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\43_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_44_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\44_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_45_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\45_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_46_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\46_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_47_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\47_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_48_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\48_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_49_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\49_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_4_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\4_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_50_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\50_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_51_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\51_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_52_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\52_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_53_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\53_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_54_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\54_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_55_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\55_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_5_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\5_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_6_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\6_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_7_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\7_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_8_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\8_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster_9_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Monsters\9_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Place_0_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Places\0_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Place_1_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Places\1_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Place_2_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Places\2_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Place_3_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Places\3_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Place_4_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Places\4_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Place_5_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Places\5_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Place_6_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Places\6_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Place_7_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Places\7_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Place_8_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Places\8_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Place_9_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_JournalIcons\Places\9_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+</root>

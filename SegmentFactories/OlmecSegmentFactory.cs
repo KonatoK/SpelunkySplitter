@@ -28,8 +28,8 @@ namespace LiveSplit.Spelunky.SegmentFactories
             var state = spelunky.CurrentState;
 
             bool shouldSplit =
-                spelunky.TunnelManChapter == TunnelManChapter.EMPTY_COMPLETED &&
-                spelunky.CurrentState == SpelunkyState.VICTORY_CUTSCENE &&
+                spelunky.TunnelManChapter == TunnelManChapter.EmptyCompleted &&
+                spelunky.CurrentState == SpelunkyState.VictoryCutscene &&
                 LastLevel == SpelunkyLevel.L4_4 && level == SpelunkyLevel.L4_4;
 
             LastLevel = level;

@@ -24,13 +24,15 @@ namespace LiveSplit.Spelunky
             typeof(Categories.AllJournalEntries)
         };
 
-        const bool DEFAULT_AUTOSPLITTING_ENABLED = true;
-        const bool DEFAULT_AUTOLOAD_SAVEFILE = false;
-        const bool DEFAULT_USE_ALTERNATIVE_SAVEFILE = false;
-        const string DEFAULT_SAVEFILE = "";
-        const int DEFAULT_RUN_CATEGORY_INDEX = 0;
+        const bool DefaultAutoSplittingEnabled = true;
+        const bool DefaultAutoLoadSaveFile = false;
+        const bool DefaultUseAlternativeSaveFile = false;
+        const bool DefaultShowJournalTracker = false;
+        const string DefaultSaveFile = "";
+        const int DefaultRunCategoryIndex = 0;
 
         public bool AutoSplittingEnabled => AutoSplittingEnabledCheckBox.Checked;
+        public bool ShowJournalTracker => ShowJournalTrackerCheckBox.Checked;
         public Type CurrentRunCategoryType => CategoryTypes[RunCategoryNameComboBox.SelectedIndex];
         public string SaveFile => SaveFileTextBox.Text;
         public bool AutoLoadSaveFile => AutoLoadSaveCheckBox.Checked;
@@ -43,15 +45,16 @@ namespace LiveSplit.Spelunky
             InitializeComponent();
             RunCategoryNameComboBox.DataSource = CategoryTypes.Select(categoryType => Category.GetFriendlyName(categoryType)).ToArray();
 
-            AutoSplittingEnabledCheckBox.Checked = DEFAULT_AUTOSPLITTING_ENABLED;
-            RunCategoryNameComboBox.SelectedIndex = DEFAULT_RUN_CATEGORY_INDEX;
-            SaveFileTextBox.Text = DEFAULT_SAVEFILE;
-            AutoLoadSaveCheckBox.Checked = DEFAULT_AUTOLOAD_SAVEFILE;
-            ForceAlternativeSaveFileCheckBox.Checked = DEFAULT_USE_ALTERNATIVE_SAVEFILE;
+            AutoSplittingEnabledCheckBox.Checked = DefaultAutoSplittingEnabled;
+            RunCategoryNameComboBox.SelectedIndex = DefaultRunCategoryIndex;
+            SaveFileTextBox.Text = DefaultSaveFile;
+            AutoLoadSaveCheckBox.Checked = DefaultAutoLoadSaveFile;
+            ForceAlternativeSaveFileCheckBox.Checked = DefaultUseAlternativeSaveFile;
 
             AutoSplittingEnabledCheckBox.CheckedChanged += HandleAutoSplittingCheckedChanged;
             AutoLoadSaveCheckBox.CheckedChanged += HandleAutoLoadSaveFileCheckedChanged;
             ForceAlternativeSaveFileCheckBox.CheckedChanged += HandleForceAlternativeSaveFileCheckedChanged;
+            ShowJournalTrackerCheckBox.CheckedChanged += HandleShowJournalTrackerCheckBoxCheckedChanged;
             RunCategoryNameComboBox.SelectedIndexChanged += HandleRunSelectedIndexChanged;
             SaveFileBrowseButton.Click += HandleSaveFileBrowseButtonClick;
 
@@ -61,7 +64,7 @@ namespace LiveSplit.Spelunky
 
         void HandleSaveFileBrowseButtonClick(object sender, EventArgs args)
         {
-            OpenFileDialog ofd = new OpenFileDialog()
+            var ofd = new OpenFileDialog()
             {
                 Title = "Select a save file",
                 Filter = "Spelunky Save File (*.sav)|*.sav",
@@ -117,20 +120,28 @@ namespace LiveSplit.Spelunky
             PropertyChanged(this, EventArgs.Empty);
         }
 
+        void HandleShowJournalTrackerCheckBoxCheckedChanged(object sender, EventArgs args)
+        {
+            PropertyChanged(this, EventArgs.Empty);
+        }
+
         void HandleRunSelectedIndexChanged(object sender, EventArgs args)
         {
+            // OPT Bypass HandleShowJournalTrackerCheckBoxCheckedChanged invocation here to avoid double-invoke of PropertyChanged
+            ShowJournalTrackerCheckBox.Checked = CurrentRunCategoryType.Equals(typeof(Categories.AllJournalEntries));
             PropertyChanged(this, EventArgs.Empty);
         }
 
         public XmlNode GetSettings(XmlDocument doc)
         {
-            XmlElement settings = doc.CreateElement("Settings");
+            var settings = doc.CreateElement("Settings");
             settings.AppendChild(XMLSettings.ToElement(doc, "Version", Assembly.GetExecutingAssembly().GetName().Version.ToString(3)));
             settings.AppendChild(XMLSettings.ToElement(doc, nameof(AutoSplittingEnabledCheckBox), AutoSplittingEnabledCheckBox.Checked));
             settings.AppendChild(XMLSettings.ToElement(doc, nameof(RunCategoryNameComboBox), CurrentRunCategoryType.Name));
             settings.AppendChild(XMLSettings.ToElement(doc, nameof(SaveFileTextBox), SaveFileTextBox.Text));
             settings.AppendChild(XMLSettings.ToElement(doc, nameof(AutoLoadSaveCheckBox), AutoLoadSaveCheckBox.Checked));
             settings.AppendChild(XMLSettings.ToElement(doc, nameof(ForceAlternativeSaveFileCheckBox), ForceAlternativeSaveFileCheckBox.Checked));
+            settings.AppendChild(XMLSettings.ToElement(doc, nameof(ShowJournalTrackerCheckBox), ShowJournalTrackerCheckBox.Checked));
             return settings;
         }
 
@@ -153,11 +164,12 @@ namespace LiveSplit.Spelunky
 
         public void SetSettings(XmlNode settings)
         {
-            AutoSplittingEnabledCheckBox.Checked = XMLSettings.Parse(settings[nameof(AutoSplittingEnabledCheckBox)], DEFAULT_AUTOSPLITTING_ENABLED, bool.Parse);
-            RunCategoryNameComboBox.SelectedIndex = XMLSettings.Parse(settings[nameof(RunCategoryNameComboBox)], DEFAULT_RUN_CATEGORY_INDEX, ParseRunCategoryTypeIndex);
-            SaveFileTextBox.Text = XMLSettings.Parse(settings[nameof(SaveFileTextBox)], DEFAULT_SAVEFILE, ParseSaveFile);
-            AutoLoadSaveCheckBox.Checked = XMLSettings.Parse(settings[nameof(AutoLoadSaveCheckBox)], DEFAULT_AUTOLOAD_SAVEFILE, bool.Parse);
-            ForceAlternativeSaveFileCheckBox.Checked = XMLSettings.Parse(settings[nameof(ForceAlternativeSaveFileCheckBox)], DEFAULT_USE_ALTERNATIVE_SAVEFILE, bool.Parse);
+            AutoSplittingEnabledCheckBox.Checked = XMLSettings.Parse(settings[nameof(AutoSplittingEnabledCheckBox)], DefaultAutoSplittingEnabled, bool.Parse);
+            RunCategoryNameComboBox.SelectedIndex = XMLSettings.Parse(settings[nameof(RunCategoryNameComboBox)], DefaultRunCategoryIndex, ParseRunCategoryTypeIndex);
+            SaveFileTextBox.Text = XMLSettings.Parse(settings[nameof(SaveFileTextBox)], DefaultSaveFile, ParseSaveFile);
+            AutoLoadSaveCheckBox.Checked = XMLSettings.Parse(settings[nameof(AutoLoadSaveCheckBox)], DefaultAutoLoadSaveFile, bool.Parse);
+            ForceAlternativeSaveFileCheckBox.Checked = XMLSettings.Parse(settings[nameof(ForceAlternativeSaveFileCheckBox)], DefaultUseAlternativeSaveFile, bool.Parse);
+            ShowJournalTrackerCheckBox.Checked = XMLSettings.Parse(settings[nameof(ShowJournalTrackerCheckBox)], DefaultShowJournalTracker, bool.Parse);
             PropertyChanged(this, EventArgs.Empty);
         }
 
@@ -167,9 +179,9 @@ namespace LiveSplit.Spelunky
 
             if(Parent?.Parent?.Parent != null && Parent.Parent.Parent.GetType().Equals(typeof(ComponentSettingsDialog)))
             {
-                var parentDialog = this.Parent.Parent.Parent;
+                var parentDialog = Parent.Parent.Parent;
                 parentDialog.Text = "SpelunkySplitter Settings";
-                var targetSize = this.Size + new Size(40, 110);
+                var targetSize = Size + new Size(40, 110);
                 parentDialog.MinimumSize = targetSize;
                 parentDialog.Size = targetSize;
             }
@@ -182,9 +194,9 @@ namespace LiveSplit.Spelunky
 
         public static XmlElement ToElement<T>(XmlDocument doc, string name, T value)
         {
-            XmlElement str = doc.CreateElement(name);
-            str.InnerText = value.ToString();
-            return str;
+            var strElement = doc.CreateElement(name);
+            strElement.InnerText = value.ToString();
+            return strElement;
         }
 
         public static T Parse<T>(XmlElement element, T defaultValue, ExceptingParser<T> p)

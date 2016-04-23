@@ -20,6 +20,7 @@ namespace LiveSplit.Spelunky
 
         SpelunkySettings Settings;
         StatusWindow StatusWindow;
+        JournalTracker JournalTracker;
 
         AutoSplitter AutoSplitter;
 
@@ -41,6 +42,7 @@ namespace LiveSplit.Spelunky
             IsLayoutComponent = isLayoutComponent;
             Settings = new SpelunkySettings();
             StatusWindow = new StatusWindow();
+            JournalTracker = new JournalTracker();
             HandleAutoSplitterChange(Settings, EventArgs.Empty); // Simulate a property change (for default values)
             Settings.PropertyChanged += HandleAutoSplitterChange;
         }
@@ -49,10 +51,10 @@ namespace LiveSplit.Spelunky
         {
             ClearAutoSplitter();
 
-            if (StatusWindow.IsDisposed) { StatusWindow = new StatusWindow(); }
+            if(StatusWindow.IsDisposed) { StatusWindow = new StatusWindow(); }
 
             StatusWindow.CurrentRun = Category.GetFriendlyName(Settings.CurrentRunCategoryType);
-            if (Settings.AutoSplittingEnabled)
+            if(Settings.AutoSplittingEnabled)
                 StatusWindow.Show();
             else
                 StatusWindow.Hide();
@@ -60,12 +62,12 @@ namespace LiveSplit.Spelunky
 
         public XmlNode GetSettings(XmlDocument document)
         {
-            return this.Settings.GetSettings(document);
+            return Settings.GetSettings(document);
         }
 
         public void SetSettings(XmlNode node)
         {
-            this.Settings.SetSettings(node);
+            Settings.SetSettings(node);
         }
 
         public void DrawHorizontal(Graphics g, LiveSplitState state, float height, Region clipRegion) {}
@@ -100,7 +102,7 @@ namespace LiveSplit.Spelunky
             var hooks = new SpelunkyHooks(new RawProcess("Spelunky"));
             AutoSplitter = new AutoSplitter(hooks, Settings.CurrentRunCategoryType, 
                 MakePatchesFromSettings(hooks), new TimerModel() { CurrentState = state }, 
-                Settings.AutoLoadSaveFile ? Settings.SaveFile : null);
+                Settings.AutoLoadSaveFile ? Settings.SaveFile : null, Settings.ShowJournalTracker ? JournalTracker : null);
         }
 
         void ClearAutoSplitter()

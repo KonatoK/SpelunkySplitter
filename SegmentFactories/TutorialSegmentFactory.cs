@@ -15,7 +15,7 @@ namespace LiveSplit.Spelunky.SegmentFactories
         */
         public SegmentStatus CheckStatus(SpelunkyHooks spelunky)
         {
-            if(LastLobbyType == LobbyType.DOOR_OPEN_NO_GEM && spelunky.CurrentLobbyType == LobbyType.DOOR_OPEN_NO_GEM)
+            if(LastLobbyType == LobbyType.DoorOpenNoGem && spelunky.CurrentLobbyType == LobbyType.DoorOpenNoGem)
             {
                 return new SegmentStatus()
                 {
@@ -39,7 +39,7 @@ namespace LiveSplit.Spelunky.SegmentFactories
                 return false;
 
             var lobbyType = spelunky.CurrentLobbyType;
-            bool shouldSplit = LastLobbyType == LobbyType.BREAKING && lobbyType == LobbyType.DOOR_OPEN_NO_GEM;
+            bool shouldSplit = LastLobbyType == LobbyType.Breaking && lobbyType == LobbyType.DoorOpenNoGem;
             LastLobbyType = lobbyType;
             return shouldSplit;
         }

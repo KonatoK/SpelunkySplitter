@@ -14,8 +14,8 @@ namespace LiveSplit.Spelunky.Categories
         {
             new SegmentFactories.CharSelectSegmentFactory(),
             new SegmentFactories.TutorialSegmentFactory(),
-            new SegmentFactories.JournalEntryProgressSegmentFactory(JournalState.NUM_ENTRIES/2),
-            new SegmentFactories.JournalEntryProgressSegmentFactory(JournalState.NUM_ENTRIES)
+            new SegmentFactories.JournalEntryProgressSegmentFactory(JournalState.NumEntries/2),
+            new SegmentFactories.JournalEntryProgressSegmentFactory(JournalState.NumEntries)
         };
     }
 }

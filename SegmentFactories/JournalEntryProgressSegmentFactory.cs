@@ -9,7 +9,6 @@ namespace LiveSplit.Spelunky.SegmentFactories
     public class JournalEntryProgressSegment : ISegment
     {
         private int TargetEntryUnlockCount;
-        private string TargetPercTotalStr => (100 * TargetEntryUnlockCount / JournalState.NUM_ENTRIES).ToString();
 
         public JournalEntryProgressSegment(int targetEntryUnlockCount)
         {
@@ -32,7 +31,12 @@ namespace LiveSplit.Spelunky.SegmentFactories
                 return new SegmentStatus()
                 {
                     Type = SegmentStatusType.INFO,
-                    Message = $"Waiting for journal ({TargetEntryUnlockCount - numEntriesUnlocked} entries until {TargetPercTotalStr}% unlocked)."
+                    Message = $"Waiting for journal ("
+                            + $"{journal.NumUnlockedPlaceEntries}/{JournalState.NumPlaceEntries} places, "
+                            + $"{journal.NumUnlockedMonsterEntries}/{JournalState.NumMonsterEntries} monsters, "
+                            + $"{journal.NumUnlockedItemEntries}/{JournalState.NumItemEntries} items, "
+                            + $"{journal.NumUnlockedTrapEntries}/{JournalState.NumTrapEntries} traps"
+                            + ")."
                 };
             }
         }
@@ -57,7 +61,7 @@ namespace LiveSplit.Spelunky.SegmentFactories
     public class JournalEntryProgressSegmentFactory : ISegmentFactory
     {
         private int TargetEntryUnlockCount;
-        private string TargetPercTotalStr => (100 * TargetEntryUnlockCount / JournalState.NUM_ENTRIES).ToString();
+        private string TargetPercTotalStr => (100 * TargetEntryUnlockCount / JournalState.NumEntries).ToString();
 
         public JournalEntryProgressSegmentFactory(int targetEntryUnlockCount)
         {

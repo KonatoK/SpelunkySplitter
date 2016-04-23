@@ -65,6 +65,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="JournalTracker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JournalTracker.Designer.cs">
+      <DependentUpon>JournalTracker.cs</DependentUpon>
+    </Compile>
     <Compile Include="Categories\AllJournalEntries.cs" />
     <Compile Include="Categories\AllShortcuts.cs" />
     <Compile Include="AutoSplitter.cs" />
@@ -73,6 +79,11 @@
     <Compile Include="Patch.cs" />
     <Compile Include="Kernel32.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="RawProcess.cs" />
     <Compile Include="Category.cs" />
     <Compile Include="SaveChangePatch.cs" />
@@ -94,8 +105,16 @@
     <Compile Include="StatusWindow.Designer.cs">
       <DependentUpon>StatusWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utilities\Forms.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="JournalTracker.resx">
+      <DependentUpon>JournalTracker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="SpelunkySettings.resx">
       <DependentUpon>SpelunkySettings.cs</DependentUpon>
     </EmbeddedResource>
@@ -103,7 +122,690 @@
       <DependentUpon>StatusWindow.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Items\0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Items\1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Items\2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Items\13.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Items\14.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Items\15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Items\16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Items\17.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Items\18.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Items\19.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Items\20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Items\21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Items\22.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Items\23.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Items\24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Items\25.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Items\26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Items\27.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Items\28.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Items\29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Items\30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Items\31.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Items\32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Items\33.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Items\3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Items\4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Items\5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Items\6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Items\7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Items\8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Items\9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Items\10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Items\11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Items\12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\13.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\14.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\17.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\18.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\19.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\22.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\23.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\25.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\27.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\28.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\31.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\33.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\34.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\35.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\36.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\37.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\38.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\39.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\41.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\42.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\43.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\44.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\45.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\46.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\47.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\49.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\51.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\52.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\53.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\54.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\55.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Places\0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Places\1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Places\2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Places\3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Places\4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Places\5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Places\6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Places\7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Places\8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Places\9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Traps\0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Traps\1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Traps\2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Traps\3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Traps\4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Traps\5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Traps\6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Traps\7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Traps\8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Traps\9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Traps\10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Traps\11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Traps\12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Traps\13.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Traps\1_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Traps\2_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Traps\3_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Traps\4_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Traps\5_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Traps\6_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Traps\7_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Traps\8_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Traps\9_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Traps\0_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Traps\10_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Traps\11_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Traps\12_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Traps\13_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Items\0_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Items\1_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Items\2_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Items\10_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Items\11_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Items\12_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Items\13_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Items\14_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Items\15_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Items\16_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Items\17_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Items\18_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Items\19_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Items\20_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Items\21_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Items\22_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Items\23_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Items\24_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Items\25_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Items\26_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Items\27_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Items\28_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Items\29_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Items\30_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Items\31_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Items\32_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Items\33_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Items\4_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Items\5_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Items\6_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Items\7_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Items\8_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Items\9_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Items\3_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\1_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\2_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\3_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\4_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\5_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\6_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\7_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\8_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\9_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\15_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\16_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\17_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\18_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\19_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\20_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\21_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\22_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\23_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\24_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\25_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\26_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\27_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\28_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\29_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\30_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\31_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\32_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\33_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\34_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\35_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\36_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\37_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\38_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\39_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\40_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\41_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\42_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\43_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\44_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\45_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\46_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\47_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\48_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\49_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\50_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\51_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\52_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\53_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\54_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\55_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\0_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\10_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\11_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\12_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\13_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Monsters\14_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Places\1_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Places\2_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Places\3_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Places\4_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Places\5_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Places\6_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Places\7_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Places\8_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Places\9_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res_JournalIcons\Places\0_Inactive.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>@copy /Y $(TargetDir)$(TargetName).dll $(SolutionDir)..\LiveSplit\LiveSplit\bin\Debug\Components

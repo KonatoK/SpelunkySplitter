@@ -2,6 +2,7 @@
 using LiveSplit.UI.Components;
 using System;
 using System.IO;
+using System.Windows.Forms;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,10 +19,11 @@ namespace LiveSplit.Spelunky
         TimerModel Timer;
         string AutoSaveLoadOpt;
         bool SaveLoaded;
+        JournalTracker MaybeJournalTracker;
 
         public string SaveBackupPath => Hooks.GameDirectoryPath + @"\Data\spelunky_save.ss.bak";
 
-        public AutoSplitter(SpelunkyHooks hooks, Type categoryType, EnabledPatchContainer patches, TimerModel timer, string autoSaveLoadOpt)
+        public AutoSplitter(SpelunkyHooks hooks, Type categoryType, EnabledPatchContainer patches, TimerModel timer, string autoSaveLoadOpt, JournalTracker maybeJournalTracker)
         {
             Hooks = hooks;
             CategoryType = categoryType;
@@ -30,6 +32,7 @@ namespace LiveSplit.Spelunky
             Timer = timer;
             AutoSaveLoadOpt = autoSaveLoadOpt;
             SaveLoaded = false;
+            MaybeJournalTracker = maybeJournalTracker;
             AssertHooksActive();
         }
 
@@ -41,7 +44,7 @@ namespace LiveSplit.Spelunky
             {
                 if (AutoSaveLoadOpt != null && !SaveLoaded)
                 {
-                    if (Hooks.CurrentState != SpelunkyState.SPLASH_SCREEN)
+                    if (Hooks.CurrentState != SpelunkyState.SplashScreen)
                     {
                         return new SegmentStatus()
                         {
@@ -81,7 +84,16 @@ namespace LiveSplit.Spelunky
         public SegmentStatus Update(LiveSplitState state)
         {
             AssertHooksActive();
-            
+
+            if(MaybeJournalTracker != null)
+            {
+                if(!MaybeJournalTracker.Visible)
+                {
+                    MaybeJournalTracker.Show();
+                }
+                MaybeJournalTracker.Update(Hooks);
+            }
+
             if(state.Run.Count != Segments.Length - 1) // Validate user splits
             {
                 return new SegmentStatus()
@@ -104,12 +116,13 @@ namespace LiveSplit.Spelunky
                 if (autoLoadResult != null) { return autoLoadResult; }
 
                 SplitAction splitAction; 
-                if(state.CurrentSplitIndex == -1) { splitAction = delegate () { Timer.Start(); }; }
-                else { splitAction = delegate () { Timer.Split(); }; }
+                if(state.CurrentSplitIndex == -1) { splitAction = delegate() { Timer.Start(); }; }
+                else { splitAction = delegate() { Timer.Split(); }; }
 
-                ISegment segment = Segments[state.CurrentSplitIndex + 1];
+                var segment = Segments[state.CurrentSplitIndex + 1];
                 var status = segment.CheckStatus(Hooks);
                 if (segment.Cycle(Hooks)) { splitAction(); }
+
                 return status;
             }
         }
@@ -125,6 +138,8 @@ namespace LiveSplit.Spelunky
         public void Dispose()
         {
             if(!Hooks.Process.HasExited) { Patches.RevertAll(); }
+            if(MaybeJournalTracker != null)
+                MaybeJournalTracker.Hide();
             Hooks.Dispose();
         }
     }

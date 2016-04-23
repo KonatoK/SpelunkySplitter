@@ -19,7 +19,7 @@ namespace LiveSplit.Spelunky.SegmentFactories
         public SegmentStatus CheckStatus(SpelunkyHooks spelunky)
         {
             // Do not do game save checks in the splash screen as the save file may not be reloaded yet
-            if(spelunky.CurrentLobbyType != LobbyType.TUTORIAL && spelunky.CurrentState != SpelunkyState.SPLASH_SCREEN)
+            if(spelunky.CurrentLobbyType != LobbyType.Tutorial && spelunky.CurrentState != SpelunkyState.SplashScreen)
             {
                 return new SegmentStatus()
                 {
@@ -27,7 +27,7 @@ namespace LiveSplit.Spelunky.SegmentFactories
                     Message = "The game save must be reset to lock the lobby."
                 };
             }
-            else if(spelunky.CurrentState != SpelunkyState.CHARACTER_SELECT)
+            else if(spelunky.CurrentState != SpelunkyState.CharacterSelect)
             {
                 return new SegmentStatus()
                 {
@@ -54,8 +54,8 @@ namespace LiveSplit.Spelunky.SegmentFactories
             var charSelectCountdown = spelunky.CharSelectCountdown;
 
             bool shouldSplit =
-                LastState == SpelunkyState.CHARACTER_SELECT && LastCharSelectCountdown == 0 &&
-                state == SpelunkyState.CHARACTER_SELECT && charSelectCountdown != 0;
+                LastState == SpelunkyState.CharacterSelect && LastCharSelectCountdown == 0 &&
+                state == SpelunkyState.CharacterSelect && charSelectCountdown != 0;
 
             LastState = state;
             LastCharSelectCountdown = charSelectCountdown;
