@@ -73,7 +73,7 @@ namespace LiveSplit.Spelunky
             private void AdvanceToNextCell()
             {
                 CurrentEntryDrawPosition.Y += EntryRenderHeightPx + EntryMarginPx;
-                if(CurrentEntryDrawPosition.Y + EntryRenderHeightPx >= Height)
+                if(CurrentEntryDrawPosition.Y + (EntryRenderHeightPx + EntryMarginPx)*2 >= Height)
                     NewColumn();
             }
 
