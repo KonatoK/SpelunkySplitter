@@ -42,4 +42,12 @@
 			<change>Fixed bottom row of journal tracker being cut off.</change>
 		</changelog>
 	</update>
+	<update version="1.3.2">
+		<files>
+			<file path="Components/LiveSplit.Spelunky.dll" status="changed"/>
+		</files>
+		<changelog>
+			<change>Added options for journal tracker scale.</change>
+		</changelog>
+	</update>
 </updates>

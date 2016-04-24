@@ -37,7 +37,7 @@ namespace LiveSplit.Spelunky
 
         public Version Version
         {
-            get { return Version.Parse("1.3.1");  }
+            get { return Version.Parse("1.3.2");  }
         }
 
         public string Description
