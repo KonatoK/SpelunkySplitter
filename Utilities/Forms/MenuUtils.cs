@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using System.Threading.Tasks;
 
-namespace LiveSplit.Spelunky.Utilities
+namespace LiveSplit.Spelunky.Utilities.Forms
 {
-    public static class Forms
+    public static class MenuUtils
     {
         private const int MF_BYPOSITION = 0x400;
 
