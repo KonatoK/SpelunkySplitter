@@ -85,15 +85,17 @@
             this.JournalTrackerScaleComboBox.FormattingEnabled = true;
             this.JournalTrackerScaleComboBox.Items.AddRange(new object[] {
             "1x",
-            "1.1x",
-            "1.2x",
-            "1.3x",
-            "1.4x",
+            "1.25x",
             "1.5x",
+            "1.75x",
             "2x",
+            "2.25x",
             "2.5x",
+            "2.75x",
             "3x",
+            "3.25x",
             "3.5x",
+            "3.75x",
             "4x"});
             this.JournalTrackerScaleComboBox.Location = new System.Drawing.Point(173, 18);
             this.JournalTrackerScaleComboBox.Name = "JournalTrackerScaleComboBox";

@@ -100,9 +100,9 @@ namespace LiveSplit.Spelunky
             }
 
             var hooks = new SpelunkyHooks(new RawProcess("Spelunky"));
-            JournalTracker.Size = 
-                new Size((int)(Spelunky.JournalTracker.InitialSize.Width * Settings.JournalTrackerScale),
-                    (int)(Spelunky.JournalTracker.InitialSize.Height * Settings.JournalTrackerScale));
+            JournalTracker.ClientSize = 
+                new Size((int)(Spelunky.JournalTracker.InitialClientSize.Width * Settings.JournalTrackerScale),
+                    (int)(Spelunky.JournalTracker.InitialClientSize.Height * Settings.JournalTrackerScale));
             AutoSplitter = new AutoSplitter(hooks, Settings.CurrentRunCategoryType, 
                 MakePatchesFromSettings(hooks), new TimerModel() { CurrentState = state }, 
                 Settings.AutoLoadSaveFile ? Settings.SaveFile : null, Settings.ShowJournalTracker ? JournalTracker : null);

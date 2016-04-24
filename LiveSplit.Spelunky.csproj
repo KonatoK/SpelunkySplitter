@@ -105,7 +105,10 @@
     <Compile Include="StatusWindow.Designer.cs">
       <DependentUpon>StatusWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="Utilities\Forms.cs" />
+    <Compile Include="Utilities\Forms\MenuUtils.cs" />
+    <Compile Include="Utilities\Forms\SquareResizeableForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="JournalTracker.resx">

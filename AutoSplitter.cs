@@ -139,7 +139,7 @@ namespace LiveSplit.Spelunky
         {
             if(!Hooks.Process.HasExited) { Patches.RevertAll(); }
             Hooks.Dispose();
-            if(MaybeJournalTracker != null)
+            if(MaybeJournalTracker != null && MaybeJournalTracker.IsHandleCreated)
                 MaybeJournalTracker.BeginInvoke((MethodInvoker)delegate () { MaybeJournalTracker.Hide(); });
         }
     }

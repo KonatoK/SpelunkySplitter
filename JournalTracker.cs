@@ -11,20 +11,18 @@ using System.Reflection;
 
 namespace LiveSplit.Spelunky
 {
-    public partial class JournalTracker : Form
+    public partial class JournalTracker : Utilities.Forms.SquareResizableForm
     {
-        public static readonly Size InitialSize = new Size(366, 379);
-        private static double RequiredHeightWidthRatio => InitialSize.Height / (double)InitialSize.Width;
-
+        public static readonly Size InitialClientSize = new Size(348, 340);
         private JournalVisualizer JournalVisualizer;
 
-        public JournalTracker()
+        public JournalTracker() : base(InitialClientSize.Height / (double)InitialClientSize.Width)
         {
             JournalVisualizer = new JournalVisualizer();
 
             InitializeComponent();
 
-            Utilities.Forms.DisableCloseButton(this);
+            Utilities.Forms.MenuUtils.DisableCloseButton(this);
             JournalVisualizer.Location = new Point(0, 0);
             JournalVisualizer.Size = ClientSize;
             Controls.Add(JournalVisualizer);
@@ -33,9 +31,6 @@ namespace LiveSplit.Spelunky
         protected override void OnResize(EventArgs e)
         {
             base.OnResize(e);
-            var currentHeightWidthRatio = Height / (double)Width;
-            if(currentHeightWidthRatio != RequiredHeightWidthRatio)
-                Size = new Size(Width, (int)(RequiredHeightWidthRatio * Width));
             JournalVisualizer.Invalidate();
             JournalVisualizer.Size = ClientSize;
         }
@@ -57,26 +52,24 @@ namespace LiveSplit.Spelunky
 
         private class JournalPainter
         {
-            private const int NUM_ENTRIES_VERTICAL = 12;
-
-            private int EntryRenderHeightPx;
-            private int EntryMarginPx;
+            public int EntryRenderHeightPx { get; }
+            public int EntryMarginPx { get; }
 
             private Graphics Graphics;
             private Point CurrentEntryDrawPosition;
-            private int MaxColumnImageWidth;
+            public int ColumnRenderWidth;
             private int Height;
 
-            public JournalPainter(Graphics graphics, int height)
+            public JournalPainter(Graphics graphics, int entriesPerColumn, int entryMarginPx, int height)
             {
                 Graphics = graphics;
                 Height = height;
 
-                EntryMarginPx = 3;
-                EntryRenderHeightPx = (Height - (NUM_ENTRIES_VERTICAL+1)*EntryMarginPx) / (NUM_ENTRIES_VERTICAL);
+                EntryMarginPx = entryMarginPx;
+                EntryRenderHeightPx = (Height - (entriesPerColumn+1)*EntryMarginPx) / entriesPerColumn;
 
                 CurrentEntryDrawPosition = new Point(EntryMarginPx, EntryMarginPx);
-                MaxColumnImageWidth = 0;
+                ColumnRenderWidth = 0;
             }
 
             public void DrawEntry(string entryType, int entryIndex, bool entryIsUnlocked)
@@ -84,9 +77,7 @@ namespace LiveSplit.Spelunky
                 var entryImageResourceName = $"{entryType}_{entryIndex}" + (!entryIsUnlocked ? "" : "_Inactive");
                 var entryImage = (Image)Properties.Resources.ResourceManager.GetObject(entryImageResourceName);
                 var entryImageScale = EntryRenderHeightPx / (float)entryImage.Height;
-                var entryImageRenderWidth = entryImageScale * entryImage.Width;
-                Graphics.DrawImage(entryImage, CurrentEntryDrawPosition.X, CurrentEntryDrawPosition.Y, entryImageRenderWidth, EntryRenderHeightPx);
-                MaxColumnImageWidth = Math.Max((int)entryImageRenderWidth, MaxColumnImageWidth);
+                Graphics.DrawImage(entryImage, CurrentEntryDrawPosition.X, CurrentEntryDrawPosition.Y, ColumnRenderWidth, EntryRenderHeightPx);
                 AdvanceToNextCell();
             }
 
@@ -100,8 +91,7 @@ namespace LiveSplit.Spelunky
             public void NewColumn()
             {
                 CurrentEntryDrawPosition.Y = EntryMarginPx;
-                CurrentEntryDrawPosition.X += MaxColumnImageWidth + EntryMarginPx;
-                MaxColumnImageWidth = 0;
+                CurrentEntryDrawPosition.X += ColumnRenderWidth + EntryMarginPx;
             }
         }
 
@@ -114,6 +104,9 @@ namespace LiveSplit.Spelunky
             }
         }
 
+        private const int EntriesPerColumn = 12;
+        private const int EntryMarginPx = 3;
+
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
@@ -121,10 +114,12 @@ namespace LiveSplit.Spelunky
             {
                 var Journal = MaybeJournal;
                 // Height is wrongly displaced by JournalTracker.InitialAutoScaleDimensions.Height-26 (due to WinForms)
-                var painter = new JournalPainter(e.Graphics, Height);
+                var painter = new JournalPainter(e.Graphics, EntriesPerColumn, EntryMarginPx, Height);
+                painter.ColumnRenderWidth = painter.EntryRenderHeightPx*Properties.Resources.Place_0.Width/Properties.Resources.Place_0.Height;
                 foreach(var placeIndex in Enumerable.Range(0, JournalState.NumPlaceEntries))
                     painter.DrawEntry("Place", placeIndex, Journal.PlaceEntries[placeIndex]);
                 painter.NewColumn();
+                painter.ColumnRenderWidth = painter.EntryRenderHeightPx*Properties.Resources.Monster_0.Width/Properties.Resources.Monster_0.Height;
                 foreach(var monsterIndex in Enumerable.Range(0, JournalState.NumMonsterEntries))
                     painter.DrawEntry("Monster", monsterIndex, Journal.MonsterEntries[monsterIndex]);
                 painter.NewColumn();
