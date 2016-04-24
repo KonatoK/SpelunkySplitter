@@ -13,17 +13,31 @@ namespace LiveSplit.Spelunky
 {
     public partial class JournalTracker : Form
     {
+        public static readonly Size InitialSize = new Size(366, 379);
+        private static double RequiredHeightWidthRatio => InitialSize.Height / (double)InitialSize.Width;
+
         private JournalVisualizer JournalVisualizer;
 
         public JournalTracker()
         {
-            InitializeComponent();
-            Utilities.Forms.DisableCloseButton(this);
-
             JournalVisualizer = new JournalVisualizer();
+
+            InitializeComponent();
+
+            Utilities.Forms.DisableCloseButton(this);
             JournalVisualizer.Location = new Point(0, 0);
-            JournalVisualizer.Size = new Size(Width, Height);
+            JournalVisualizer.Size = ClientSize;
             Controls.Add(JournalVisualizer);
+        }
+
+        protected override void OnResize(EventArgs e)
+        {
+            base.OnResize(e);
+            var currentHeightWidthRatio = Height / (double)Width;
+            if(currentHeightWidthRatio != RequiredHeightWidthRatio)
+                Size = new Size(Width, (int)(RequiredHeightWidthRatio * Width));
+            JournalVisualizer.Invalidate();
+            JournalVisualizer.Size = ClientSize;
         }
 
         public void Update(SpelunkyHooks spelunky)
@@ -43,8 +57,10 @@ namespace LiveSplit.Spelunky
 
         private class JournalPainter
         {
-            private const int EntryRenderHeightPx = 24;
-            private const int EntryMarginPx = 3;
+            private const int NUM_ENTRIES_VERTICAL = 12;
+
+            private int EntryRenderHeightPx;
+            private int EntryMarginPx;
 
             private Graphics Graphics;
             private Point CurrentEntryDrawPosition;
@@ -54,9 +70,13 @@ namespace LiveSplit.Spelunky
             public JournalPainter(Graphics graphics, int height)
             {
                 Graphics = graphics;
+                Height = height;
+
+                EntryMarginPx = 3;
+                EntryRenderHeightPx = (Height - (NUM_ENTRIES_VERTICAL+1)*EntryMarginPx) / (NUM_ENTRIES_VERTICAL);
+
                 CurrentEntryDrawPosition = new Point(EntryMarginPx, EntryMarginPx);
                 MaxColumnImageWidth = 0;
-                Height = height;
             }
 
             public void DrawEntry(string entryType, int entryIndex, bool entryIsUnlocked)
@@ -64,16 +84,16 @@ namespace LiveSplit.Spelunky
                 var entryImageResourceName = $"{entryType}_{entryIndex}" + (!entryIsUnlocked ? "" : "_Inactive");
                 var entryImage = (Image)Properties.Resources.ResourceManager.GetObject(entryImageResourceName);
                 var entryImageScale = EntryRenderHeightPx / (float)entryImage.Height;
-                var entryImageWidth = entryImageScale * entryImage.Width;
-                Graphics.DrawImage(entryImage, CurrentEntryDrawPosition.X, CurrentEntryDrawPosition.Y, entryImageWidth, EntryRenderHeightPx);
-                MaxColumnImageWidth = Math.Max((int)entryImageWidth, MaxColumnImageWidth);
+                var entryImageRenderWidth = entryImageScale * entryImage.Width;
+                Graphics.DrawImage(entryImage, CurrentEntryDrawPosition.X, CurrentEntryDrawPosition.Y, entryImageRenderWidth, EntryRenderHeightPx);
+                MaxColumnImageWidth = Math.Max((int)entryImageRenderWidth, MaxColumnImageWidth);
                 AdvanceToNextCell();
             }
 
             private void AdvanceToNextCell()
             {
                 CurrentEntryDrawPosition.Y += EntryRenderHeightPx + EntryMarginPx;
-                if(CurrentEntryDrawPosition.Y + (EntryRenderHeightPx + EntryMarginPx)*2 >= Height)
+                if(CurrentEntryDrawPosition.Y + EntryRenderHeightPx + EntryMarginPx >= Height)
                     NewColumn();
             }
 
@@ -100,6 +120,7 @@ namespace LiveSplit.Spelunky
             if(MaybeJournal != null)
             {
                 var Journal = MaybeJournal;
+                // Height is wrongly displaced by JournalTracker.InitialAutoScaleDimensions.Height-26 (due to WinForms)
                 var painter = new JournalPainter(e.Graphics, Height);
                 foreach(var placeIndex in Enumerable.Range(0, JournalState.NumPlaceEntries))
                     painter.DrawEntry("Place", placeIndex, Journal.PlaceEntries[placeIndex]);

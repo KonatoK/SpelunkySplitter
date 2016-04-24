@@ -28,10 +28,19 @@ namespace LiveSplit.Spelunky
         const bool DefaultAutoLoadSaveFile = false;
         const bool DefaultUseAlternativeSaveFile = false;
         const bool DefaultShowJournalTracker = false;
+        const int DefaultJournalTrackerScaleIndex = 0;
         const string DefaultSaveFile = "";
         const int DefaultRunCategoryIndex = 0;
 
         public bool AutoSplittingEnabled => AutoSplittingEnabledCheckBox.Checked;
+        public double JournalTrackerScale
+        {
+            get
+            {
+                var selectedScaleStr = (string)JournalTrackerScaleComboBox.SelectedItem;
+                return double.Parse(selectedScaleStr.Substring(0, selectedScaleStr.LastIndexOf('x')));
+            }
+        }
         public bool ShowJournalTracker => ShowJournalTrackerCheckBox.Checked;
         public Type CurrentRunCategoryType => CategoryTypes[RunCategoryNameComboBox.SelectedIndex];
         public string SaveFile => SaveFileTextBox.Text;
@@ -55,6 +64,7 @@ namespace LiveSplit.Spelunky
             AutoLoadSaveCheckBox.CheckedChanged += HandleAutoLoadSaveFileCheckedChanged;
             ForceAlternativeSaveFileCheckBox.CheckedChanged += HandleForceAlternativeSaveFileCheckedChanged;
             ShowJournalTrackerCheckBox.CheckedChanged += HandleShowJournalTrackerCheckBoxCheckedChanged;
+            JournalTrackerScaleComboBox.SelectedIndexChanged += HandleJournalTrackerScaleComboBoxSelectedIndexChanged;
             RunCategoryNameComboBox.SelectedIndexChanged += HandleRunSelectedIndexChanged;
             SaveFileBrowseButton.Click += HandleSaveFileBrowseButtonClick;
 
@@ -125,6 +135,11 @@ namespace LiveSplit.Spelunky
             PropertyChanged(this, EventArgs.Empty);
         }
 
+        void HandleJournalTrackerScaleComboBoxSelectedIndexChanged(object sender, EventArgs args)
+        {
+            PropertyChanged(this, EventArgs.Empty);
+        }
+
         void HandleRunSelectedIndexChanged(object sender, EventArgs args)
         {
             // OPT Bypass HandleShowJournalTrackerCheckBoxCheckedChanged invocation here to avoid double-invoke of PropertyChanged
@@ -142,24 +157,34 @@ namespace LiveSplit.Spelunky
             settings.AppendChild(XMLSettings.ToElement(doc, nameof(AutoLoadSaveCheckBox), AutoLoadSaveCheckBox.Checked));
             settings.AppendChild(XMLSettings.ToElement(doc, nameof(ForceAlternativeSaveFileCheckBox), ForceAlternativeSaveFileCheckBox.Checked));
             settings.AppendChild(XMLSettings.ToElement(doc, nameof(ShowJournalTrackerCheckBox), ShowJournalTrackerCheckBox.Checked));
+            settings.AppendChild(XMLSettings.ToElement(doc, nameof(JournalTrackerScaleComboBox), (string)JournalTrackerScaleComboBox.SelectedItem));
             return settings;
         }
 
-        int ParseRunCategoryTypeIndex(string str)
+        int ParseRunCategoryTypeIndex(string strRunCategoryType)
         {
             try
             {
-                return Array.IndexOf(CategoryTypes, CategoryTypes.Where(categoryType => categoryType.Name == str).First());
+                return Array.IndexOf(CategoryTypes, CategoryTypes.Where(categoryType => categoryType.Name == strRunCategoryType).First());
             }
             catch(InvalidOperationException e)
             {
-                throw new Exception($"Failed to parse category type '{str}'", e);
+                throw new Exception($"Failed to parse category type '{strRunCategoryType}'", e);
             }
         }
 
-        string ParseSaveFile(string str)
+        string ParseSaveFile(string strSaveFile)
         {
-            return str;
+            return strSaveFile;
+        }
+
+        int ParseJournalTrackerScaleIndex(string strScale)
+        {
+            var comboBoxIndex = JournalTrackerScaleComboBox.Items.IndexOf(strScale);
+            if(comboBoxIndex == -1)
+                throw new Exception($"Failed to parse journal tracker scale value '${strScale}'");
+            else
+                return comboBoxIndex;
         }
 
         public void SetSettings(XmlNode settings)
@@ -170,6 +195,7 @@ namespace LiveSplit.Spelunky
             AutoLoadSaveCheckBox.Checked = XMLSettings.Parse(settings[nameof(AutoLoadSaveCheckBox)], DefaultAutoLoadSaveFile, bool.Parse);
             ForceAlternativeSaveFileCheckBox.Checked = XMLSettings.Parse(settings[nameof(ForceAlternativeSaveFileCheckBox)], DefaultUseAlternativeSaveFile, bool.Parse);
             ShowJournalTrackerCheckBox.Checked = XMLSettings.Parse(settings[nameof(ShowJournalTrackerCheckBox)], DefaultShowJournalTracker, bool.Parse);
+            JournalTrackerScaleComboBox.SelectedIndex = XMLSettings.Parse(settings[nameof(JournalTrackerScaleComboBox)], DefaultJournalTrackerScaleIndex, ParseJournalTrackerScaleIndex);
             PropertyChanged(this, EventArgs.Empty);
         }
 

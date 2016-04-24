@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.MainGroup = new System.Windows.Forms.GroupBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.JournalTrackerScaleComboBox = new System.Windows.Forms.ComboBox();
+            this.ScaleLabel = new System.Windows.Forms.Label();
+            this.ShowJournalTrackerCheckBox = new System.Windows.Forms.CheckBox();
             this.AlternativeSaveFileLinkLabel = new System.Windows.Forms.LinkLabel();
             this.ForceAlternativeSaveFileCheckBox = new System.Windows.Forms.CheckBox();
             this.SaveFileBrowseButton = new System.Windows.Forms.Button();
@@ -39,13 +43,13 @@
             this.AutoSplittingEnabledCheckBox = new System.Windows.Forms.CheckBox();
             this.RunCategorySelectionLabel = new System.Windows.Forms.Label();
             this.RunCategoryNameComboBox = new System.Windows.Forms.ComboBox();
-            this.ShowJournalTrackerCheckBox = new System.Windows.Forms.CheckBox();
             this.MainGroup.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // MainGroup
             // 
-            this.MainGroup.Controls.Add(this.ShowJournalTrackerCheckBox);
+            this.MainGroup.Controls.Add(this.groupBox1);
             this.MainGroup.Controls.Add(this.AlternativeSaveFileLinkLabel);
             this.MainGroup.Controls.Add(this.ForceAlternativeSaveFileCheckBox);
             this.MainGroup.Controls.Add(this.SaveFileBrowseButton);
@@ -58,10 +62,62 @@
             this.MainGroup.Controls.Add(this.RunCategoryNameComboBox);
             this.MainGroup.Location = new System.Drawing.Point(3, 3);
             this.MainGroup.Name = "MainGroup";
-            this.MainGroup.Size = new System.Drawing.Size(287, 170);
+            this.MainGroup.Size = new System.Drawing.Size(287, 197);
             this.MainGroup.TabIndex = 1;
             this.MainGroup.TabStop = false;
             this.MainGroup.Text = "SpelunkySplitter (sashavol)";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.JournalTrackerScaleComboBox);
+            this.groupBox1.Controls.Add(this.ScaleLabel);
+            this.groupBox1.Controls.Add(this.ShowJournalTrackerCheckBox);
+            this.groupBox1.Location = new System.Drawing.Point(7, 77);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(274, 45);
+            this.groupBox1.TabIndex = 14;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Journal Tracker";
+            // 
+            // JournalTrackerScaleComboBox
+            // 
+            this.JournalTrackerScaleComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.JournalTrackerScaleComboBox.FormattingEnabled = true;
+            this.JournalTrackerScaleComboBox.Items.AddRange(new object[] {
+            "1x",
+            "1.1x",
+            "1.2x",
+            "1.3x",
+            "1.4x",
+            "1.5x",
+            "2x",
+            "2.5x",
+            "3x",
+            "3.5x",
+            "4x"});
+            this.JournalTrackerScaleComboBox.Location = new System.Drawing.Point(173, 18);
+            this.JournalTrackerScaleComboBox.Name = "JournalTrackerScaleComboBox";
+            this.JournalTrackerScaleComboBox.Size = new System.Drawing.Size(95, 21);
+            this.JournalTrackerScaleComboBox.TabIndex = 15;
+            // 
+            // ScaleLabel
+            // 
+            this.ScaleLabel.AutoSize = true;
+            this.ScaleLabel.Location = new System.Drawing.Point(135, 22);
+            this.ScaleLabel.Name = "ScaleLabel";
+            this.ScaleLabel.Size = new System.Drawing.Size(37, 13);
+            this.ScaleLabel.TabIndex = 14;
+            this.ScaleLabel.Text = "Scale:";
+            // 
+            // ShowJournalTrackerCheckBox
+            // 
+            this.ShowJournalTrackerCheckBox.AutoSize = true;
+            this.ShowJournalTrackerCheckBox.Location = new System.Drawing.Point(8, 20);
+            this.ShowJournalTrackerCheckBox.Name = "ShowJournalTrackerCheckBox";
+            this.ShowJournalTrackerCheckBox.Size = new System.Drawing.Size(56, 17);
+            this.ShowJournalTrackerCheckBox.TabIndex = 13;
+            this.ShowJournalTrackerCheckBox.Text = "Visible";
+            this.ShowJournalTrackerCheckBox.UseVisualStyleBackColor = true;
             // 
             // AlternativeSaveFileLinkLabel
             // 
@@ -85,7 +141,7 @@
             // 
             // SaveFileBrowseButton
             // 
-            this.SaveFileBrowseButton.Location = new System.Drawing.Point(206, 124);
+            this.SaveFileBrowseButton.Location = new System.Drawing.Point(206, 151);
             this.SaveFileBrowseButton.Name = "SaveFileBrowseButton";
             this.SaveFileBrowseButton.Size = new System.Drawing.Size(76, 22);
             this.SaveFileBrowseButton.TabIndex = 10;
@@ -94,7 +150,7 @@
             // 
             // SaveFileTextBox
             // 
-            this.SaveFileTextBox.Location = new System.Drawing.Point(59, 125);
+            this.SaveFileTextBox.Location = new System.Drawing.Point(59, 152);
             this.SaveFileTextBox.Name = "SaveFileTextBox";
             this.SaveFileTextBox.ReadOnly = true;
             this.SaveFileTextBox.Size = new System.Drawing.Size(145, 20);
@@ -103,7 +159,7 @@
             // SaveFilePrefixLabel
             // 
             this.SaveFilePrefixLabel.AutoSize = true;
-            this.SaveFilePrefixLabel.Location = new System.Drawing.Point(5, 128);
+            this.SaveFilePrefixLabel.Location = new System.Drawing.Point(5, 155);
             this.SaveFilePrefixLabel.Name = "SaveFilePrefixLabel";
             this.SaveFilePrefixLabel.Size = new System.Drawing.Size(54, 13);
             this.SaveFilePrefixLabel.TabIndex = 8;
@@ -122,7 +178,7 @@
             // DownloadReferenceSplitsLabel
             // 
             this.DownloadReferenceSplitsLabel.AutoSize = true;
-            this.DownloadReferenceSplitsLabel.Location = new System.Drawing.Point(5, 150);
+            this.DownloadReferenceSplitsLabel.Location = new System.Drawing.Point(5, 177);
             this.DownloadReferenceSplitsLabel.Name = "DownloadReferenceSplitsLabel";
             this.DownloadReferenceSplitsLabel.Size = new System.Drawing.Size(136, 13);
             this.DownloadReferenceSplitsLabel.TabIndex = 4;
@@ -144,7 +200,7 @@
             // RunCategorySelectionLabel
             // 
             this.RunCategorySelectionLabel.AutoSize = true;
-            this.RunCategorySelectionLabel.Location = new System.Drawing.Point(6, 105);
+            this.RunCategorySelectionLabel.Location = new System.Drawing.Point(6, 132);
             this.RunCategorySelectionLabel.Name = "RunCategorySelectionLabel";
             this.RunCategorySelectionLabel.Size = new System.Drawing.Size(52, 13);
             this.RunCategorySelectionLabel.TabIndex = 1;
@@ -154,20 +210,10 @@
             // 
             this.RunCategoryNameComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.RunCategoryNameComboBox.FormattingEnabled = true;
-            this.RunCategoryNameComboBox.Location = new System.Drawing.Point(59, 101);
+            this.RunCategoryNameComboBox.Location = new System.Drawing.Point(59, 128);
             this.RunCategoryNameComboBox.Name = "RunCategoryNameComboBox";
             this.RunCategoryNameComboBox.Size = new System.Drawing.Size(222, 21);
             this.RunCategoryNameComboBox.TabIndex = 0;
-            // 
-            // ShowJournalTrackerCheckBox
-            // 
-            this.ShowJournalTrackerCheckBox.AutoSize = true;
-            this.ShowJournalTrackerCheckBox.Location = new System.Drawing.Point(9, 80);
-            this.ShowJournalTrackerCheckBox.Name = "ShowJournalTrackerCheckBox";
-            this.ShowJournalTrackerCheckBox.Size = new System.Drawing.Size(123, 17);
-            this.ShowJournalTrackerCheckBox.TabIndex = 13;
-            this.ShowJournalTrackerCheckBox.Text = "Show journal tracker";
-            this.ShowJournalTrackerCheckBox.UseVisualStyleBackColor = true;
             // 
             // SpelunkySettings
             // 
@@ -175,9 +221,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.MainGroup);
             this.Name = "SpelunkySettings";
-            this.Size = new System.Drawing.Size(293, 175);
+            this.Size = new System.Drawing.Size(293, 203);
             this.MainGroup.ResumeLayout(false);
             this.MainGroup.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -195,5 +243,8 @@
         private System.Windows.Forms.LinkLabel AlternativeSaveFileLinkLabel;
         private System.Windows.Forms.CheckBox ForceAlternativeSaveFileCheckBox;
         private System.Windows.Forms.CheckBox ShowJournalTrackerCheckBox;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.ComboBox JournalTrackerScaleComboBox;
+        private System.Windows.Forms.Label ScaleLabel;
     }
 }
