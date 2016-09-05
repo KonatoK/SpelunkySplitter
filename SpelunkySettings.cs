@@ -59,6 +59,7 @@ namespace LiveSplit.Spelunky
             SaveFileTextBox.Text = DefaultSaveFile;
             AutoLoadSaveCheckBox.Checked = DefaultAutoLoadSaveFile;
             ForceAlternativeSaveFileCheckBox.Checked = DefaultUseAlternativeSaveFile;
+            JournalTrackerScaleComboBox.SelectedIndex = DefaultJournalTrackerScaleIndex;
 
             AutoSplittingEnabledCheckBox.CheckedChanged += HandleAutoSplittingCheckedChanged;
             AutoLoadSaveCheckBox.CheckedChanged += HandleAutoLoadSaveFileCheckedChanged;
@@ -182,7 +183,7 @@ namespace LiveSplit.Spelunky
         {
             var comboBoxIndex = JournalTrackerScaleComboBox.Items.IndexOf(strScale);
             if(comboBoxIndex == -1)
-                throw new Exception($"Failed to parse journal tracker scale value '${strScale}'");
+                throw new Exception($"Failed to parse journal tracker scale value '{strScale}'");
             else
                 return comboBoxIndex;
         }
