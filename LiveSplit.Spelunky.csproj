@@ -65,6 +65,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Categories\AllCharacters.cs" />
     <Compile Include="JournalTracker.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,6 +88,7 @@
     <Compile Include="RawProcess.cs" />
     <Compile Include="Category.cs" />
     <Compile Include="SaveChangePatch.cs" />
+    <Compile Include="SegmentFactories\AllCharactersSegmentFactory.cs" />
     <Compile Include="SegmentFactories\CharSelectSegmentFactory.cs" />
     <Compile Include="SegmentFactories\JournalEntryProgressSegmentFactory.cs" />
     <Compile Include="SegmentFactories\OlmecSegmentFactory.cs" />

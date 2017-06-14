@@ -21,7 +21,8 @@ namespace LiveSplit.Spelunky
 
         public static readonly Type[] CategoryTypes = {
             typeof(Categories.AllShortcuts),
-            typeof(Categories.AllJournalEntries)
+            typeof(Categories.AllJournalEntries),
+            typeof(Categories.AllCharacters)
         };
 
         const bool DefaultAutoSplittingEnabled = true;
