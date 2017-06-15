@@ -229,6 +229,16 @@ namespace LiveSplit.Spelunky
         }
 
         public int NumUnlockedCharacters => CountUnlockedEntries(UnlockedChars);
+
+        public bool Equals(CharactersState o)
+        {
+            return (new List<Tuple<bool[], bool[]>> {
+                new Tuple<bool[], bool[]>(UnlockedChars, o.UnlockedChars)
+            }).Aggregate(true, (totalResult, entryPair) =>
+                totalResult && entryPair.Item1.Length == entryPair.Item2.Length
+                    && Enumerable.Range(0, entryPair.Item1.Length).Aggregate(true,
+                        (result, currentIndex) => result && entryPair.Item1[currentIndex] == entryPair.Item2[currentIndex]));
+        }
     }
 
     public class JournalState
