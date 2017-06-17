@@ -20,10 +20,11 @@ namespace LiveSplit.Spelunky
         string AutoSaveLoadOpt;
         bool SaveLoaded;
         JournalTracker MaybeJournalTracker;
+        CharactersTracker MaybeCharactersTracker;
 
         public string SaveBackupPath => Hooks.GameDirectoryPath + @"\Data\spelunky_save.ss.bak";
 
-        public AutoSplitter(SpelunkyHooks hooks, Type categoryType, EnabledPatchContainer patches, TimerModel timer, string autoSaveLoadOpt, JournalTracker maybeJournalTracker)
+        public AutoSplitter(SpelunkyHooks hooks, Type categoryType, EnabledPatchContainer patches, TimerModel timer, string autoSaveLoadOpt, JournalTracker maybeJournalTracker, CharactersTracker maybeCharactersTracker)
         {
             Hooks = hooks;
             CategoryType = categoryType;
@@ -33,6 +34,7 @@ namespace LiveSplit.Spelunky
             AutoSaveLoadOpt = autoSaveLoadOpt;
             SaveLoaded = false;
             MaybeJournalTracker = maybeJournalTracker;
+            MaybeCharactersTracker = maybeCharactersTracker;
             AssertHooksActive();
         }
 
@@ -94,7 +96,16 @@ namespace LiveSplit.Spelunky
                 MaybeJournalTracker.Update(Hooks);
             }
 
-            if(state.Run.Count != Segments.Length - 1) // Validate user splits
+            if (MaybeCharactersTracker != null)
+            {
+                if (!MaybeCharactersTracker.Visible)
+                {
+                    MaybeCharactersTracker.Show();
+                }
+                MaybeCharactersTracker.Update(Hooks);
+            }
+
+            if (state.Run.Count != Segments.Length - 1) // Validate user splits
             {
                 return new SegmentStatus()
                 {
@@ -141,6 +152,8 @@ namespace LiveSplit.Spelunky
             Hooks.Dispose();
             if(MaybeJournalTracker != null && MaybeJournalTracker.IsHandleCreated)
                 MaybeJournalTracker.BeginInvoke((MethodInvoker)delegate () { MaybeJournalTracker.Hide(); });
+            if (MaybeCharactersTracker != null && MaybeCharactersTracker.IsHandleCreated)
+                MaybeCharactersTracker.BeginInvoke((MethodInvoker)delegate () { MaybeCharactersTracker.Hide(); });
         }
     }
 }

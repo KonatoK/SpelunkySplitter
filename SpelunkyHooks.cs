@@ -191,6 +191,56 @@ namespace LiveSplit.Spelunky
         Lava = 13
     }
 
+    public enum SpelunkyCharacter : int
+    {
+        Yang = 0,
+        MeatBoy = 1,
+        Yellow = 2,
+        JungleWarrior = 3,
+        Purple = 4,
+        VanHelsing = 5,
+        Cyan = 6,
+        Lime = 7,
+        Eskimo = 8,
+        RoundGirl = 9,
+        Ninja = 10,
+        Viking = 11,
+        RoundBoy = 12,
+        Cyclops = 13,
+        Robot = 14,
+        GoldenMonk= 15
+    }
+
+    public class CharactersState
+    {
+        public static readonly int NumCharacters = Enum.GetNames(typeof(SpelunkyCharacter)).Length;
+
+        public bool[] UnlockedChars;
+
+        public CharactersState(bool[] unlockedChars)
+        {
+            Debug.Assert(unlockedChars.Length == NumCharacters);
+            UnlockedChars = unlockedChars;
+        }
+
+        private static int CountUnlockedEntries(bool[] entries)
+        {
+            return entries.Where(b => b).Count();
+        }
+
+        public int NumUnlockedCharacters => CountUnlockedEntries(UnlockedChars);
+
+        public bool Equals(CharactersState o)
+        {
+            return (new List<Tuple<bool[], bool[]>> {
+                new Tuple<bool[], bool[]>(UnlockedChars, o.UnlockedChars)
+            }).Aggregate(true, (totalResult, entryPair) =>
+                totalResult && entryPair.Item1.Length == entryPair.Item2.Length
+                    && Enumerable.Range(0, entryPair.Item1.Length).Aggregate(true,
+                        (result, currentIndex) => result && entryPair.Item1[currentIndex] == entryPair.Item2[currentIndex]));
+        }
+    }
+
     public class JournalState
     {
         public static readonly int NumPlaceEntries = Enum.GetNames(typeof(PlaceEntry)).Length;
@@ -277,6 +327,8 @@ namespace LiveSplit.Spelunky
         private int JournalItemUnlocksTable => JournalUnlocksTable + 0x400;
         private int JournalTrapUnlocksTable => JournalUnlocksTable + 0x500;
 
+        private int CharacterUnlocksTable => Game + 0x4463ec;
+
         private bool[] ReadJournalEntries(int processOffset, int size)
         {
             var entries = new bool[size];
@@ -299,7 +351,26 @@ namespace LiveSplit.Spelunky
                 ReadJournalEntries(JournalMonsterUnlocksTable, JournalState.NumMonsterEntries),
                 ReadJournalEntries(JournalItemUnlocksTable, JournalState.NumItemEntries),
                 ReadJournalEntries(JournalTrapUnlocksTable, JournalState.NumTrapEntries));
-        
+
+        /* This is pretty much the same code as ReadJournalEntries, having a generic method might be a better idea in the future */
+        private bool[] ReadCharacters(int processOffset, int size)
+        {
+            var entries = new bool[size];
+            foreach(var entryIndex in Enumerable.Range(0, size))
+            {
+                var entryValue = Process.ReadInt32(processOffset + entryIndex * 4);
+                if(entryValue == 0)
+                    entries[entryIndex] = false;
+                else if(entryValue == 1)
+                    entries[entryIndex] = true;
+                else
+                    throw new Exception($"Unexpected character unlock value: {entryValue}");
+            }
+            return entries;
+        }
+
+        public CharactersState CharactersState => new CharactersState(ReadCharacters(CharacterUnlocksTable, CharactersState.NumCharacters));
+
         public void Dispose()
         {
             Process.Dispose();

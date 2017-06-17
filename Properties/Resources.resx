@@ -802,4 +802,100 @@
   <data name="Place_9_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Res_JournalIcons\Places\9_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Char_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_CharacterIcons\Char_0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Char_0_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_CharacterIcons\Char_0_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Char_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_CharacterIcons\Char_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Char_10" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_CharacterIcons\Char_10.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Char_10_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_CharacterIcons\Char_10_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Char_11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_CharacterIcons\Char_11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Char_11_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_CharacterIcons\Char_11_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Char_12" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_CharacterIcons\Char_12.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Char_12_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_CharacterIcons\Char_12_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Char_13" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_CharacterIcons\Char_13.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Char_13_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_CharacterIcons\Char_13_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Char_14" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_CharacterIcons\Char_14.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Char_14_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_CharacterIcons\Char_14_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Char_15" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_CharacterIcons\Char_15.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Char_15_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_CharacterIcons\Char_15_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Char_1_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_CharacterIcons\Char_1_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Char_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_CharacterIcons\Char_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Char_2_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_CharacterIcons\Char_2_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Char_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_CharacterIcons\Char_3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Char_3_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_CharacterIcons\Char_3_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Char_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_CharacterIcons\Char_4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Char_4_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_CharacterIcons\Char_4_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Char_5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_CharacterIcons\Char_5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Char_5_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_CharacterIcons\Char_5_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Char_6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_CharacterIcons\Char_6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Char_6_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_CharacterIcons\Char_6_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Char_7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_CharacterIcons\Char_7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Char_7_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_CharacterIcons\Char_7_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Char_8" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_CharacterIcons\Char_8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Char_8_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_CharacterIcons\Char_8_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Char_9" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_CharacterIcons\Char_9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Char_9_Inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Res_CharacterIcons\Char_9_Inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

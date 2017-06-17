@@ -65,6 +65,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Categories\AllCharacters.cs" />
+    <Compile Include="CharactersTracker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CharactersTracker.Designer.cs">
+      <DependentUpon>CharactersTracker.cs</DependentUpon>
+    </Compile>
     <Compile Include="JournalTracker.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,6 +94,7 @@
     <Compile Include="RawProcess.cs" />
     <Compile Include="Category.cs" />
     <Compile Include="SaveChangePatch.cs" />
+    <Compile Include="SegmentFactories\AllCharactersSegmentFactory.cs" />
     <Compile Include="SegmentFactories\CharSelectSegmentFactory.cs" />
     <Compile Include="SegmentFactories\JournalEntryProgressSegmentFactory.cs" />
     <Compile Include="SegmentFactories\OlmecSegmentFactory.cs" />
@@ -111,6 +119,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="CharactersTracker.resx">
+      <DependentUpon>CharactersTracker.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="JournalTracker.resx">
       <DependentUpon>JournalTracker.cs</DependentUpon>
     </EmbeddedResource>
@@ -808,6 +819,41 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Res_JournalIcons\Places\0_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Res_CharacterIcons\.gitignore" />
+    <Content Include="Res_CharacterIcons\Char_0.png" />
+    <None Include="Res_CharacterIcons\Char_15_Inactive.png" />
+    <None Include="Res_CharacterIcons\Char_14_Inactive.png" />
+    <None Include="Res_CharacterIcons\Char_13_Inactive.png" />
+    <None Include="Res_CharacterIcons\Char_12_Inactive.png" />
+    <None Include="Res_CharacterIcons\Char_11_Inactive.png" />
+    <None Include="Res_CharacterIcons\Char_10_Inactive.png" />
+    <None Include="Res_CharacterIcons\Char_9_Inactive.png" />
+    <None Include="Res_CharacterIcons\Char_8_Inactive.png" />
+    <None Include="Res_CharacterIcons\Char_7_Inactive.png" />
+    <None Include="Res_CharacterIcons\Char_6_Inactive.png" />
+    <None Include="Res_CharacterIcons\Char_5_Inactive.png" />
+    <None Include="Res_CharacterIcons\Char_4_Inactive.png" />
+    <None Include="Res_CharacterIcons\Char_3_Inactive.png" />
+    <None Include="Res_CharacterIcons\Char_2_Inactive.png" />
+    <None Include="Res_CharacterIcons\Char_1_Inactive.png" />
+    <None Include="Res_CharacterIcons\Char_0_Inactive.png" />
+    <Content Include="Res_CharacterIcons\Char_1.png" />
+    <Content Include="Res_CharacterIcons\Char_10.png" />
+    <Content Include="Res_CharacterIcons\Char_11.png" />
+    <Content Include="Res_CharacterIcons\Char_12.png" />
+    <Content Include="Res_CharacterIcons\Char_13.png" />
+    <Content Include="Res_CharacterIcons\Char_14.png" />
+    <Content Include="Res_CharacterIcons\Char_15.png" />
+    <Content Include="Res_CharacterIcons\Char_2.png" />
+    <Content Include="Res_CharacterIcons\Char_3.png" />
+    <Content Include="Res_CharacterIcons\Char_4.png" />
+    <Content Include="Res_CharacterIcons\Char_5.png" />
+    <Content Include="Res_CharacterIcons\Char_6.png" />
+    <Content Include="Res_CharacterIcons\Char_7.png" />
+    <Content Include="Res_CharacterIcons\Char_8.png" />
+    <Content Include="Res_CharacterIcons\Char_9.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

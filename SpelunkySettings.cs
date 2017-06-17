@@ -21,7 +21,8 @@ namespace LiveSplit.Spelunky
 
         public static readonly Type[] CategoryTypes = {
             typeof(Categories.AllShortcuts),
-            typeof(Categories.AllJournalEntries)
+            typeof(Categories.AllJournalEntries),
+            typeof(Categories.AllCharacters)
         };
 
         const bool DefaultAutoSplittingEnabled = true;
@@ -29,6 +30,8 @@ namespace LiveSplit.Spelunky
         const bool DefaultUseAlternativeSaveFile = false;
         const bool DefaultShowJournalTracker = false;
         const int DefaultJournalTrackerScaleIndex = 0;
+        const bool DefaultShowCharactersTracker = false;
+        const int DefaultCharactersTrackerScaleIndex = 0;
         const string DefaultSaveFile = "";
         const int DefaultRunCategoryIndex = 0;
 
@@ -46,6 +49,15 @@ namespace LiveSplit.Spelunky
         public string SaveFile => SaveFileTextBox.Text;
         public bool AutoLoadSaveFile => AutoLoadSaveCheckBox.Checked;
         public bool ForceAlternativeSaveFile => ForceAlternativeSaveFileCheckBox.Checked;
+        public double CharactersTrackerScale
+        {
+            get
+            {
+                var selectedScaleStr = (string)CharactersTrackerScaleComboBox.SelectedItem;
+                return double.Parse(selectedScaleStr.Substring(0, selectedScaleStr.LastIndexOf('x')));
+            }
+        }
+        public bool ShowCharactersTracker => ShowCharactersTrackerCheckBox.Checked;
 
         public event PropertyChangedHandler PropertyChanged;
 
@@ -60,12 +72,15 @@ namespace LiveSplit.Spelunky
             AutoLoadSaveCheckBox.Checked = DefaultAutoLoadSaveFile;
             ForceAlternativeSaveFileCheckBox.Checked = DefaultUseAlternativeSaveFile;
             JournalTrackerScaleComboBox.SelectedIndex = DefaultJournalTrackerScaleIndex;
+            CharactersTrackerScaleComboBox.SelectedIndex = DefaultCharactersTrackerScaleIndex;
 
             AutoSplittingEnabledCheckBox.CheckedChanged += HandleAutoSplittingCheckedChanged;
             AutoLoadSaveCheckBox.CheckedChanged += HandleAutoLoadSaveFileCheckedChanged;
             ForceAlternativeSaveFileCheckBox.CheckedChanged += HandleForceAlternativeSaveFileCheckedChanged;
             ShowJournalTrackerCheckBox.CheckedChanged += HandleShowJournalTrackerCheckBoxCheckedChanged;
             JournalTrackerScaleComboBox.SelectedIndexChanged += HandleJournalTrackerScaleComboBoxSelectedIndexChanged;
+            ShowCharactersTrackerCheckBox.CheckedChanged += HandleShowCharactersTrackerCheckBoxCheckedChanged;
+            CharactersTrackerScaleComboBox.SelectedIndexChanged += HandleCharactersTrackerScaleComboBoxSelectedIndexChanged;
             RunCategoryNameComboBox.SelectedIndexChanged += HandleRunSelectedIndexChanged;
             SaveFileBrowseButton.Click += HandleSaveFileBrowseButtonClick;
 
@@ -141,10 +156,21 @@ namespace LiveSplit.Spelunky
             PropertyChanged(this, EventArgs.Empty);
         }
 
+        void HandleShowCharactersTrackerCheckBoxCheckedChanged(object sender, EventArgs args)
+        {
+            PropertyChanged(this, EventArgs.Empty);
+        }
+
+        void HandleCharactersTrackerScaleComboBoxSelectedIndexChanged(object sender, EventArgs args)
+        {
+            PropertyChanged(this, EventArgs.Empty);
+        }
+
         void HandleRunSelectedIndexChanged(object sender, EventArgs args)
         {
             // OPT Bypass HandleShowJournalTrackerCheckBoxCheckedChanged invocation here to avoid double-invoke of PropertyChanged
             ShowJournalTrackerCheckBox.Checked = CurrentRunCategoryType.Equals(typeof(Categories.AllJournalEntries));
+            ShowCharactersTrackerCheckBox.Checked = CurrentRunCategoryType.Equals(typeof(Categories.AllCharacters));
             PropertyChanged(this, EventArgs.Empty);
         }
 
@@ -159,6 +185,8 @@ namespace LiveSplit.Spelunky
             settings.AppendChild(XMLSettings.ToElement(doc, nameof(ForceAlternativeSaveFileCheckBox), ForceAlternativeSaveFileCheckBox.Checked));
             settings.AppendChild(XMLSettings.ToElement(doc, nameof(ShowJournalTrackerCheckBox), ShowJournalTrackerCheckBox.Checked));
             settings.AppendChild(XMLSettings.ToElement(doc, nameof(JournalTrackerScaleComboBox), (string)JournalTrackerScaleComboBox.SelectedItem));
+            settings.AppendChild(XMLSettings.ToElement(doc, nameof(ShowCharactersTrackerCheckBox), ShowCharactersTrackerCheckBox.Checked));
+            settings.AppendChild(XMLSettings.ToElement(doc, nameof(CharactersTrackerScaleComboBox), (string)CharactersTrackerScaleComboBox.SelectedItem));
             return settings;
         }
 
@@ -188,6 +216,15 @@ namespace LiveSplit.Spelunky
                 return comboBoxIndex;
         }
 
+        int ParseCharactersTrackerScaleIndex(string strScale)
+        {
+            var comboBoxIndex = CharactersTrackerScaleComboBox.Items.IndexOf(strScale);
+            if (comboBoxIndex == -1)
+                throw new Exception($"Failed to parse characters tracker scale value '{strScale}'");
+            else
+                return comboBoxIndex;
+        }
+
         public void SetSettings(XmlNode settings)
         {
             AutoSplittingEnabledCheckBox.Checked = XMLSettings.Parse(settings[nameof(AutoSplittingEnabledCheckBox)], DefaultAutoSplittingEnabled, bool.Parse);
@@ -197,6 +234,8 @@ namespace LiveSplit.Spelunky
             ForceAlternativeSaveFileCheckBox.Checked = XMLSettings.Parse(settings[nameof(ForceAlternativeSaveFileCheckBox)], DefaultUseAlternativeSaveFile, bool.Parse);
             ShowJournalTrackerCheckBox.Checked = XMLSettings.Parse(settings[nameof(ShowJournalTrackerCheckBox)], DefaultShowJournalTracker, bool.Parse);
             JournalTrackerScaleComboBox.SelectedIndex = XMLSettings.Parse(settings[nameof(JournalTrackerScaleComboBox)], DefaultJournalTrackerScaleIndex, ParseJournalTrackerScaleIndex);
+            ShowCharactersTrackerCheckBox.Checked = XMLSettings.Parse(settings[nameof(ShowCharactersTrackerCheckBox)], DefaultShowCharactersTracker, bool.Parse);
+            CharactersTrackerScaleComboBox.SelectedIndex = XMLSettings.Parse(settings[nameof(CharactersTrackerScaleComboBox)], DefaultCharactersTrackerScaleIndex, ParseCharactersTrackerScaleIndex);
             PropertyChanged(this, EventArgs.Empty);
         }
 

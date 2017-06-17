@@ -21,6 +21,7 @@ namespace LiveSplit.Spelunky
         SpelunkySettings Settings;
         StatusWindow StatusWindow;
         JournalTracker JournalTracker;
+        CharactersTracker CharactersTracker;
 
         AutoSplitter AutoSplitter;
 
@@ -43,6 +44,7 @@ namespace LiveSplit.Spelunky
             Settings = new SpelunkySettings();
             StatusWindow = new StatusWindow();
             JournalTracker = new JournalTracker();
+            CharactersTracker = new CharactersTracker();
             HandleAutoSplitterChange(Settings, EventArgs.Empty); // Simulate a property change (for default values)
             Settings.PropertyChanged += HandleAutoSplitterChange;
         }
@@ -103,9 +105,13 @@ namespace LiveSplit.Spelunky
             JournalTracker.ClientSize = 
                 new Size((int)(Spelunky.JournalTracker.InitialClientSize.Width * Settings.JournalTrackerScale),
                     (int)(Spelunky.JournalTracker.InitialClientSize.Height * Settings.JournalTrackerScale));
+            CharactersTracker.ClientSize =
+                new Size((int)(Spelunky.CharactersTracker.InitialClientSize.Width * Settings.CharactersTrackerScale),
+                    (int)(Spelunky.CharactersTracker.InitialClientSize.Height * Settings.CharactersTrackerScale));
             AutoSplitter = new AutoSplitter(hooks, Settings.CurrentRunCategoryType, 
                 MakePatchesFromSettings(hooks), new TimerModel() { CurrentState = state }, 
-                Settings.AutoLoadSaveFile ? Settings.SaveFile : null, Settings.ShowJournalTracker ? JournalTracker : null);
+                Settings.AutoLoadSaveFile ? Settings.SaveFile : null, Settings.ShowJournalTracker ? JournalTracker : null,
+                Settings.ShowCharactersTracker ? CharactersTracker : null);
         }
 
         void ClearAutoSplitter()
@@ -121,7 +127,7 @@ namespace LiveSplit.Spelunky
         {
             if (!Settings.AutoSplittingEnabled)
                 return;
-            
+
             try
             {
                 GetHooksIfNeeded(state); // After this call we assume we have a valid AutoSplitter if no exception was thrown
