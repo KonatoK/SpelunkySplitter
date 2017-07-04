@@ -107,6 +107,8 @@ namespace LiveSplit.Spelunky
         private const int EntriesPerColumn = 1;
         private const int EntryMarginPx = 0;
 
+        private int[] CharacterOrder = {2, 4, 6, 7, 9, 12, 5, 11, 13, 1, 8, 14, 10, 3, 15, 0};
+
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
@@ -116,7 +118,7 @@ namespace LiveSplit.Spelunky
                 // Height is wrongly displaced by CharactersTracker.InitialAutoScaleDimensions.Height-26 (due to WinForms)
                 var painter = new CharactersPainter(e.Graphics, EntriesPerColumn, EntryMarginPx, Height);
                 painter.ColumnRenderWidth = painter.EntryRenderHeightPx * Properties.Resources.Char_0.Width / Properties.Resources.Char_0.Height;
-                foreach(var placeIndex in Enumerable.Range(0, CharactersState.NumCharacters))
+                foreach(var placeIndex in CharacterOrder)
                     painter.DrawEntry("Char", placeIndex, Chars.UnlockedChars[placeIndex]);
             }
         }
