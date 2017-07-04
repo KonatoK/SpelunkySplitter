@@ -223,12 +223,24 @@ namespace LiveSplit.Spelunky
             UnlockedChars = unlockedChars;
         }
 
-        private static int CountUnlockedEntries(bool[] entries)
+        private static int CountUnlockedCharacters(bool[] entries)
         {
             return entries.Where(b => b).Count();
         }
 
-        public int NumUnlockedCharacters => CountUnlockedEntries(UnlockedChars);
+        public int NumUnlockedCharacters => CountUnlockedCharacters(UnlockedChars);
+
+        private static int CountUnlockedRandos(bool[] entries)
+        {
+            int n = 0;
+            if (entries[(int)SpelunkyCharacter.Yellow]) n++;
+            if (entries[(int)SpelunkyCharacter.Purple]) n++;
+            if (entries[(int)SpelunkyCharacter.Cyan]) n++;
+            if (entries[(int)SpelunkyCharacter.Lime]) n++;
+            return n;
+        }
+
+        public int NumUnlockedRandos => CountUnlockedRandos(UnlockedChars);
 
         public bool Equals(CharactersState o)
         {
@@ -312,6 +324,7 @@ namespace LiveSplit.Spelunky
         public TunnelManChapter TunnelManChapter => (TunnelManChapter)Process.ReadInt32(Game + 0x445be4);
         public LobbyType CurrentLobbyType => (LobbyType)Process.ReadInt32(Game + 0x445be0);
         public bool Invalidated => Process.HasExited;
+        public int PlayCount => Process.ReadInt32(Game + 0x4459c8);
 
         /*
             3 => 1/2/3 Rope(s)
