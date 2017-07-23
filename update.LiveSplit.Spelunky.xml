@@ -58,13 +58,10 @@
 			<change>Fixed default journal tracker scale value resulting in a null.</change>
 		</changelog>
 	</update>
-	<update version="1.3.4">
+	<update version="1.3.5">
 		<files>
 			<file path="Components/LiveSplit.Spelunky.dll" status="changed"/>
 		</files>
-		<changelog>
-			<change>Added a few tweaks to All Characters%.</change>
-			<change>Added about dialog.</change>
-		</changelog>
+		<changelog></changelog>
 	</update>
 </updates>
