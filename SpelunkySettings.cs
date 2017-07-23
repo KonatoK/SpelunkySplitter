@@ -86,6 +86,7 @@ namespace LiveSplit.Spelunky
 
             AlternativeSaveFileLinkLabel.LinkClicked += HandleAlternativeSaveFileLinkLabelClicked;
             DownloadReferenceSplitsLabel.LinkClicked += HandleDownloadReferenceSplitsLinkClicked;
+            AboutSpelunkySplitterLabel.LinkClicked += HandleAboutSpelunkySplitterLinkClicked;
         }
 
         void HandleSaveFileBrowseButtonClick(object sender, EventArgs args)
@@ -134,6 +135,11 @@ namespace LiveSplit.Spelunky
         void HandleDownloadReferenceSplitsLinkClicked(object sender, LinkLabelLinkClickedEventArgs args)
         {
             Process.Start("https://github.com/sashavolv2/SpelunkySplitter/tree/master/ReferenceSplits");
+        }
+
+        void HandleAboutSpelunkySplitterLinkClicked(object sender, LinkLabelLinkClickedEventArgs args)
+        {
+            new AboutDialog().ShowDialog(this);
         }
 
         void HandleAutoSplittingCheckedChanged(object sender, EventArgs args)
